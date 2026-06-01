@@ -113,12 +113,17 @@ body {
     border-radius: 1rem;
     object-fit: cover;
     box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    display: inline-block;
 }
 
 @media (max-width: 768px) {
     .gallery-marquee-track img {
-        height: 180px;
-        max-width: 280px;
+        height: 160px;
+        max-width: 240px;
+    }
+    
+    .gallery-marquee-track {
+        gap: 0.75rem !important;
     }
 }
 
@@ -149,6 +154,25 @@ body {
 /* Utility */
 button {
     transition: all 0.2s ease;
+}
+
+/* Global Box & Text Alignment Consistency */
+.service-card,
+.feature-card,
+[class*="rounded-3xl"] {
+    display: flex;
+    flex-direction: column;
+}
+
+.service-card h4,
+.feature-card h4 {
+    margin-bottom: 0.5rem;
+}
+
+.service-card p,
+.feature-card p {
+    flex-grow: 1;
+    margin-bottom: 0.75rem;
 }
 
 /* Kolkata Doodle Background - full width repeating skyline */
@@ -198,4 +222,109 @@ button {
     #annual-loss {
         font-size: 1.9rem !important;
     }
+}
+
+/* Better mobile section headers */
+@media (max-width: 767px) {
+    .uppercase.tracking-\[3px\] {
+        letter-spacing: 2px !important;
+        font-size: 10px !important;
+    }
+    
+    section h2 {
+        font-size: 1.85rem !important;
+        line-height: 1.15 !important;
+    }
+}
+
+/* ========================================
+   Mobile Auto Carousels
+   ======================================== */
+
+/* Founders Mobile Carousel */
+.founders-carousel {
+    position: relative;
+    overflow: hidden;
+}
+
+.founders-track {
+    display: flex;
+    transition: transform 0.5s cubic-bezier(0.32, 0.72, 0, 1);
+}
+
+.founders-track > div {
+    flex: 0 0 100%;
+    min-width: 100%;
+    padding: 0 8px;
+}
+
+.founders-dots {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    margin-top: 12px;
+}
+
+.founders-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #cbd5e1;
+    transition: all 0.2s;
+}
+
+.founders-dot.active {
+    background: #0A2540;
+    width: 20px;
+    border-radius: 4px;
+}
+
+/* Services & Why UR - Auto Marquee on Mobile */
+@media (max-width: 767px) {
+    .mobile-auto-marquee {
+        display: flex;
+        overflow: hidden;
+        width: 100%;
+    }
+    
+    .mobile-auto-marquee > div {
+        display: flex;
+        gap: 1rem;
+        animation: mobile-marquee 22s linear infinite;
+    }
+    
+    .mobile-auto-marquee:hover > div {
+        animation-play-state: paused;
+    }
+
+    /* Make thumbnails more visual on mobile */
+    .mobile-auto-marquee .service-card,
+    .mobile-auto-marquee .feature-card {
+        min-width: 220px;
+        padding: 1rem !important;
+    }
+
+    .mobile-auto-marquee .service-card img,
+    .mobile-auto-marquee .feature-card img {
+        opacity: 0.15 !important;
+    }
+
+    .mobile-auto-marquee h4 {
+        font-size: 0.95rem !important;
+        line-height: 1.2 !important;
+    }
+
+    .mobile-auto-marquee p {
+        font-size: 0.8rem !important;
+        line-height: 1.3 !important;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+    }
+}
+
+@keyframes mobile-marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
 }

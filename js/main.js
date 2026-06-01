@@ -338,6 +338,74 @@ function toggleAssumptions() {
     }
 }
 
+// ======================
+// MOBILE AUTO CAROUSELS
+// ======================
+
+// Founders Auto Carousel (2 slides)
+function initFoundersCarousel() {
+    const track = document.getElementById('founders-track');
+    if (!track) return;
+
+    const dots = document.querySelectorAll('.founders-dot');
+    let currentIndex = 0;
+    let interval = null;
+
+    function goToSlide(index) {
+        currentIndex = index;
+        track.style.transform = `translateX(-${index * 100}%)`;
+
+        dots.forEach((dot, i) => {
+            dot.classList.toggle('active', i === index);
+        });
+    }
+
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % 2;
+        goToSlide(currentIndex);
+    }
+
+    // Auto advance every 3.8 seconds
+    function startAuto() {
+        if (interval) clearInterval(interval);
+        interval = setInterval(nextSlide, 3800);
+    }
+
+    function stopAuto() {
+        if (interval) clearInterval(interval);
+    }
+
+    // Click dots
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', () => {
+            goToSlide(index);
+            stopAuto();
+            setTimeout(startAuto, 4000); // resume after manual interaction
+        });
+    });
+
+    // Pause on touch (good for mobile)
+    track.addEventListener('touchstart', stopAuto, { passive: true });
+    track.addEventListener('touchend', () => {
+        setTimeout(startAuto, 3000);
+    });
+
+    // Start
+    goToSlide(0);
+    startAuto();
+}
+
+// Initialize all mobile carousels
+function initMobileCarousels() {
+    initFoundersCarousel();
+    // Services and Why UR use pure CSS marquee (defined in style.css)
+}
+
+// Auto init on load
+document.addEventListener('DOMContentLoaded', () => {
+    initMobileCarousels();
+});
+
 // Reset calculator to defaults
 function resetCalculator() {
     document.getElementById('daily-users').value = 300;

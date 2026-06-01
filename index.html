@@ -5,6 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UR Hospitality | Premium Corporate Catering in Kolkata</title>
     
+    <!-- Favicon -->
+    <link rel="icon" type="image/jpeg" href="assets/images/favicon.jpeg">
+    <link rel="apple-touch-icon" href="assets/images/favicon.jpeg">
+    
     <!-- Tailwind CSS via CDN -->
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -166,36 +170,40 @@
                         <div><div class="text-3xl sm:text-4xl font-semibold">98.7%</div><div class="text-sm text-slate-500">Client retention rate</div></div>
                         <div><div class="text-3xl sm:text-4xl font-semibold">4.9/5</div><div class="text-sm text-slate-500">Average satisfaction</div></div>
                     </div>
+
+                    <!-- Merged Scale Stats (symmetric design) -->
+                    <div class="mt-6 pt-6 border-t">
+                        <div class="text-xs uppercase tracking-[2px] text-blue-600 mb-3 font-medium">PROVEN AT SCALE</div>
+                        <div class="grid grid-cols-3 gap-3">
+                            <div class="bg-slate-50 rounded-2xl p-4 text-center">
+                                <div class="text-2xl font-semibold text-[#0A2540]">5L+</div>
+                                <div class="text-[10px] leading-tight text-slate-500 mt-1">Meals Served</div>
+                            </div>
+                            <div class="bg-slate-50 rounded-2xl p-4 text-center">
+                                <div class="text-2xl font-semibold text-[#0A2540]">98.7%</div>
+                                <div class="text-[10px] leading-tight text-slate-500 mt-1">Client Retention</div>
+                            </div>
+                            <div class="bg-slate-50 rounded-2xl p-4 text-center">
+                                <div class="text-2xl font-semibold text-[#0A2540]">Multi-Site</div>
+                                <div class="text-[10px] leading-tight text-slate-500 mt-1">Operational Scale</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- SCALE & RELIABILITY -->
-    <section class="max-w-screen-2xl mx-auto px-8 py-16 bg-slate-50 border-y">
-        <div class="max-w-4xl mx-auto text-center mb-10">
-            <div class="text-blue-600 text-xs tracking-[3px] font-semibold mb-2">BUILT FOR SCALE</div>
-            <h2 class="text-4xl md:text-5xl font-semibold tracking-tighter">Proven at Scale. Reliable Every Day.</h2>
+    <!-- NET ANNUAL SAVINGS (Prominent, above calculator) -->
+    <div class="bg-emerald-600 text-white py-5">
+        <div class="max-w-screen-2xl mx-auto px-8 text-center">
+            <div class="text-emerald-200 text-xs tracking-[2px] font-semibold mb-1">YOUR POTENTIAL IMPACT</div>
+            <div class="text-3xl sm:text-4xl font-semibold tracking-tight">
+                Net Annual Savings: <span class="text-white">Up to ₹6.7 Lakh+</span>
+            </div>
+            <div class="text-emerald-100 text-sm mt-1">Calculate your exact savings below</div>
         </div>
-
-        <div class="grid md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            <div class="bg-white rounded-3xl p-8 border border-slate-200">
-                <div class="text-4xl font-semibold text-[#0A2540] mb-2">5,00,000+</div>
-                <div class="font-medium mb-2">Meals Served</div>
-                <p class="text-sm text-slate-600">Delivered with consistent quality across multiple client locations in Kolkata and West Bengal.</p>
-            </div>
-            <div class="bg-white rounded-3xl p-8 border border-slate-200">
-                <div class="text-4xl font-semibold text-[#0A2540] mb-2">98.7%</div>
-                <div class="font-medium mb-2">Client Retention Rate</div>
-                <p class="text-sm text-slate-600">A strong indicator of our ability to maintain long-term partnerships through consistent performance.</p>
-            </div>
-            <div class="bg-white rounded-3xl p-8 border border-slate-200">
-                <div class="text-4xl font-semibold text-[#0A2540] mb-2">Multi-Site</div>
-                <div class="font-medium mb-2">Operational Capability</div>
-                <p class="text-sm text-slate-600">Experience managing daily operations across different locations while maintaining uniform quality and service standards.</p>
-            </div>
-        </div>
-    </section>
+    </div>
 
     <!-- CATERING INEFFICIENCY COST CALCULATOR -->
     <section id="cost-calculator" class="max-w-screen-2xl mx-auto px-8 py-16 bg-slate-50">
@@ -398,9 +406,80 @@
             </p>
         </div>
 
-        <div class="grid md:grid-cols-2 gap-8">
+        <!-- Desktop: Normal Grid | Mobile: Auto Sliding Carousel -->
+        <div class="founders-carousel md:hidden">
+            <div class="founders-track" id="founders-track">
+                <!-- Founder 1 -->
+                <div class="bg-white border border-slate-200 rounded-3xl p-8">
+                    <div class="flex flex-col sm:flex-row gap-6">
+                        <div class="shrink-0">
+                            <img src="assets/images/founder-1.jpg" 
+                                 alt="Subham Kanoi - Co-Founder & Business Development Head"
+                                 class="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl object-cover border border-slate-200">
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-semibold tracking-tight">Subham Kanoi</h3>
+                            <div class="text-blue-600 font-medium">Co-Founder &amp; Business Development Head</div>
+                            <div class="text-xs text-slate-500 mt-0.5">St. Xavier’s College, Kolkata (Alumnus)</div>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 text-[15px] text-slate-600 leading-relaxed">
+                        Subham leads business development and client partnerships at UR Hospitality. With his strong network and understanding of corporate requirements, he has been instrumental in building long-term relationships with several reputed organizations in Kolkata and West Bengal.
+                    </div>
+
+                    <div class="mt-5 text-sm text-slate-600">
+                        <strong>Focus areas:</strong> Client acquisition, Strategic partnerships, Brand positioning
+                    </div>
+
+                    <a href="https://www.linkedin.com/in/subham-kanoi-48526642/" target="_blank" 
+                       class="inline-flex items-center gap-x-1.5 text-sm text-blue-600 hover:text-blue-700 mt-3">
+                        <i class="fa-brands fa-linkedin"></i>
+                        <span>View LinkedIn Profile</span>
+                    </a>
+                </div>
+
+                <!-- Founder 2 -->
+                <div class="bg-white border border-slate-200 rounded-3xl p-8">
+                    <div class="flex flex-col sm:flex-row gap-6">
+                        <div class="shrink-0">
+                            <img src="assets/images/founder-2.jpg" 
+                                 alt="Varun Bhaia - Co-Founder, Operations Head & QC Head"
+                                 class="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl object-cover border border-slate-200">
+                        </div>
+                        <div>
+                            <h3 class="text-2xl font-semibold tracking-tight">Varun Bhaia</h3>
+                            <div class="text-blue-600 font-medium">Co-Founder, Operations Head &amp; QC Head</div>
+                            <div class="text-xs text-slate-500 mt-0.5">St. Xavier’s College, Kolkata (Alumnus)</div>
+                        </div>
+                    </div>
+
+                    <div class="mt-6 text-[15px] text-slate-600 leading-relaxed">
+                        Varun oversees end-to-end operations and quality control across all client locations. His focus on process standardization, hygiene compliance, and consistent food quality has been critical in delivering reliable service at scale for large corporate clients.
+                    </div>
+
+                    <div class="mt-5 text-sm text-slate-600">
+                        <strong>Focus areas:</strong> Operations excellence, Quality control, Food safety &amp; compliance
+                    </div>
+
+                    <a href="https://www.linkedin.com/in/varun-bhaia-97859776/" target="_blank" 
+                       class="inline-flex items-center gap-x-1.5 text-sm text-blue-600 hover:text-blue-700 mt-3">
+                        <i class="fa-brands fa-linkedin"></i>
+                        <span>View LinkedIn Profile</span>
+                    </a>
+                </div>
+            </div>
             
-            <!-- Founder 1 - Subham Kanoi -->
+            <!-- Dots -->
+            <div class="founders-dots">
+                <div class="founders-dot active" data-index="0"></div>
+                <div class="founders-dot" data-index="1"></div>
+            </div>
+        </div>
+
+        <!-- Desktop Grid -->
+        <div class="hidden md:grid md:grid-cols-2 gap-8">
+            <!-- Founder 1 -->
             <div class="bg-white border border-slate-200 rounded-3xl p-8 hover:shadow-lg transition-shadow">
                 <div class="flex flex-col sm:flex-row gap-6">
                     <div class="shrink-0">
@@ -430,7 +509,7 @@
                 </a>
             </div>
 
-            <!-- Founder 2 - Varun Bhaia -->
+            <!-- Founder 2 -->
             <div class="bg-white border border-slate-200 rounded-3xl p-8 hover:shadow-lg transition-shadow">
                 <div class="flex flex-col sm:flex-row gap-6">
                     <div class="shrink-0">
@@ -459,7 +538,6 @@
                     <span>View LinkedIn Profile</span>
                 </a>
             </div>
-
         </div>
 
         <div class="mt-8 text-center">
@@ -508,30 +586,6 @@
         </div>
     </section>
 
-    <!-- TRUST BAR -->
-    <div class="bg-slate-50 border-y">
-        <div class="max-w-screen-2xl mx-auto px-8 py-5">
-            <div class="flex flex-wrap justify-center md:justify-between items-center gap-x-8 gap-y-3 text-sm text-slate-600">
-                <div class="flex items-center gap-x-2">
-                    <i class="fa-solid fa-check-circle text-emerald-500"></i>
-                    <span class="font-medium text-slate-700">FSSAI Licensed Central Kitchen</span>
-                </div>
-                <div class="flex items-center gap-x-2">
-                    <i class="fa-solid fa-check-circle text-emerald-500"></i>
-                    <span>HACCP Compliant Processes</span>
-                </div>
-                <div class="flex items-center gap-x-2">
-                    <i class="fa-solid fa-check-circle text-emerald-500"></i>
-                    <span>Temperature-Controlled Logistics</span>
-                </div>
-                <div class="flex items-center gap-x-2">
-                    <i class="fa-solid fa-check-circle text-emerald-500"></i>
-                    <span>Real-time Reporting &amp; Feedback</span>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- SERVICES -->
     <section id="services" class="bg-white py-16 border-y">
         <div class="max-w-screen-2xl mx-auto px-8">
@@ -545,93 +599,94 @@
                 </p>
             </div>
 
+            <!-- Unified Services Grid (same content for desktop + mobile) -->
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                
-                <!-- Service 1 -->
-                <div class="service-card group relative bg-white border border-slate-200 hover:border-blue-200 p-8 rounded-3xl transition-all overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1555396273-367ea4eb4db5?w=800&q=80" 
-                         class="absolute inset-0 w-full h-full object-cover opacity-[0.08] group-hover:opacity-[0.12] transition-all" 
-                         alt="Modern Indian corporate cafeteria">
-                    <div class="relative z-10">
-                        <div class="w-14 h-14 flex items-center justify-center rounded-2xl mb-6 bg-blue-100 text-blue-600 group-hover:bg-blue-600 group-hover:text-white transition-colors">
-                            <i class="fa-solid fa-building text-3xl"></i>
+                    
+                    <!-- Service 1 -->
+                    <div class="service-card group relative bg-white border border-slate-200 hover:border-blue-200 p-8 rounded-3xl transition-all overflow-hidden">
+                        <div class="relative z-10">
+                            <div class="w-14 h-14 flex items-center justify-center rounded-2xl mb-6 bg-blue-100 text-blue-600">
+                                <i class="fa-solid fa-building text-3xl"></i>
+                            </div>
+                            <h4 class="font-semibold text-xl mb-3">Corporate Cafeteria Management</h4>
+                            <p class="text-slate-600 text-[15px]">Complete daily cafeteria management for offices, IT parks, and manufacturing units — with consistent quality, full compliance, and zero operational burden on your internal team.</p>
                         </div>
-                        <h4 class="font-semibold text-xl mb-3">Corporate Cafeteria Management</h4>
-                        <p class="text-slate-600 text-[15px]">Complete daily cafeteria management for offices, IT parks, and manufacturing units — with consistent quality, full compliance, and zero operational burden on your internal team.</p>
                     </div>
-                </div>
 
-                <!-- Service 2 -->
-                <div class="service-card group relative bg-white border border-slate-200 hover:border-indigo-200 p-8 rounded-3xl transition-all overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?w=800&q=80" 
-                         class="absolute inset-0 w-full h-full object-cover opacity-[0.08] group-hover:opacity-[0.12] transition-all" 
-                         alt="Indian corporate event catering spread">
-                    <div class="relative z-10">
-                        <div class="w-14 h-14 flex items-center justify-center rounded-2xl mb-6 bg-indigo-100 text-indigo-600 group-hover:bg-indigo-600 group-hover:text-white transition-colors">
-                            <i class="fa-solid fa-calendar-check text-3xl"></i>
+                    <!-- Service 2 -->
+                    <div class="service-card group relative bg-white border border-slate-200 hover:border-indigo-200 p-8 rounded-3xl transition-all overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1601050690597-df0568f70950?w=800&q=80" 
+                             class="absolute inset-0 w-full h-full object-cover opacity-[0.08] group-hover:opacity-[0.12] transition-all" 
+                             alt="Indian corporate event catering spread">
+                        <div class="relative z-10">
+                            <div class="w-14 h-14 flex items-center justify-center rounded-2xl mb-6 bg-indigo-100 text-indigo-600 group-hover:bg-indigo-600 group-hover:text-white transition-colors">
+                                <i class="fa-solid fa-calendar-check text-3xl"></i>
+                            </div>
+                            <h4 class="font-semibold text-xl mb-3">Corporate Events &amp; Conferences</h4>
+                            <p class="text-slate-600 text-[15px]">Flawless execution for board meetings, leadership offsites, product launches, and large-scale events — with themed menus, strict compliance, and dedicated on-site teams.</p>
                         </div>
-                        <h4 class="font-semibold text-xl mb-3">Corporate Events &amp; Conferences</h4>
-                        <p class="text-slate-600 text-[15px]">Flawless execution for board meetings, leadership offsites, product launches, and large-scale events — with themed menus, strict compliance, and dedicated on-site teams.</p>
                     </div>
-                </div>
 
-                <!-- Service 3 -->
-                <div class="service-card group relative bg-white border border-slate-200 hover:border-emerald-200 p-8 rounded-3xl transition-all overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=800&q=80" 
-                         class="absolute inset-0 w-full h-full object-cover opacity-[0.08] group-hover:opacity-[0.12] transition-all" 
-                         alt="Healthy Indian thali and nutrition focused meal">
-                    <div class="relative z-10">
-                        <div class="w-14 h-14 flex items-center justify-center rounded-2xl mb-6 bg-emerald-100 text-emerald-600 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
-                            <i class="fa-solid fa-heart-pulse text-3xl"></i>
+                    <!-- Service 3 -->
+                    <div class="service-card group relative bg-white border border-slate-200 hover:border-emerald-200 p-8 rounded-3xl transition-all overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?w=800&q=80" 
+                             class="absolute inset-0 w-full h-full object-cover opacity-[0.08] group-hover:opacity-[0.12] transition-all" 
+                             alt="Healthy Indian thali and nutrition focused meal">
+                        <div class="relative z-10">
+                            <div class="w-14 h-14 flex items-center justify-center rounded-2xl mb-6 bg-emerald-100 text-emerald-600 group-hover:bg-emerald-600 group-hover:text-white transition-colors">
+                                <i class="fa-solid fa-heart-pulse text-3xl"></i>
+                            </div>
+                            <h4 class="font-semibold text-xl mb-3">Wellness &amp; Nutrition Programs</h4>
+                            <p class="text-slate-600 text-[15px]">Customized wellness menus (high-protein, diabetic-friendly, gut-health, etc.) with monthly reports — helping HR teams drive measurable employee wellness outcomes.</p>
                         </div>
-                        <h4 class="font-semibold text-xl mb-3">Wellness &amp; Nutrition Programs</h4>
-                        <p class="text-slate-600 text-[15px]">Customized wellness menus (high-protein, diabetic-friendly, gut-health, etc.) with monthly reports — helping HR teams drive measurable employee wellness outcomes.</p>
                     </div>
-                </div>
 
-                <!-- Service 4 -->
-                <div class="service-card group relative bg-white border border-slate-200 hover:border-orange-200 p-8 rounded-3xl transition-all overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=800&q=80" 
-                         class="absolute inset-0 w-full h-full object-cover opacity-[0.08] group-hover:opacity-[0.12] transition-all" 
-                         alt="Indian festive food spread for corporate events">
-                    <div class="relative z-10">
-                        <div class="w-14 h-14 flex items-center justify-center rounded-2xl mb-6 bg-orange-100 text-orange-600 group-hover:bg-orange-600 group-hover:text-white transition-colors">
-                            <i class="fa-solid fa-calendar-day text-3xl"></i>
+                    <!-- Service 4 -->
+                    <div class="service-card group relative bg-white border border-slate-200 hover:border-orange-200 p-8 rounded-3xl transition-all overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1631452180519-c014fe946bc7?w=800&q=80" 
+                             class="absolute inset-0 w-full h-full object-cover opacity-[0.08] group-hover:opacity-[0.12] transition-all" 
+                             alt="Indian festive food spread for corporate events">
+                        <div class="relative z-10">
+                            <div class="w-14 h-14 flex items-center justify-center rounded-2xl mb-6 bg-orange-100 text-orange-600 group-hover:bg-orange-600 group-hover:text-white transition-colors">
+                                <i class="fa-solid fa-calendar-day text-3xl"></i>
+                            </div>
+                            <h4 class="font-semibold text-xl mb-3">Themed &amp; Festive Experiences</h4>
+                            <p class="text-slate-600 text-[15px]">Memorable festival and themed experiences (Durga Puja, Diwali, regional weeks, etc.) that boost employee engagement while maintaining full operational control and hygiene standards.</p>
                         </div>
-                        <h4 class="font-semibold text-xl mb-3">Themed &amp; Festive Experiences</h4>
-                        <p class="text-slate-600 text-[15px]">Memorable festival and themed experiences (Durga Puja, Diwali, regional weeks, etc.) that boost employee engagement while maintaining full operational control and hygiene standards.</p>
                     </div>
-                </div>
 
-                <!-- Service 5 -->
-                <div class="service-card group relative bg-white border border-slate-200 hover:border-amber-200 p-8 rounded-3xl transition-all overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800&q=80" 
-                         class="absolute inset-0 w-full h-full object-cover opacity-[0.08] group-hover:opacity-[0.12] transition-all" 
-                         alt="Modern Indian office pantry with snacks">
-                    <div class="relative z-10">
-                        <div class="w-14 h-14 flex items-center justify-center rounded-2xl mb-6 bg-amber-100 text-amber-600 group-hover:bg-amber-600 group-hover:text-white transition-colors">
-                            <i class="fa-solid fa-box text-3xl"></i>
+                    <!-- Service 5 -->
+                    <div class="service-card group relative bg-white border border-slate-200 hover:border-amber-200 p-8 rounded-3xl transition-all overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=800&q=80" 
+                             class="absolute inset-0 w-full h-full object-cover opacity-[0.08] group-hover:opacity-[0.12] transition-all" 
+                             alt="Modern Indian office pantry with snacks">
+                        <div class="relative z-10">
+                            <div class="w-14 h-14 flex items-center justify-center rounded-2xl mb-6 bg-amber-100 text-amber-600 group-hover:bg-amber-600 group-hover:text-white transition-colors">
+                                <i class="fa-solid fa-box text-3xl"></i>
+                            </div>
+                            <h4 class="font-semibold text-xl mb-3">Pantry &amp; Micro-Kitchen Solutions</h4>
+                            <p class="text-slate-600 text-[15px]">Fully managed pantry solutions with healthy snacks, beverages, and grab-and-go meals — ideal for hybrid offices, with minimal admin effort and full consumption reporting.</p>
                         </div>
-                        <h4 class="font-semibold text-xl mb-3">Pantry &amp; Micro-Kitchen Solutions</h4>
-                        <p class="text-slate-600 text-[15px]">Fully managed pantry solutions with healthy snacks, beverages, and grab-and-go meals — ideal for hybrid offices, with minimal admin effort and full consumption reporting.</p>
                     </div>
-                </div>
 
-                <!-- Service 6 -->
-                <div class="service-card group relative bg-white border border-slate-200 hover:border-violet-200 p-8 rounded-3xl transition-all overflow-hidden">
-                    <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=80" 
-                         class="absolute inset-0 w-full h-full object-cover opacity-[0.08] group-hover:opacity-[0.12] transition-all" 
-                         alt="Large scale Indian corporate dining setup">
-                    <div class="relative z-10">
-                        <div class="w-14 h-14 flex items-center justify-center rounded-2xl mb-6 bg-violet-100 text-violet-600 group-hover:bg-violet-600 group-hover:text-white transition-colors">
-                            <i class="fa-solid fa-globe text-3xl"></i>
+                    <!-- Service 6 -->
+                    <div class="service-card group relative bg-white border border-slate-200 hover:border-violet-200 p-8 rounded-3xl transition-all overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1559339352-11d035aa65de?w=800&q=80" 
+                             class="absolute inset-0 w-full h-full object-cover opacity-[0.08] group-hover:opacity-[0.12] transition-all" 
+                             alt="Large scale Indian corporate dining setup">
+                        <div class="relative z-10">
+                            <div class="w-14 h-14 flex items-center justify-center rounded-2xl mb-6 bg-violet-100 text-violet-600 group-hover:bg-violet-600 group-hover:text-white transition-colors">
+                                <i class="fa-solid fa-globe text-3xl"></i>
+                            </div>
+                            <h4 class="font-semibold text-xl mb-3">Multi-Location Enterprise Solutions</h4>
+                            <p class="text-slate-600 text-[15px]">Centralized menu control, unified quality standards, and consolidated reporting across multiple locations — giving enterprises true scalability without compromising consistency.</p>
                         </div>
-                        <h4 class="font-semibold text-xl mb-3">Multi-Location Enterprise Solutions</h4>
-                        <p class="text-slate-600 text-[15px]">Centralized menu control, unified quality standards, and consolidated reporting across multiple locations — giving enterprises true scalability without compromising consistency.</p>
                     </div>
-                </div>
 
+                </div>
             </div>
+
+
         </div>
     </section>
 
@@ -643,6 +698,7 @@
                 <h2 class="text-4xl md:text-5xl font-semibold tracking-tighter">Why enterprise teams in Kolkata<br>trust UR Hospitality.</h2>
             </div>
 
+            <!-- Unified Grid for Desktop and Mobile -->
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 
                 <!-- Card 1 -->
@@ -833,7 +889,7 @@
         <div class="grid md:grid-cols-3 gap-6">
             
             <!-- Case Study 1: Voith -->
-            <div class="bg-white border border-slate-200 rounded-3xl p-8 hover:shadow-lg transition-shadow">
+            <div class="bg-white border border-slate-200 rounded-3xl p-8 hover:shadow-lg transition-shadow snap-center min-w-[82%] md:min-w-0">
                 <div class="flex items-center gap-x-3 mb-5">
                     <div class="px-4 py-1.5 bg-[#003366] text-white text-sm font-semibold tracking-wide rounded">VOITH</div>
                     <div class="text-xs px-3 py-1 bg-slate-100 text-slate-600 rounded-full">Since 2023 • 80+ Team</div>
@@ -848,7 +904,7 @@
             </div>
 
             <!-- Case Study 2: Uber -->
-            <div class="bg-white border border-slate-200 rounded-3xl p-8 hover:shadow-lg transition-shadow">
+            <div class="bg-white border border-slate-200 rounded-3xl p-8 hover:shadow-lg transition-shadow snap-center min-w-[82%] md:min-w-0">
                 <div class="flex items-center gap-x-3 mb-5">
                     <img src="assets/images/logos/uber.svg" class="h-7" alt="Uber">
                     <div class="text-xs px-3 py-1 bg-slate-100 text-slate-600 rounded-full">Client since 2018</div>
@@ -863,7 +919,7 @@
             </div>
 
             <!-- Case Study 3: INT -->
-            <div class="bg-white border border-slate-200 rounded-3xl p-8 hover:shadow-lg transition-shadow">
+            <div class="bg-white border border-slate-200 rounded-3xl p-8 hover:shadow-lg transition-shadow snap-center min-w-[82%] md:min-w-0">
                 <div class="flex items-center gap-x-3 mb-5">
                     <div class="px-4 py-1.5 bg-slate-900 text-white text-sm font-semibold tracking-wide rounded">INT</div>
                 </div>
@@ -943,26 +999,30 @@
     <footer class="bg-white border-t">
         <div class="max-w-screen-2xl mx-auto px-8 py-10">
             <div class="grid md:grid-cols-2 gap-y-8 md:gap-y-0 md:gap-x-12 items-start">
-                <div class="md:pt-1">
+                <!-- Left Column -->
+                <div class="leading-snug">
                     <div class="font-semibold text-xl tracking-tighter">UR Hospitality Pvt. Ltd.</div>
                     <div class="text-sm text-slate-500 mt-1">Premium Corporate Catering | Est. 2015</div>
                 </div>
 
-                <div class="text-sm text-slate-600 space-y-1 md:text-right">
-                    <div>AE-287, Salt Lake, Kolkata – 700064, West Bengal</div>
-                    <div class="font-medium text-slate-700">+91 98307 15557  |  hello@urhospitality.in</div>
-                    <div class="text-xs text-slate-500 mt-1">FSSAI Licensed | GST Compliant | 98.7% Client Retention</div>
+                <!-- Right Column - Aligned text blocks -->
+                <div class="text-sm text-slate-600 md:text-right space-y-1">
+                    <div class="leading-snug">AE-287, Salt Lake, Kolkata – 700064, West Bengal</div>
+                    <div class="font-medium text-slate-700 leading-snug">+91 98307 15557  |  hello@urhospitality.in</div>
+                    <div class="text-xs text-slate-500 leading-snug mt-1">FSSAI Licensed | GST Compliant | 98.7% Client Retention</div>
                 </div>
             </div>
 
             <div class="border-t mt-8 pt-6 text-xs text-slate-500 grid md:grid-cols-3 items-center gap-y-2">
-                <div>© 2026 UR Hospitality Pvt. Ltd. All rights reserved.</div>
-                <div class="flex gap-x-5 md:justify-center">
+                <div class="leading-snug">© 2026 UR Hospitality Pvt. Ltd. All rights reserved.</div>
+                
+                <div class="flex gap-x-5 md:justify-center items-center leading-snug">
                     <span>98.7% Client Retention</span>
                     <span>•</span>
                     <span>5,00,000+ Meals Served</span>
                 </div>
-                <div class="md:text-right text-slate-400">FSSAI Licensed • GST Compliant</div>
+                
+                <div class="md:text-right text-slate-400 leading-snug">FSSAI Licensed • GST Compliant</div>
             </div>
         </div>
     </footer>
