@@ -247,12 +247,121 @@ function initKeyboardHandlers() {
     });
 }
 
-// Initialize everything
+// ======================
+// CATERING INEFFICIENCY COST CALCULATOR
+// ======================
+function updateCalculator() {
+    const dailyUsers = parseFloat(document.getElementById('daily-users').value) || 0;
+    const mealCost = parseFloat(document.getElementById('meal-cost').value) || 0;
+    const queueTime = parseFloat(document.getElementById('queue-time').value) || 0;
+    const wastePercent = parseFloat(document.getElementById('waste-percent').value) || 0;
+    const complaints = parseFloat(document.getElementById('complaints').value) || 0;
+
+    // Update value displays
+    document.getElementById('daily-users-value').textContent = dailyUsers;
+    document.getElementById('meal-cost-value').textContent = '₹ ' + mealCost;
+    document.getElementById('queue-time-value').textContent = queueTime;
+    document.getElementById('waste-value').textContent = wastePercent + '%';
+    document.getElementById('complaints-value').textContent = complaints;
+
+    // Conservative assumptions
+    const workingDays = 22;
+    const employeeHourlyCost = 450;
+    const adminHourlyCost = 800;
+    const hoursPerComplaint = 1.5;
+
+    // Calculations
+    const queueCost = dailyUsers * queueTime * workingDays * (employeeHourlyCost / 60);
+    const wasteCost = dailyUsers * mealCost * (wastePercent / 100) * workingDays;
+    const adminCost = complaints * hoursPerComplaint * adminHourlyCost;
+
+    const totalMonthly = Math.round(queueCost + wasteCost + adminCost);
+    const totalAnnual = totalMonthly * 12;
+    const savings = Math.round(totalAnnual * 0.45);
+
+    // Update results
+    document.getElementById('monthly-loss').textContent = '₹ ' + totalMonthly.toLocaleString('en-IN');
+    document.getElementById('annual-loss').textContent = '₹ ' + totalAnnual.toLocaleString('en-IN');
+    document.getElementById('queue-cost').textContent = '₹ ' + Math.round(queueCost).toLocaleString('en-IN');
+    document.getElementById('waste-cost').textContent = '₹ ' + Math.round(wasteCost).toLocaleString('en-IN');
+    document.getElementById('admin-cost').textContent = '₹ ' + Math.round(adminCost).toLocaleString('en-IN');
+    document.getElementById('savings').textContent = '₹ ' + savings.toLocaleString('en-IN');
+}
+
+// Pre-fill quote form from calculator
+function openQuoteWithCalculatorData() {
+    const annualLoss = document.getElementById('annual-loss').textContent;
+
+    showQuoteModal();
+
+    setTimeout(() => {
+        const messageField = document.querySelector('#quote-form textarea[name="message"]');
+        if (messageField) {
+            messageField.value = `I used your Catering Cost Calculator and it shows our current vendor may be costing us around ${annualLoss} per year in hidden inefficiencies. I'd like to explore how UR Hospitality can help reduce this.`;
+        }
+    }, 350);
+}
+
+// Initialize calculator
+function initCalculator() {
+    const dailyUsers = document.getElementById('daily-users');
+    if (!dailyUsers) return;
+
+    // Sync value displays on load + input
+    const inputs = ['daily-users', 'meal-cost', 'queue-time', 'waste-percent', 'complaints'];
+    inputs.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) {
+            el.addEventListener('input', updateCalculator);
+        }
+    });
+
+    // Initial calculation
+    setTimeout(() => {
+        updateCalculator();
+    }, 200);
+}
+
+// Toggle Advanced Assumptions panel
+function toggleAssumptions() {
+    const panel = document.getElementById('assumptions-panel');
+    const chevron = document.getElementById('assumptions-chevron');
+    
+    if (!panel || !chevron) return;
+
+    if (panel.classList.contains('hidden')) {
+        panel.classList.remove('hidden');
+        chevron.style.transform = 'rotate(180deg)';
+    } else {
+        panel.classList.add('hidden');
+        chevron.style.transform = 'rotate(0deg)';
+    }
+}
+
+// Reset calculator to defaults
+function resetCalculator() {
+    document.getElementById('daily-users').value = 300;
+    document.getElementById('meal-cost').value = 140;
+    document.getElementById('queue-time').value = 15;
+    document.getElementById('waste-percent').value = 15;
+    document.getElementById('complaints').value = 12;
+
+    // Reset advanced assumptions
+    document.getElementById('employee-cost').value = 450;
+    document.getElementById('admin-cost-rate').value = 800;
+    document.getElementById('working-days').value = 22;
+
+    updateCalculator();
+}
+
+// ======================
+// INITIALIZATION
+// ======================
 function initWebsite() {
     initMobileMenu();
     initKeyboardHandlers();
-    
-    // Optional: Log that site is ready (remove in production)
+    initCalculator(); // New calculator
+
     console.log('%c[UR Hospitality] Multi-file website initialized.', 'color:#64748b');
 }
 

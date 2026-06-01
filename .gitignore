@@ -1,0 +1,36 @@
+# Dependencies
+node_modules/
+
+# Environment variables
+.env
+.env.local
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Editor directories and files
+.idea/
+.vscode/
+*.sublime-workspace
+*.sublime-project
+
+# Logs
+logs
+*.log
+npm-debug.log*
+
+# Build / Output (if any in future)
+dist/
+build/
+
+# Temporary / junk folders from previous work
+assets/images/Kolkata doodl/
+assets/images/ur logo/
+
+# Large unnecessary files (optional - uncomment if needed)
+# *.mp4
+# *.zip
+
+# Vercel
+.vercel

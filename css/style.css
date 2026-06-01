@@ -5,6 +5,11 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@700&display=swap');
 
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 82px; /* accounts for sticky nav height so anchor links land with proper offset */
+}
+
 body {
     font-family: 'Inter', system_ui, sans-serif;
 }
@@ -67,7 +72,7 @@ body {
     display: flex;
     align-items: center;
     gap: 3rem;
-    animation: marquee 35s linear infinite;
+    animation: marquee 31s linear infinite;
 }
 
 .marquee-track:hover {
@@ -77,6 +82,44 @@ body {
 @keyframes marquee {
     from { transform: translateX(0); }
     to { transform: translateX(-50%); }
+}
+
+/* Gallery Marquee */
+.gallery-marquee-container {
+    overflow: hidden;
+}
+
+.gallery-marquee-track {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    animation: gallery-marquee 26s linear infinite;
+    animation-direction: reverse;
+}
+
+.gallery-marquee-track:hover {
+    animation-play-state: paused;
+}
+
+@keyframes gallery-marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+}
+
+.gallery-marquee-track img {
+    height: 240px;
+    width: auto;
+    max-width: 420px;
+    border-radius: 1rem;
+    object-fit: cover;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+@media (max-width: 768px) {
+    .gallery-marquee-track img {
+        height: 180px;
+        max-width: 280px;
+    }
 }
 
 /* Modal */
@@ -106,4 +149,53 @@ body {
 /* Utility */
 button {
     transition: all 0.2s ease;
+}
+
+/* Kolkata Doodle Background - full width repeating skyline */
+.kolkata-doodle-bg {
+    filter: grayscale(55%) brightness(0.92) contrast(1.22);
+}
+
+/* ========================================
+   Mobile-specific improvements
+   ======================================== */
+
+@media (max-width: 767px) {
+    /* Better touch targets */
+    button, .nav-link, a {
+        min-height: 44px;
+    }
+
+    /* Calculator results text scaling */
+    #annual-loss {
+        font-size: 2.25rem !important;
+        line-height: 1.1 !important;
+    }
+
+    /* Prevent text overflow in stats */
+    .text-3xl, .text-4xl {
+        word-break: break-word;
+    }
+
+    /* Gallery images slightly smaller on mobile if needed */
+    .gallery-marquee-track img {
+        height: 160px !important;
+        max-width: 240px !important;
+    }
+
+    /* Footer better mobile spacing */
+    footer .grid {
+        gap: 1rem;
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 380px) {
+    h1 {
+        font-size: 2.75rem !important;
+    }
+    
+    #annual-loss {
+        font-size: 1.9rem !important;
+    }
 }

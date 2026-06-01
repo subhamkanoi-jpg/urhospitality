@@ -1,6 +1,20 @@
 # UR Hospitality — Corporate Catering Website
 
+# UR Hospitality
+
 Premium corporate catering website for UR Hospitality, Kolkata.
+
+## Deployment
+
+This is a static site. Deployed on Vercel.
+
+### Local Development
+Just open `index.html` in a browser.
+
+### Deploy to Vercel
+1. Install Vercel CLI: `npm i -g vercel`
+2. Run `vercel` inside this folder
+3. For production: `vercel --prod`
 
 ## Project Structure
 
