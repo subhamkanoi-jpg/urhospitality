@@ -352,6 +352,9 @@ function updateCalculator() {
     const fteLostToQueues = annualQueueHours / annualHoursPerFTE;
     const costPerEmployeeMonthly = totalMonthly / Math.max(1, dailyUsers);
 
+    // Expose for debugging / future use
+    // console.log({queueCost, wasteCost, adminCost, totalMonthly, fteLostToQueues});
+
     // Update results
     document.getElementById('monthly-loss').textContent = formatINR(totalMonthly);
     document.getElementById('annual-loss').textContent = formatINR(totalAnnual);
