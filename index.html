@@ -196,18 +196,18 @@
                     aria-controls="calculator-panel"
                     aria-expanded="false"
                     onclick="toggleCalculator()"
-                    class="w-full bg-emerald-600 hover:bg-emerald-700 text-white rounded-3xl px-6 sm:px-10 py-8 sm:py-10 text-left shadow-xl transition-all">
+                    class="w-full bg-gradient-to-r from-indigo-600 to-indigo-700 hover:from-indigo-700 hover:to-indigo-800 text-white rounded-3xl px-6 sm:px-10 py-8 sm:py-10 text-left shadow-xl ring-2 ring-indigo-300/40 ring-offset-4 ring-offset-slate-50 transition-all">
                 <div class="max-w-5xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-6">
                     <div>
-                        <div class="text-emerald-200 text-xs tracking-[2px] font-semibold mb-2">YOUR POTENTIAL IMPACT</div>
+                        <div class="text-indigo-200 text-xs tracking-[2px] font-semibold mb-2">YOUR POTENTIAL IMPACT</div>
                         <div class="text-3xl sm:text-4xl font-semibold tracking-tight">
                             Estimate the real cost of your current cafeteria operations
                         </div>
-                        <div class="text-emerald-100 text-sm sm:text-base mt-2">
+                        <div class="text-indigo-100 text-sm sm:text-base mt-2">
                             A data-driven model of employee time loss, food waste, and admin overhead — plus the upside of fixing it.
                         </div>
                     </div>
-                    <div class="shrink-0 inline-flex items-center justify-center gap-x-3 bg-white text-emerald-700 px-6 py-3 rounded-2xl font-semibold text-sm">
+                    <div class="shrink-0 inline-flex items-center justify-center gap-x-3 bg-white text-indigo-700 px-6 py-3 rounded-2xl font-semibold text-sm">
                         <span id="calculator-toggle-label">Reveal Calculator</span>
                         <i id="calculator-toggle-icon" class="fa-solid fa-arrow-right"></i>
                     </div>
@@ -333,7 +333,7 @@
                         <!-- Results -->
                         <div class="lg:col-span-5 mt-10 lg:mt-0">
                             <div class="bg-[#0A2540] text-white rounded-3xl p-8">
-                                <div class="text-emerald-400 text-xs font-medium tracking-wider">YOUR CURRENT ESTIMATED HIDDEN COST</div>
+                                <div class="text-indigo-400 text-xs font-medium tracking-wider">YOUR CURRENT ESTIMATED HIDDEN COST</div>
                                 
                                 <div class="mt-4">
                                     <div>
@@ -379,9 +379,9 @@
                                 </div>
 
                                 <div class="mt-6 pt-6 border-t border-white/20">
-                                    <div class="text-emerald-400 text-xs font-medium tracking-wider">POTENTIAL SAVINGS VS. PROFESSIONAL OPERATIONS</div>
-                                    <div id="savings" class="text-3xl font-semibold text-emerald-400 tabular-nums mt-1">₹ 27,80,000 / year</div>
-                                    <div class="text-[10px] text-emerald-300/70 mt-1">Gap between your current inputs and realistic best-practice targets (6 min queues, ~6.5% waste, low complaints)</div>
+                                    <div class="text-indigo-400 text-xs font-medium tracking-wider">POTENTIAL SAVINGS VS. PROFESSIONAL OPERATIONS</div>
+                                    <div id="savings" class="text-3xl font-semibold text-indigo-400 tabular-nums mt-1">₹ 27,80,000 / year</div>
+                                    <div class="text-[10px] text-indigo-300/70 mt-1">Gap between your current inputs and realistic best-practice targets (6 min queues, ~6.5% waste, low complaints)</div>
                                 </div>
                             </div>
                         </div>
@@ -921,7 +921,7 @@
             
             <!-- Case Study 1: Voith -->
             <div class="bg-white border border-slate-200 rounded-3xl p-8 hover:shadow-lg transition-shadow snap-center min-w-[82%] md:min-w-0">
-                <div class="flex items-center gap-x-3 mb-5">
+                <div class="flex items-center gap-x-3 mb-5 min-h-[44px]">
                     <div class="px-4 py-1.5 bg-[#003366] text-white text-sm font-semibold tracking-wide rounded">VOITH</div>
                     <div class="text-xs px-3 py-1 bg-slate-100 text-slate-600 rounded-full">Since 2023 • 80+ Team</div>
                 </div>
@@ -936,7 +936,7 @@
 
             <!-- Case Study 2: Uber -->
             <div class="bg-white border border-slate-200 rounded-3xl p-8 hover:shadow-lg transition-shadow snap-center min-w-[82%] md:min-w-0">
-                <div class="flex items-center gap-x-3 mb-5">
+                <div class="flex items-center gap-x-3 mb-5 min-h-[44px]">
                     <img src="assets/images/logos/uber.svg" class="h-7" alt="Uber">
                     <div class="text-xs px-3 py-1 bg-slate-100 text-slate-600 rounded-full">Client since 2018</div>
                 </div>
@@ -951,8 +951,9 @@
 
             <!-- Case Study 3: INT -->
             <div class="bg-white border border-slate-200 rounded-3xl p-8 hover:shadow-lg transition-shadow snap-center min-w-[82%] md:min-w-0">
-                <div class="flex items-center gap-x-3 mb-5">
+                <div class="flex items-center gap-x-3 mb-5 min-h-[44px]">
                     <div class="px-4 py-1.5 bg-slate-900 text-white text-sm font-semibold tracking-wide rounded">INT</div>
+                    <div class="text-xs px-3 py-1 bg-slate-100 text-slate-600 rounded-full invisible">placeholder</div>
                 </div>
                 <h4 class="font-semibold text-lg mb-3">Completely Hands-Off Cafeteria Operations</h4>
                 <p class="text-slate-600 text-[15px]">
@@ -1007,8 +1008,8 @@
             
             <div class="flex flex-col sm:flex-row justify-center gap-4">
                 <button onclick="showQuoteModal()" 
-                        class="px-9 py-4 bg-white text-[#0A2540] font-semibold rounded-3xl text-base">
-                    Request a Custom Quote
+                        class="px-9 py-4 bg-white text-[#0A2540] font-semibold rounded-3xl text-base flex items-center justify-center">
+                    <span>Request a Custom Quote</span>
                 </button>
                 <a href="tel:+919830715557" 
                    class="px-8 py-4 border border-white/30 hover:bg-white/10 font-medium rounded-3xl flex items-center justify-center gap-x-2 transition-all text-base">
@@ -1045,7 +1046,7 @@
                 </div>
             </div>
 
-            <div class="border-t mt-8 pt-6 text-xs text-slate-500 grid md:grid-cols-3 items-center gap-y-2">
+            <div class="border-t mt-8 pt-6 text-xs text-slate-500 grid md:grid-cols-3 items-baseline gap-y-2">
                 <div class="leading-snug">© 2026 UR Hospitality Pvt. Ltd. All rights reserved.</div>
                 
                 <div class="flex gap-x-5 md:justify-center items-center leading-snug">
