@@ -34,9 +34,11 @@ function resetFormState() {
     // Show form, hide success
     const form = document.getElementById('quote-form');
     const success = document.getElementById('form-success');
+    const existingError = document.getElementById('form-error-message');
     
     if (form) form.classList.remove('hidden');
     if (success) success.classList.add('hidden');
+    if (existingError) existingError.remove();
 
     // Reset button state
     resetSubmitButton();
@@ -146,20 +148,20 @@ function sendViaWhatsApp() {
     const meals = formData.get('meals') || '';
     const message = formData.get('message') || '';
 
-    let text = `Hello UR Hospitality,%0A%0A`;
-    text += `I'm interested in corporate catering.%0A%0A`;
-    text += `*Name:* ${name}%0A`;
-    text += `*Phone:* ${phone}%0A`;
-    text += `*Email:* ${email}%0A`;
-    text += `*Company:* ${company}%0A`;
+    let text = `Hello UR Hospitality,\n\n`;
+    text += `I'm interested in corporate catering.\n\n`;
+    text += `*Name:* ${name}\n`;
+    text += `*Phone:* ${phone}\n`;
+    text += `*Email:* ${email}\n`;
+    text += `*Company:* ${company}\n`;
 
-    if (meals) text += `*Daily Meals:* ${meals}%0A`;
-    if (message) text += `*Requirements:* ${message}%0A`;
+    if (meals) text += `*Daily Meals:* ${meals}\n`;
+    if (message) text += `*Requirements:* ${message}\n`;
 
-    text += `%0AThank you!`;
+    text += `\nThank you!`;
 
     const whatsappNumber = "919830715557"; // +91 98307 15557
-    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${text}`;
+    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`;
 
     // Open WhatsApp
     window.open(whatsappURL, '_blank');
@@ -194,10 +196,18 @@ function toggleMobileMenu() {
     
     if (isHidden) {
         mobileMenu.classList.remove('hidden');
-        if (menuBtn) menuBtn.innerHTML = '<i class="fa-solid fa-times text-xl"></i>';
+        if (menuBtn) {
+            menuBtn.innerHTML = '<i class="fa-solid fa-times text-xl"></i>';
+            menuBtn.setAttribute('aria-expanded', 'true');
+            menuBtn.setAttribute('aria-label', 'Close navigation menu');
+        }
     } else {
         mobileMenu.classList.add('hidden');
-        if (menuBtn) menuBtn.innerHTML = '<i class="fa-solid fa-bars text-xl"></i>';
+        if (menuBtn) {
+            menuBtn.innerHTML = '<i class="fa-solid fa-bars text-xl"></i>';
+            menuBtn.setAttribute('aria-expanded', 'false');
+            menuBtn.setAttribute('aria-label', 'Open navigation menu');
+        }
     }
 }
 
@@ -212,7 +222,11 @@ function initMobileMenu() {
     mobileMenu.querySelectorAll('a').forEach(link => {
         link.addEventListener('click', () => {
             mobileMenu.classList.add('hidden');
-            if (menuBtn) menuBtn.innerHTML = '<i class="fa-solid fa-bars text-xl"></i>';
+            if (menuBtn) {
+                menuBtn.innerHTML = '<i class="fa-solid fa-bars text-xl"></i>';
+                menuBtn.setAttribute('aria-expanded', 'false');
+                menuBtn.setAttribute('aria-label', 'Open navigation menu');
+            }
         });
     });
     
@@ -222,7 +236,11 @@ function initMobileMenu() {
             !mobileMenu.contains(e.target) &&
             menuBtn && !menuBtn.contains(e.target)) {
             mobileMenu.classList.add('hidden');
-            if (menuBtn) menuBtn.innerHTML = '<i class="fa-solid fa-bars text-xl"></i>';
+            if (menuBtn) {
+                menuBtn.innerHTML = '<i class="fa-solid fa-bars text-xl"></i>';
+                menuBtn.setAttribute('aria-expanded', 'false');
+                menuBtn.setAttribute('aria-label', 'Open navigation menu');
+            }
         }
     });
     
@@ -230,7 +248,11 @@ function initMobileMenu() {
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape' && !mobileMenu.classList.contains('hidden')) {
             mobileMenu.classList.add('hidden');
-            if (menuBtn) menuBtn.innerHTML = '<i class="fa-solid fa-bars text-xl"></i>';
+            if (menuBtn) {
+                menuBtn.innerHTML = '<i class="fa-solid fa-bars text-xl"></i>';
+                menuBtn.setAttribute('aria-expanded', 'false');
+                menuBtn.setAttribute('aria-label', 'Open navigation menu');
+            }
         }
     });
 }
@@ -256,6 +278,9 @@ function updateCalculator() {
     const queueTime = parseFloat(document.getElementById('queue-time').value) || 0;
     const wastePercent = parseFloat(document.getElementById('waste-percent').value) || 0;
     const complaints = parseFloat(document.getElementById('complaints').value) || 0;
+    const workingDays = parseFloat(document.getElementById('working-days').value) || 22;
+    const employeeHourlyCost = parseFloat(document.getElementById('employee-cost').value) || 450;
+    const adminHourlyCost = parseFloat(document.getElementById('admin-cost-rate').value) || 350;
 
     // Update value displays
     document.getElementById('daily-users-value').textContent = dailyUsers;
@@ -264,10 +289,6 @@ function updateCalculator() {
     document.getElementById('waste-value').textContent = wastePercent + '%';
     document.getElementById('complaints-value').textContent = complaints;
 
-    // Conservative assumptions
-    const workingDays = 22;
-    const employeeHourlyCost = 450;
-    const adminHourlyCost = 800;
     const hoursPerComplaint = 1.5;
 
     // Calculations
@@ -452,7 +473,7 @@ function resetCalculator() {
 
     // Reset advanced assumptions
     document.getElementById('employee-cost').value = 450;
-    document.getElementById('admin-cost-rate').value = 800;
+    document.getElementById('admin-cost-rate').value = 350;
     document.getElementById('working-days').value = 22;
 
     updateCalculator();

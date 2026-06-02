@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UR Hospitality | Premium Corporate Catering in Kolkata</title>
+    <meta name="description" content="UR Hospitality provides reliable, compliant corporate catering and cafeteria management for Kolkata businesses, including daily meals, events, pantry services, and multi-site operations.">
+    <meta name="theme-color" content="#0A2540">
+    <meta property="og:title" content="UR Hospitality | Premium Corporate Catering in Kolkata">
+    <meta property="og:description" content="Corporate catering and cafeteria operations for B2B teams that need consistency, compliance, and dependable service at scale.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="assets/images/ur-logo.jpeg">
     
     <!-- Favicon -->
     <link rel="icon" type="image/jpeg" href="assets/images/favicon.jpeg">
@@ -54,6 +60,9 @@
 
                 <!-- Mobile Menu Button -->
                 <button id="mobile-menu-btn"
+                        aria-controls="mobile-menu"
+                        aria-expanded="false"
+                        aria-label="Open navigation menu"
                         class="md:hidden w-10 h-10 flex items-center justify-center text-slate-600 hover:text-slate-900 hover:bg-slate-100 rounded-2xl transition-colors"
                         onclick="toggleMobileMenu()">
                     <i class="fa-solid fa-bars text-xl"></i>
@@ -125,6 +134,7 @@
                     <div class="relative">
                         <img src="assets/images/corporate-cafeteria.png" 
                              alt="Corporate cafeteria with employees eating at UR Hospitality, Kolkata"
+                             fetchpriority="high"
                              class="hero-image w-full h-auto rounded-3xl ring-1 ring-white/10 object-cover">
                         
                         <!-- Small badge on image -->
@@ -298,7 +308,7 @@
                                     </div>
                                     <div>
                                         <label class="block text-xs text-slate-500 mb-1">Admin hourly cost (₹)</label>
-                                        <input type="number" id="admin-cost-rate" value="800" class="w-full border border-slate-300 rounded-xl px-3 py-2 text-sm" oninput="updateCalculator()">
+                                        <input type="number" id="admin-cost-rate" value="350" class="w-full border border-slate-300 rounded-xl px-3 py-2 text-sm" oninput="updateCalculator()">
                                     </div>
                                     <div>
                                         <label class="block text-xs text-slate-500 mb-1">Working days per month</label>
@@ -375,6 +385,7 @@
 
                         <a href="https://calendly.com/subham-kanoi/30min" 
                            target="_blank"
+                           rel="noopener noreferrer"
                            class="px-6 py-3 border border-[#0A2540] text-[#0A2540] font-medium rounded-2xl text-sm flex items-center justify-center gap-x-2 hover:bg-[#0A2540] hover:text-white transition-colors">
                             <i class="fa-solid fa-video"></i>
                             <span>Schedule 30-min Consultation</span>
@@ -427,7 +438,7 @@
                         <strong>Focus areas:</strong> Client acquisition, Strategic partnerships, Brand positioning
                     </div>
 
-                    <a href="https://www.linkedin.com/in/subham-kanoi-48526642/" target="_blank" 
+                    <a href="https://www.linkedin.com/in/subham-kanoi-48526642/" target="_blank" rel="noopener noreferrer"
                        class="inline-flex items-center gap-x-1.5 text-sm text-blue-600 hover:text-blue-700 mt-3">
                         <i class="fa-brands fa-linkedin"></i>
                         <span>View LinkedIn Profile</span>
@@ -457,7 +468,7 @@
                         <strong>Focus areas:</strong> Operations excellence, Quality control, Food safety &amp; compliance
                     </div>
 
-                    <a href="https://www.linkedin.com/in/varun-bhaia-97859776/" target="_blank" 
+                    <a href="https://www.linkedin.com/in/varun-bhaia-97859776/" target="_blank" rel="noopener noreferrer"
                        class="inline-flex items-center gap-x-1.5 text-sm text-blue-600 hover:text-blue-700 mt-3">
                         <i class="fa-brands fa-linkedin"></i>
                         <span>View LinkedIn Profile</span>
@@ -497,7 +508,7 @@
                     <strong>Focus areas:</strong> Client acquisition, Strategic partnerships, Brand positioning
                 </div>
 
-                <a href="https://www.linkedin.com/in/subham-kanoi-48526642/" target="_blank" 
+                <a href="https://www.linkedin.com/in/subham-kanoi-48526642/" target="_blank" rel="noopener noreferrer"
                    class="inline-flex items-center gap-x-1.5 text-sm text-blue-600 hover:text-blue-700 mt-3">
                     <i class="fa-brands fa-linkedin"></i>
                     <span>View LinkedIn Profile</span>
@@ -527,7 +538,7 @@
                     <strong>Focus areas:</strong> Operations excellence, Quality control, Food safety &amp; compliance
                 </div>
 
-                <a href="https://www.linkedin.com/in/varun-bhaia-97859776/" target="_blank" 
+                <a href="https://www.linkedin.com/in/varun-bhaia-97859776/" target="_blank" rel="noopener noreferrer"
                    class="inline-flex items-center gap-x-1.5 text-sm text-blue-600 hover:text-blue-700 mt-3">
                     <i class="fa-brands fa-linkedin"></i>
                     <span>View LinkedIn Profile</span>
@@ -821,7 +832,7 @@
         </div>
         <div class="max-w-5xl mx-auto">
             <div class="relative rounded-3xl overflow-hidden shadow-2xl border">
-                <video id="ur-video" class="w-full" controls playsinline>
+                <video id="ur-video" class="w-full" controls playsinline preload="metadata">
                     <source src="assets/videos/ur-hospitality-story.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
@@ -981,6 +992,7 @@
                 </a>
                 <a href="https://calendly.com/subham-kanoi/30min" 
                    target="_blank"
+                   rel="noopener noreferrer"
                    class="px-8 py-4 border border-white/30 hover:bg-white/10 font-medium rounded-3xl flex items-center justify-center gap-x-2 transition-all text-base">
                     <i class="fa-solid fa-video"></i>
                     <span>Schedule 30-min Consultation</span>
@@ -1024,6 +1036,9 @@
 
     <!-- QUOTE MODAL -->
     <div id="quote-modal" onclick="if (event.target.id === 'quote-modal') hideQuoteModal()" 
+         role="dialog"
+         aria-modal="true"
+         aria-labelledby="quote-modal-title"
          class="hidden fixed inset-0 bg-black/60 flex items-center justify-center z-[100] p-4">
         <div onclick="event.stopImmediatePropagation()" 
              class="bg-white w-full max-w-lg rounded-3xl shadow-2xl overflow-hidden">
@@ -1031,10 +1046,10 @@
             <!-- Modal Header -->
             <div class="px-8 pt-7 pb-5 border-b flex items-center justify-between">
                 <div>
-                    <div class="font-semibold text-2xl tracking-tight">Let's discuss your needs</div>
+                    <div id="quote-modal-title" class="font-semibold text-2xl tracking-tight">Let's discuss your needs</div>
                     <div class="text-sm text-slate-500">We'll reply within 4 business hours</div>
                 </div>
-                <button onclick="hideQuoteModal()" class="text-3xl leading-none text-slate-400 hover:text-slate-600">&times;</button>
+                <button onclick="hideQuoteModal()" aria-label="Close quote form" class="text-3xl leading-none text-slate-400 hover:text-slate-600">&times;</button>
             </div>
 
             <!-- Success State (hidden by default) -->
