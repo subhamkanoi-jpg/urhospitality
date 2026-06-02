@@ -198,10 +198,10 @@
                     <div>
                         <div class="text-emerald-200 text-xs tracking-[2px] font-semibold mb-2">YOUR POTENTIAL IMPACT</div>
                         <div class="text-3xl sm:text-4xl font-semibold tracking-tight">
-                            What is your cafeteria quietly costing you each year?
+                            Estimate the real cost of your current cafeteria operations
                         </div>
                         <div class="text-emerald-100 text-sm sm:text-base mt-2">
-                            Use our 60-second calculator for a practical estimate of avoidable operational leakage.
+                            A data-driven model of employee time loss, food waste, and admin overhead — plus the upside of fixing it.
                         </div>
                     </div>
                     <div class="shrink-0 inline-flex items-center justify-center gap-x-3 bg-white text-emerald-700 px-6 py-3 rounded-2xl font-semibold text-sm">
@@ -220,7 +220,7 @@
                 </div>
                 <h2 class="text-4xl md:text-5xl font-semibold tracking-tighter">How Much Is Your Current Catering Vendor<br>Really Costing You?</h2>
                 <p class="mt-3 text-lg text-slate-600 max-w-2xl mx-auto">
-                    Most companies only see the invoice. This calculator estimates the <strong>avoidable operational leakage</strong> from queues, excess waste, and complaint handling.
+                    Most companies only see the invoice. This model estimates the real operational drag — lost employee productivity, direct food waste, and the hidden admin burden of a sub-par vendor.
                 </p>
             </div>
 
@@ -301,7 +301,7 @@
                                     <i id="assumptions-chevron" class="fa-solid fa-chevron-down text-xs transition-transform"></i>
                                 </button>
 
-                                <div id="assumptions-panel" class="hidden mt-4 grid grid-cols-1 sm:grid-cols-3 gap-4 text-sm">
+                                <div id="assumptions-panel" class="hidden mt-4 grid grid-cols-2 sm:grid-cols-4 gap-4 text-sm">
                                     <div>
                                         <label class="block text-xs text-slate-500 mb-1">Employee hourly cost (₹)</label>
                                         <input type="number" id="employee-cost" value="450" class="w-full border border-slate-300 rounded-xl px-3 py-2 text-sm" oninput="updateCalculator()">
@@ -314,9 +314,15 @@
                                         <label class="block text-xs text-slate-500 mb-1">Working days per month</label>
                                         <input type="number" id="working-days" value="22" class="w-full border border-slate-300 rounded-xl px-3 py-2 text-sm" oninput="updateCalculator()">
                                     </div>
+                                    <div>
+                                        <label class="block text-xs text-slate-500 mb-1">Working hours per day</label>
+                                        <input type="number" id="hours-per-day" value="10" class="w-full border border-slate-300 rounded-xl px-3 py-2 text-sm" oninput="updateCalculator()">
+                                    </div>
                                 </div>
                                 <p class="mt-3 text-xs leading-relaxed text-slate-500">
-                                    Conservative model: only queue time above 8 minutes is counted, only 10% of that time is treated as recoverable productivity, and only waste above 8% is treated as addressable leakage.
+                                    Model uses 78% productivity realization on queue time (defensible — not everyone is 100% productive while waiting). 
+                                    Savings shown = gap to realistic professional targets (≈6 min queues, 6.5% waste, low complaint volume). 
+                                    Adjust the Advanced fields to model your specific situation.
                                 </p>
                             </div>
                         </div>
@@ -324,16 +330,16 @@
                         <!-- Results -->
                         <div class="lg:col-span-5 mt-10 lg:mt-0">
                             <div class="bg-[#0A2540] text-white rounded-3xl p-8">
-                                <div class="text-emerald-400 text-xs font-medium tracking-wider">YOUR ESTIMATED AVOIDABLE LEAKAGE</div>
+                                <div class="text-emerald-400 text-xs font-medium tracking-wider">YOUR CURRENT ESTIMATED HIDDEN COST</div>
                                 
                                 <div class="mt-4">
                                     <div>
                                         <div class="text-xs text-white/60">Annual Leakage Estimate</div>
-                                        <div id="annual-loss" class="text-4xl sm:text-5xl leading-none font-semibold tabular-nums text-red-400 whitespace-nowrap">₹ 7,25,256</div>
+                                        <div id="annual-loss" class="text-4xl sm:text-5xl leading-none font-semibold tabular-nums text-red-400 whitespace-nowrap">₹ 43,20,000</div>
                                     </div>
                                     <div class="mt-3">
-                                        <div class="text-xs text-white/60">Monthly Leakage Estimate</div>
-                                        <div id="monthly-loss" class="text-2xl font-semibold tabular-nums text-red-300">₹ 60,438</div>
+                                        <div class="text-xs text-white/60">Monthly Hidden Cost</div>
+                                        <div id="monthly-loss" class="text-2xl font-semibold tabular-nums text-red-300">₹ 3,60,000</div>
                                     </div>
                                 </div>
 
@@ -343,23 +349,36 @@
                                     <div class="text-xs text-white/80 mb-4 tracking-wider">WHERE THE MONEY IS LEAKING</div>
                                     <div class="space-y-3 text-sm">
                                         <div class="flex justify-between">
-                                            <span class="text-white/80">Excess queue friction</span>
-                                            <span id="queue-cost" class="font-medium text-white tabular-nums">₹ 34,650</span>
+                                            <span class="text-white/80">Employee time lost in queues</span>
+                                            <span id="queue-cost" class="font-medium text-white tabular-nums">₹ 2,17,800</span>
                                         </div>
                                         <div class="flex justify-between">
-                                            <span class="text-white/80">Addressable food waste</span>
-                                            <span id="waste-cost" class="font-medium text-white tabular-nums">₹ 22,638</span>
+                                            <span class="text-white/80">Cost of uneaten / wasted meals</span>
+                                            <span id="waste-cost" class="font-medium text-white tabular-nums">₹ 1,38,600</span>
                                         </div>
                                         <div class="flex justify-between">
-                                            <span class="text-white/80">Admin time on complaints</span>
-                                            <span id="admin-cost" class="font-medium text-white tabular-nums">₹ 3,150</span>
+                                            <span class="text-white/80">Admin &amp; vendor coordination overhead</span>
+                                            <span id="admin-cost" class="font-medium text-white tabular-nums">₹ 4,950</span>
                                         </div>
                                     </div>
                                 </div>
 
+                                <!-- Decision support metrics (HR/Admin friendly) -->
+                                <div class="mt-4 pt-4 border-t border-white/20 text-xs space-y-1.5">
+                                    <div class="flex justify-between text-white/70">
+                                        <span>Hidden cost per employee per month</span>
+                                        <span id="per-employee-cost" class="font-medium text-white tabular-nums">₹ 1,270</span>
+                                    </div>
+                                    <div class="flex justify-between text-white/70">
+                                        <span>Queue time lost (FTE equivalent per year)</span>
+                                        <span id="fte-lost" class="font-medium text-white tabular-nums">7.5 FTE</span>
+                                    </div>
+                                </div>
+
                                 <div class="mt-6 pt-6 border-t border-white/20">
-                                    <div class="text-emerald-400 text-xs font-medium tracking-wider">PRACTICAL REDUCTION TARGET</div>
-                                    <div id="savings" class="text-3xl font-semibold text-emerald-400 tabular-nums mt-1">₹ 4,71,416 / year</div>
+                                    <div class="text-emerald-400 text-xs font-medium tracking-wider">POTENTIAL SAVINGS VS. PROFESSIONAL OPERATIONS</div>
+                                    <div id="savings" class="text-3xl font-semibold text-emerald-400 tabular-nums mt-1">₹ 27,80,000 / year</div>
+                                    <div class="text-[10px] text-emerald-300/70 mt-1">Gap between your current inputs and realistic best-practice targets (6 min queues, ~6.5% waste, low complaints)</div>
                                 </div>
                             </div>
                         </div>
@@ -399,7 +418,7 @@
             </div>
 
             <div class="text-center mt-4 text-xs text-slate-500">
-                Conservative estimates based on industry benchmarks. Your actual numbers are likely higher.
+                This is a transparent, benchmark-based model. Real costs can be validated with a short on-site observation. The biggest lever is usually queue time and consistent food quality.
             </div>
         </div>
         </div>

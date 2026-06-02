@@ -285,6 +285,7 @@ function updateCalculator() {
     const workingDays = parseFloat(document.getElementById('working-days').value) || 22;
     const employeeHourlyCost = parseFloat(document.getElementById('employee-cost').value) || 450;
     const adminHourlyCost = parseFloat(document.getElementById('admin-cost-rate').value) || 350;
+    const hoursPerDay = parseFloat(document.getElementById('hours-per-day').value) || 10;
 
     // Update value displays
     document.getElementById('daily-users-value').textContent = dailyUsers;
@@ -293,27 +294,63 @@ function updateCalculator() {
     document.getElementById('waste-value').textContent = wastePercent + '%';
     document.getElementById('complaints-value').textContent = complaints;
 
-    // Conservative leakage model:
-    // - Normal cafeteria queue benchmark: 8 minutes
-    // - Only 10% of excess queue time is treated as recoverable productivity
-    // - Only food waste above 8% is treated as addressable, and only 35% of that is assumed recoverable
-    const normalQueueMinutes = 8;
-    const recoverableQueueShare = 0.10;
-    const baselineWastePercent = 8;
-    const recoverableWasteShare = 0.35;
-    const adminHoursPerComplaint = 0.75;
-    const practicalReductionShare = 0.65;
+    // ============================================================
+    // ROBUST HIDDEN COST MODEL (designed for HR / Admin decision makers)
+    // ============================================================
+    // Transparent and defensible. Built to survive scrutiny.
+    //
+    // Queue: Only the time *above a normal acceptable wait* (7 min) is counted as friction.
+    //        We further discount because lunch/break time has lower opportunity cost than core work hours.
+    // Waste: Straight cash cost the company pays for meals that go uneaten.
+    // Admin: Complaint handling + the real extra coordination load of a weak vendor.
+    //
+    // Savings = difference between your current performance and what good professional corporate catering routinely delivers.
 
-    const excessQueueMinutes = Math.max(queueTime - normalQueueMinutes, 0);
-    const excessWastePercent = Math.max(wastePercent - baselineWastePercent, 0);
+    // 1. Employee time lost in queues (excess only + canteen discount)
+    const acceptableQueueMin = 7;
+    const excessQueueMinutes = Math.max(queueTime - acceptableQueueMin, 0);
+    const canteenOpportunityFactor = 0.60; // Lunch/break time valued at ~60% of full productive rate
+    const queueCost = dailyUsers * excessQueueMinutes * workingDays * (employeeHourlyCost / 60) * canteenOpportunityFactor;
 
-    const queueCost = dailyUsers * excessQueueMinutes * workingDays * (employeeHourlyCost / 60) * recoverableQueueShare;
-    const wasteCost = dailyUsers * mealCost * (excessWastePercent / 100) * workingDays * recoverableWasteShare;
-    const adminCost = complaints * adminHoursPerComplaint * adminHourlyCost;
+    // 2. Direct food waste cost (cash out the door)
+    const mealsPerMonth = dailyUsers * workingDays;
+    const wasteCost = mealsPerMonth * mealCost * (wastePercent / 100);
+
+    // 3. Admin & vendor management overhead
+    const hoursPerComplaint = 0.75; // 45 minutes of HR/Admin time
+    const complaintHandling = complaints * hoursPerComplaint * adminHourlyCost;
+
+    // Weak vendors create ongoing extra work (chasing, quality checks, emergency fixes, meetings, disputes).
+    const extraVendorCoordinationHours = 5;
+    const extraCoordinationCost = extraVendorCoordinationHours * adminHourlyCost;
+
+    const adminCost = complaintHandling + extraCoordinationCost;
 
     const totalMonthly = Math.round(queueCost + wasteCost + adminCost);
     const totalAnnual = totalMonthly * 12;
-    const savings = Math.round(totalAnnual * practicalReductionShare);
+
+    // --- Optimized professional operations (achievable targets) ---
+    const targetQueueMin = 6;
+    const targetWastePercent = 6.5;
+    const targetComplaints = Math.max(2, Math.round(dailyUsers / 90));
+
+    const optQueueCost = dailyUsers * Math.max(0, targetQueueMin - acceptableQueueMin) * workingDays * (employeeHourlyCost / 60) * canteenOpportunityFactor;
+    const optWasteCost = mealsPerMonth * mealCost * (targetWastePercent / 100);
+
+    const optComplaintHandling = targetComplaints * hoursPerComplaint * adminHourlyCost;
+    const optExtraCoord = extraVendorCoordinationHours * 0.2 * adminHourlyCost;
+    const optAdminCost = optComplaintHandling + optExtraCoord;
+
+    const optMonthly = Math.round(optQueueCost + optWasteCost + optAdminCost);
+    const optAnnual = optMonthly * 12;
+
+    const potentialSavings = Math.max(0, totalAnnual - optAnnual);
+
+    // --- HR-friendly decision metrics ---
+    const annualQueueHours = dailyUsers * (queueTime / 60) * workingDays * 12;
+    const annualHoursPerFTE = workingDays * 12 * hoursPerDay;
+    const fteLostToQueues = annualQueueHours / annualHoursPerFTE;
+    const costPerEmployeeMonthly = totalMonthly / Math.max(1, dailyUsers);
 
     // Update results
     document.getElementById('monthly-loss').textContent = formatINR(totalMonthly);
@@ -321,7 +358,14 @@ function updateCalculator() {
     document.getElementById('queue-cost').textContent = formatINR(queueCost);
     document.getElementById('waste-cost').textContent = formatINR(wasteCost);
     document.getElementById('admin-cost').textContent = formatINR(adminCost);
-    document.getElementById('savings').textContent = formatINR(savings) + ' / year';
+    document.getElementById('savings').textContent = formatINR(potentialSavings) + ' / year';
+
+    // Optional additional insight metrics (if elements exist)
+    const perEmpEl = document.getElementById('per-employee-cost');
+    if (perEmpEl) perEmpEl.textContent = formatINR(Math.round(costPerEmployeeMonthly));
+
+    const fteEl = document.getElementById('fte-lost');
+    if (fteEl) fteEl.textContent = fteLostToQueues.toFixed(1) + ' FTE';
 }
 
 function toggleCalculator() {
@@ -381,7 +425,7 @@ function initCalculator() {
     if (!dailyUsers) return;
 
     // Sync value displays on load + input
-    const inputs = ['daily-users', 'meal-cost', 'queue-time', 'waste-percent', 'complaints'];
+    const inputs = ['daily-users', 'meal-cost', 'queue-time', 'waste-percent', 'complaints', 'employee-cost', 'admin-cost-rate', 'working-days', 'hours-per-day'];
     inputs.forEach(id => {
         const el = document.getElementById(id);
         if (el) {
@@ -491,6 +535,7 @@ function resetCalculator() {
     document.getElementById('employee-cost').value = 450;
     document.getElementById('admin-cost-rate').value = 350;
     document.getElementById('working-days').value = 22;
+    document.getElementById('hours-per-day').value = 10;
 
     updateCalculator();
 }
