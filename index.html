@@ -198,10 +198,10 @@
                     <div>
                         <div class="text-emerald-200 text-xs tracking-[2px] font-semibold mb-2">YOUR POTENTIAL IMPACT</div>
                         <div class="text-3xl sm:text-4xl font-semibold tracking-tight">
-                            Could your cafeteria be leaking <span class="text-white">₹6.7 Lakh+ a year?</span>
+                            What is your cafeteria quietly costing you each year?
                         </div>
                         <div class="text-emerald-100 text-sm sm:text-base mt-2">
-                            Use our 60-second hidden-cost calculator to see where the money is going.
+                            Use our 60-second calculator for a practical estimate of avoidable operational leakage.
                         </div>
                     </div>
                     <div class="shrink-0 inline-flex items-center justify-center gap-x-3 bg-white text-emerald-700 px-6 py-3 rounded-2xl font-semibold text-sm">
@@ -220,7 +220,7 @@
                 </div>
                 <h2 class="text-4xl md:text-5xl font-semibold tracking-tighter">How Much Is Your Current Catering Vendor<br>Really Costing You?</h2>
                 <p class="mt-3 text-lg text-slate-600 max-w-2xl mx-auto">
-                    Most companies only see the invoice. This calculator shows the <strong>real hidden cost</strong> of working with an inefficient partner — in hard numbers.
+                    Most companies only see the invoice. This calculator estimates the <strong>avoidable operational leakage</strong> from queues, excess waste, and complaint handling.
                 </p>
             </div>
 
@@ -315,22 +315,25 @@
                                         <input type="number" id="working-days" value="22" class="w-full border border-slate-300 rounded-xl px-3 py-2 text-sm" oninput="updateCalculator()">
                                     </div>
                                 </div>
+                                <p class="mt-3 text-xs leading-relaxed text-slate-500">
+                                    Conservative model: only queue time above 8 minutes is counted, only 10% of that time is treated as recoverable productivity, and only waste above 8% is treated as addressable leakage.
+                                </p>
                             </div>
                         </div>
 
                         <!-- Results -->
                         <div class="lg:col-span-5 mt-10 lg:mt-0">
                             <div class="bg-[#0A2540] text-white rounded-3xl p-8">
-                                <div class="text-emerald-400 text-xs font-medium tracking-wider">YOUR ESTIMATED HIDDEN COST</div>
+                                <div class="text-emerald-400 text-xs font-medium tracking-wider">YOUR ESTIMATED AVOIDABLE LEAKAGE</div>
                                 
                                 <div class="mt-4">
                                     <div>
-                                        <div class="text-xs text-white/60">Annual Hidden Loss</div>
-                                        <div id="annual-loss" class="text-4xl sm:text-5xl leading-none font-semibold tabular-nums text-red-400 whitespace-nowrap">₹ 14,94,000</div>
+                                        <div class="text-xs text-white/60">Annual Leakage Estimate</div>
+                                        <div id="annual-loss" class="text-4xl sm:text-5xl leading-none font-semibold tabular-nums text-red-400 whitespace-nowrap">₹ 7,25,256</div>
                                     </div>
                                     <div class="mt-3">
-                                        <div class="text-xs text-white/60">Monthly Hidden Loss</div>
-                                        <div id="monthly-loss" class="text-2xl font-semibold tabular-nums text-red-300">₹ 1,24,500</div>
+                                        <div class="text-xs text-white/60">Monthly Leakage Estimate</div>
+                                        <div id="monthly-loss" class="text-2xl font-semibold tabular-nums text-red-300">₹ 60,438</div>
                                     </div>
                                 </div>
 
@@ -340,23 +343,23 @@
                                     <div class="text-xs text-white/80 mb-4 tracking-wider">WHERE THE MONEY IS LEAKING</div>
                                     <div class="space-y-3 text-sm">
                                         <div class="flex justify-between">
-                                            <span class="text-white/80">Employee time lost in queues</span>
-                                            <span id="queue-cost" class="font-medium text-white tabular-nums">₹ 74,250</span>
+                                            <span class="text-white/80">Excess queue friction</span>
+                                            <span id="queue-cost" class="font-medium text-white tabular-nums">₹ 34,650</span>
                                         </div>
                                         <div class="flex justify-between">
-                                            <span class="text-white/80">Food waste</span>
-                                            <span id="waste-cost" class="font-medium text-white tabular-nums">₹ 41,580</span>
+                                            <span class="text-white/80">Addressable food waste</span>
+                                            <span id="waste-cost" class="font-medium text-white tabular-nums">₹ 22,638</span>
                                         </div>
                                         <div class="flex justify-between">
                                             <span class="text-white/80">Admin time on complaints</span>
-                                            <span id="admin-cost" class="font-medium text-white tabular-nums">₹ 8,670</span>
+                                            <span id="admin-cost" class="font-medium text-white tabular-nums">₹ 3,150</span>
                                         </div>
                                     </div>
                                 </div>
 
                                 <div class="mt-6 pt-6 border-t border-white/20">
-                                    <div class="text-emerald-400 text-xs font-medium tracking-wider">POTENTIAL SAVINGS WITH UR HOSPITALITY</div>
-                                    <div id="savings" class="text-3xl font-semibold text-emerald-400 tabular-nums mt-1">₹ 6,72,300 / year</div>
+                                    <div class="text-emerald-400 text-xs font-medium tracking-wider">PRACTICAL REDUCTION TARGET</div>
+                                    <div id="savings" class="text-3xl font-semibold text-emerald-400 tabular-nums mt-1">₹ 4,71,416 / year</div>
                                 </div>
                             </div>
                         </div>

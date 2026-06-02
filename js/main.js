@@ -272,6 +272,10 @@ function initKeyboardHandlers() {
 // ======================
 // CATERING INEFFICIENCY COST CALCULATOR
 // ======================
+function formatINR(value) {
+    return '₹ ' + Math.round(value).toLocaleString('en-IN');
+}
+
 function updateCalculator() {
     const dailyUsers = parseFloat(document.getElementById('daily-users').value) || 0;
     const mealCost = parseFloat(document.getElementById('meal-cost').value) || 0;
@@ -289,24 +293,35 @@ function updateCalculator() {
     document.getElementById('waste-value').textContent = wastePercent + '%';
     document.getElementById('complaints-value').textContent = complaints;
 
-    const hoursPerComplaint = 1.5;
+    // Conservative leakage model:
+    // - Normal cafeteria queue benchmark: 8 minutes
+    // - Only 10% of excess queue time is treated as recoverable productivity
+    // - Only food waste above 8% is treated as addressable, and only 35% of that is assumed recoverable
+    const normalQueueMinutes = 8;
+    const recoverableQueueShare = 0.10;
+    const baselineWastePercent = 8;
+    const recoverableWasteShare = 0.35;
+    const adminHoursPerComplaint = 0.75;
+    const practicalReductionShare = 0.65;
 
-    // Calculations
-    const queueCost = dailyUsers * queueTime * workingDays * (employeeHourlyCost / 60);
-    const wasteCost = dailyUsers * mealCost * (wastePercent / 100) * workingDays;
-    const adminCost = complaints * hoursPerComplaint * adminHourlyCost;
+    const excessQueueMinutes = Math.max(queueTime - normalQueueMinutes, 0);
+    const excessWastePercent = Math.max(wastePercent - baselineWastePercent, 0);
+
+    const queueCost = dailyUsers * excessQueueMinutes * workingDays * (employeeHourlyCost / 60) * recoverableQueueShare;
+    const wasteCost = dailyUsers * mealCost * (excessWastePercent / 100) * workingDays * recoverableWasteShare;
+    const adminCost = complaints * adminHoursPerComplaint * adminHourlyCost;
 
     const totalMonthly = Math.round(queueCost + wasteCost + adminCost);
     const totalAnnual = totalMonthly * 12;
-    const savings = Math.round(totalAnnual * 0.45);
+    const savings = Math.round(totalAnnual * practicalReductionShare);
 
     // Update results
-    document.getElementById('monthly-loss').textContent = '₹ ' + totalMonthly.toLocaleString('en-IN');
-    document.getElementById('annual-loss').textContent = '₹ ' + totalAnnual.toLocaleString('en-IN');
-    document.getElementById('queue-cost').textContent = '₹ ' + Math.round(queueCost).toLocaleString('en-IN');
-    document.getElementById('waste-cost').textContent = '₹ ' + Math.round(wasteCost).toLocaleString('en-IN');
-    document.getElementById('admin-cost').textContent = '₹ ' + Math.round(adminCost).toLocaleString('en-IN');
-    document.getElementById('savings').textContent = '₹ ' + savings.toLocaleString('en-IN');
+    document.getElementById('monthly-loss').textContent = formatINR(totalMonthly);
+    document.getElementById('annual-loss').textContent = formatINR(totalAnnual);
+    document.getElementById('queue-cost').textContent = formatINR(queueCost);
+    document.getElementById('waste-cost').textContent = formatINR(wasteCost);
+    document.getElementById('admin-cost').textContent = formatINR(adminCost);
+    document.getElementById('savings').textContent = formatINR(savings) + ' / year';
 }
 
 function toggleCalculator() {
@@ -348,13 +363,14 @@ function revealCalculator() {
 // Pre-fill quote form from calculator
 function openQuoteWithCalculatorData() {
     const annualLoss = document.getElementById('annual-loss').textContent;
+    const savings = document.getElementById('savings').textContent;
 
     showQuoteModal();
 
     setTimeout(() => {
         const messageField = document.querySelector('#quote-form textarea[name="message"]');
         if (messageField) {
-            messageField.value = `I used your Catering Cost Calculator and it shows our current vendor may be costing us around ${annualLoss} per year in hidden inefficiencies. I'd like to explore how UR Hospitality can help reduce this.`;
+            messageField.value = `I used your Catering Cost Calculator. It estimates around ${annualLoss} per year in avoidable cafeteria leakage, with a practical reduction target of ${savings}. I'd like to explore how UR Hospitality can validate this for our site.`;
         }
     }, 350);
 }
