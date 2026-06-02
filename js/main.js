@@ -288,6 +288,42 @@ function updateCalculator() {
     document.getElementById('savings').textContent = '₹ ' + savings.toLocaleString('en-IN');
 }
 
+function toggleCalculator() {
+    const panel = document.getElementById('calculator-panel');
+    const toggleButton = document.getElementById('calculator-reveal');
+    const toggleLabel = document.getElementById('calculator-toggle-label');
+    const toggleIcon = document.getElementById('calculator-toggle-icon');
+
+    if (!panel) return;
+
+    const isOpening = panel.classList.contains('hidden');
+    panel.classList.toggle('hidden', !isOpening);
+
+    if (toggleButton) {
+        toggleButton.setAttribute('aria-expanded', String(isOpening));
+    }
+
+    if (toggleLabel) {
+        toggleLabel.textContent = isOpening ? 'Hide Calculator' : 'Reveal Calculator';
+    }
+
+    if (toggleIcon) {
+        toggleIcon.className = isOpening ? 'fa-solid fa-chevron-up' : 'fa-solid fa-arrow-right';
+    }
+
+    if (isOpening) {
+        updateCalculator();
+
+        setTimeout(() => {
+            panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 50);
+    }
+}
+
+function revealCalculator() {
+    toggleCalculator();
+}
+
 // Pre-fill quote form from calculator
 function openQuoteWithCalculatorData() {
     const annualLoss = document.getElementById('annual-loss').textContent;

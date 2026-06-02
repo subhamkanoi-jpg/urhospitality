@@ -24,9 +24,9 @@
             <div class="px-8 py-5 flex items-center justify-between">
                 <!-- Circular Logo - Click to go to top -->
                 <a href="#" aria-label="Go to top of page" class="flex items-center gap-x-3">
-                    <div class="w-11 h-11 bg-[#FF6B00] text-white rounded-full flex items-center justify-center font-bold text-[21px] tracking-[-1px] shadow-sm ring-2 ring-orange-200 flex-shrink-0">
-                        UR
-                    </div>
+                    <img src="assets/images/ur-logo.jpeg"
+                         alt="UR Hospitality logo"
+                         class="w-11 h-11 rounded-full object-contain bg-white p-0.5 shadow-sm ring-2 ring-orange-200 flex-shrink-0">
                     <div>
                         <div class="font-semibold text-2xl tracking-tighter">UR Hospitality</div>
                         <div class="text-[10px] text-slate-500 -mt-1 tracking-[2px]">EST. 2015 • KOLKATA</div>
@@ -170,44 +170,38 @@
                         <div><div class="text-3xl sm:text-4xl font-semibold">98.7%</div><div class="text-sm text-slate-500">Client retention rate</div></div>
                         <div><div class="text-3xl sm:text-4xl font-semibold">4.9/5</div><div class="text-sm text-slate-500">Average satisfaction</div></div>
                     </div>
-
-                    <!-- Merged Scale Stats (symmetric design) -->
-                    <div class="mt-6 pt-6 border-t">
-                        <div class="text-xs uppercase tracking-[2px] text-blue-600 mb-3 font-medium">PROVEN AT SCALE</div>
-                        <div class="grid grid-cols-3 gap-3">
-                            <div class="bg-slate-50 rounded-2xl p-4 text-center">
-                                <div class="text-2xl font-semibold text-[#0A2540]">5L+</div>
-                                <div class="text-[10px] leading-tight text-slate-500 mt-1">Meals Served</div>
-                            </div>
-                            <div class="bg-slate-50 rounded-2xl p-4 text-center">
-                                <div class="text-2xl font-semibold text-[#0A2540]">98.7%</div>
-                                <div class="text-[10px] leading-tight text-slate-500 mt-1">Client Retention</div>
-                            </div>
-                            <div class="bg-slate-50 rounded-2xl p-4 text-center">
-                                <div class="text-2xl font-semibold text-[#0A2540]">Multi-Site</div>
-                                <div class="text-[10px] leading-tight text-slate-500 mt-1">Operational Scale</div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- NET ANNUAL SAVINGS (Prominent, above calculator) -->
-    <div class="bg-emerald-600 text-white py-5">
-        <div class="max-w-screen-2xl mx-auto px-8 text-center">
-            <div class="text-emerald-200 text-xs tracking-[2px] font-semibold mb-1">YOUR POTENTIAL IMPACT</div>
-            <div class="text-3xl sm:text-4xl font-semibold tracking-tight">
-                Net Annual Savings: <span class="text-white">Up to ₹6.7 Lakh+</span>
-            </div>
-            <div class="text-emerald-100 text-sm mt-1">Calculate your exact savings below</div>
-        </div>
-    </div>
-
     <!-- CATERING INEFFICIENCY COST CALCULATOR -->
-    <section id="cost-calculator" class="max-w-screen-2xl mx-auto px-8 py-16 bg-slate-50">
-        <div class="max-w-5xl mx-auto">
+    <section id="cost-calculator" class="bg-slate-50 py-16">
+        <div class="max-w-screen-2xl mx-auto px-8">
+            <button type="button"
+                    id="calculator-reveal"
+                    aria-controls="calculator-panel"
+                    aria-expanded="false"
+                    onclick="toggleCalculator()"
+                    class="w-full bg-emerald-600 hover:bg-emerald-700 text-white rounded-3xl px-6 sm:px-10 py-8 sm:py-10 text-left shadow-xl transition-all">
+                <div class="max-w-5xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-6">
+                    <div>
+                        <div class="text-emerald-200 text-xs tracking-[2px] font-semibold mb-2">YOUR POTENTIAL IMPACT</div>
+                        <div class="text-3xl sm:text-4xl font-semibold tracking-tight">
+                            Could your cafeteria be leaking <span class="text-white">₹6.7 Lakh+ a year?</span>
+                        </div>
+                        <div class="text-emerald-100 text-sm sm:text-base mt-2">
+                            Use our 60-second hidden-cost calculator to see where the money is going.
+                        </div>
+                    </div>
+                    <div class="shrink-0 inline-flex items-center justify-center gap-x-3 bg-white text-emerald-700 px-6 py-3 rounded-2xl font-semibold text-sm">
+                        <span id="calculator-toggle-label">Reveal Calculator</span>
+                        <i id="calculator-toggle-icon" class="fa-solid fa-arrow-right"></i>
+                    </div>
+                </div>
+            </button>
+
+            <div id="calculator-panel" class="hidden max-w-5xl mx-auto mt-10">
             
             <!-- Header -->
             <div class="text-center mb-10">
@@ -393,6 +387,7 @@
             <div class="text-center mt-4 text-xs text-slate-500">
                 Conservative estimates based on industry benchmarks. Your actual numbers are likely higher.
             </div>
+        </div>
         </div>
     </section>
 
