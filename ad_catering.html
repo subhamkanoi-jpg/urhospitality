@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UR Hospitality – Premium Corporate Catering</title>
+    <meta name="description" content="Premium corporate catering solutions for Kolkata businesses. Reliable, data‑driven meals that boost employee productivity and reduce hidden costs.">
+    <meta name="theme-color" content="#4A3B31">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" type="image/jpeg" href="assets/images/favicon.jpeg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+<meta name="keywords" content="Corporate catering, ROI, data-driven meals, Kolkata catering" />
+<meta property="og:title" content="UR Hospitality – Premium Corporate Catering" />
+<meta property="og:description" content="Data‑driven corporate catering solutions for Kolkata businesses." />
+<meta property="og:type" content="website" />
+<meta property="og:image" content="assets/images/ur-logo.jpeg" />
+<body class="bg-stone-50 text-stone-800">
+    <!-- NAVIGATION (same as main site) -->
+    <nav class="bg-white border-b sticky top-0 z-50">
+        <div class="max-w-screen-2xl mx-auto">
+            <div class="px-8 py-5 flex items-center justify-between">
+                <a href="index.html" aria-label="Go to home" class="flex items-center gap-x-3">
+                    <img src="assets/images/ur-logo.jpeg" alt="UR Hospitality logo" class="w-11 h-11 rounded-full object-contain bg-white p-0.5 shadow-sm ring-2 ring-orange-200 flex-shrink-0">
+                    <div>
+                        <div class="font-semibold text-2xl tracking-tighter">UR Hospitality</div>
+                        <div class="text-[10px] text-stone-500 -mt-1 tracking-[2px]">EST. 2015 • KOLKATA</div>
+                    </div>
+                </a>
+                <div class="hidden md:flex items-center gap-x-9 text-sm font-medium">
+                    <a href="#about" class="nav-link">About</a>
+                    <a href="#services" class="nav-link">Services</a>
+                    <a href="#why-us" class="nav-link">Why UR</a>
+                    <a href="#cost-calculator" class="nav-link">Cost Calculator</a>
+                    <a href="#founders" class="nav-link">Founders</a>
+                    <a href="#clients" class="nav-link">Clients</a>
+                </div>
+                <div class="hidden md:flex items-center gap-x-3">
+                    <a href="tel:+919830715557" class="flex items-center gap-x-2 text-sm font-semibold"><i class="fa-solid fa-phone"></i><span>+91 98307 15557</span></a>
+                    <button onclick="showQuoteModal()" class="px-6 py-2.5 bg-[#4A3B31] hover:bg-[#795548] text-white text-sm font-semibold rounded-2xl">Get a Quote</button>
+                </div>
+                <button id="mobile-menu-btn" aria-controls="mobile-menu" aria-expanded="false" aria-label="Open navigation menu" class="md:hidden w-10 h-10 flex items-center justify-center text-stone-600 hover:text-stone-900 hover:bg-stone-100 rounded-2xl transition-colors" onclick="toggleMobileMenu()"><i class="fa-solid fa-bars text-xl"></i></button>
+            </div>
+        </div>
+    </nav>
+    <!-- HERO – Catering showcase -->
+    <header class="catering-hero text-white relative" style="background-image: url('assets/images/corporate-cafeteria.png'); background-size: cover; background-position: center;">
+        <div class="absolute inset-0 bg-[#4A3B31]/75 backdrop-blur-[2px]"></div>
+        <div class="max-w-screen-2xl mx-auto px-8 pt-32 pb-20 relative z-10">
+            <div class="text-center">
+                <h1 class="text-5xl md:text-6xl font-semibold mb-6">Premium Corporate Catering</h1>
+                <p class="text-xl mb-8 max-w-2xl mx-auto">Data‑driven, compliant meals that keep your teams productive and your costs transparent.</p>
+                <button onclick="showQuoteModal()" class="px-8 py-3 bg-white text-[#4A3B31] font-semibold rounded-3xl">Request Your ROI Quote</button>
+            </div>
+        </div>
+    </header>
+    <!-- Trust & Client Logos (same as main) -->
+    <section id="clients" class="max-w-screen-2xl mx-auto px-8 py-12 bg-white border-t">
+        <div class="text-center mb-6">
+            <h2 class="text-3xl md:text-4xl font-semibold tracking-tighter">Trusted by Leading Corporates</h2>
+        </div>
+        <div class="flex flex-wrap justify-center items-center gap-x-8 gap-y-6">
+            <img src="assets/images/logos/pwc.svg" alt="PwC" class="h-8 opacity-80 hover:opacity-100 transition-opacity duration-300">
+            <img src="assets/images/logos/bcg.svg" alt="BCG" class="h-7 opacity-80 hover:opacity-100 transition-opacity duration-300">
+            <img src="assets/images/logos/google.svg" alt="Google" class="h-8 opacity-80 hover:opacity-100 transition-opacity duration-300">
+            <img src="assets/images/logos/tata-aig.svg" alt="Tata AIG" class="h-8 opacity-80 hover:opacity-100 transition-opacity duration-300">
+            <img src="assets/images/logos/uber.svg" alt="Uber" class="h-7 opacity-80 hover:opacity-100 transition-opacity duration-300">
+            <img src="assets/images/logos/zomato.svg" alt="Zomato" class="h-8 opacity-80 hover:opacity-100 transition-opacity duration-300">
+            <img src="assets/images/logos/maruti-suzuki.svg" alt="Maruti Suzuki" class="h-7 opacity-80 hover:opacity-100 transition-opacity duration-300">
+            <img src="assets/images/logos/kia.svg" alt="Kia" class="h-8 opacity-80 hover:opacity-100 transition-opacity duration-300">
+        </div>
+    </section>
+    <!-- Sticky CTA -->
+    <button onclick="showQuoteModal()" class="fixed bottom-6 right-6 md:bottom-8 md:right-8 bg-[#4A3B31] hover:bg-[#795548] text-white font-semibold py-3 px-5 rounded-full shadow-lg transition-colors" aria-label="Request Quote">Get Your Quote</button>
+    <!-- FOOTER (same as main) -->
+    <footer class="bg-stone-900 text-stone-200 py-12">
+        <div class="max-w-screen-2xl mx-auto px-8 text-center">
+            <p>© 2026 UR Hospitality. All rights reserved.</p>
+        </div>
+    
+<!-- QUOTE MODAL -->
+<div id="quote-modal" onclick="if (event.target.id === 'quote-modal') hideQuoteModal()" role="dialog" aria-modal="true" aria-labelledby="quote-modal-title" class="hidden fixed inset-0 bg-black/60 flex items-center justify-center z-[100] p-4">
+  <div onclick="event.stopImmediatePropagation()" class="bg-white w-full max-w-lg rounded-3xl shadow-2xl overflow-hidden">
+    <!-- Modal Header -->
+    <div class="px-8 pt-7 pb-5 border-b flex items-center justify-between">
+      <div>
+        <div id="quote-modal-title" class="font-semibold text-2xl tracking-tight">Let's discuss your needs</div>
+        <div class="text-sm text-stone-500">We'll reply within 4 business hours</div>
+      </div>
+      <button onclick="hideQuoteModal()" aria-label="Close quote form" class="text-3xl leading-none text-stone-400 hover:text-stone-600">&times;</button>
+    </div>
+    <!-- Success State (hidden by default) -->
+    <div id="form-success" class="hidden p-8 text-center">
+      <div class="mx-auto w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mb-4"><i class="fa-solid fa-check text-3xl"></i></div>
+      <h3 class="text-2xl font-semibold mb-2">Thank you!</h3>
+      <p class="text-stone-600 mb-6">Your request has been received. Our team will contact you within 4 business hours.</p>
+      <button onclick="resetAndCloseModal()" class="px-8 py-3 bg-[#4A3B31] text-white font-semibold rounded-2xl">Close</button>
+    </div>
+    <!-- Form -->
+    <form id="quote-form" onsubmit="submitQuoteForm(event)" class="p-8 space-y-5">
+      <!-- Form fields will be injected by JS -->
+    </form>
+  </div>
+</div>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

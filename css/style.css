@@ -25,7 +25,7 @@ body {
 }
 
 .nav-link:hover {
-    color: #1E40AF;
+    color: #8D6E63;
     transform: translateY(-1px);
 }
 
@@ -45,7 +45,7 @@ body {
 
 /* Hero */
 .catering-hero {
-    background: linear-gradient(135deg, #0A2540 0%, #1E3A8A 100%);
+    background: linear-gradient(135deg, #4A3B31 0%, #795548 100%);
 }
 
 .hero-image {
@@ -59,7 +59,7 @@ body {
 
 /* Step numbers */
 .step-number {
-    background: linear-gradient(135deg, #0A2540, #1E40AF);
+    background: linear-gradient(135deg, #4A3B31, #8D6E63);
     color: white;
 }
 
@@ -148,7 +148,7 @@ body {
 
 #ur-video {
     display: block;
-    background: #0A2540;
+    background: #4A3B31;
 }
 
 /* Utility */
@@ -274,7 +274,7 @@ button {
 }
 
 .founders-dot.active {
-    background: #0A2540;
+    background: #4A3B31;
     width: 20px;
     border-radius: 4px;
 }

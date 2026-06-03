@@ -521,9 +521,27 @@ function initMobileCarousels() {
     // Services and Why UR use pure CSS marquee (defined in style.css)
 }
 
+// Hero Image Carousel
+function initHeroCarousel() {
+    const slides = document.querySelectorAll('.hero-slide');
+    if (!slides.length) return;
+    
+    let currentSlide = 0;
+    setInterval(() => {
+        slides[currentSlide].classList.remove('opacity-100');
+        slides[currentSlide].classList.add('opacity-0');
+        
+        currentSlide = (currentSlide + 1) % slides.length;
+        
+        slides[currentSlide].classList.remove('opacity-0');
+        slides[currentSlide].classList.add('opacity-100');
+    }, 4500); // 4.5 seconds per slide
+}
+
 // Auto init on load
 document.addEventListener('DOMContentLoaded', () => {
     initMobileCarousels();
+    initHeroCarousel();
 });
 
 // Reset calculator to defaults
@@ -560,3 +578,4 @@ if (document.readyState === 'loading') {
 } else {
     initWebsite();
 }
+
