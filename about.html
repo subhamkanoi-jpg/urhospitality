@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | UR Hospitality</title>
+    <meta name="description" content="Founded in Kolkata in 2015 by two St. Xavier's College alumni. The story, the founders and the standards behind UR Hospitality.">
+
+    <link rel="icon" type="image/jpeg" href="assets/images/favicon.jpeg">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        ink: '#231A14',
+                        coffee: '#4A3B31',
+                        cream: '#FAF8F4',
+                        sand: '#EDE6DC',
+                        clay: '#C2410C'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script>document.documentElement.classList.add('js');</script>
+    <link rel="stylesheet" href="css/site.css">
+</head>
+<body class="bg-cream text-ink">
+
+    <div id="scroll-progress"></div>
+
+    <!-- ================= NAV ================= -->
+    <nav id="site-nav" class="bg-cream/90 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="h-[72px] flex items-center justify-between">
+                <a href="index.html" class="flex items-center gap-x-3" aria-label="UR Hospitality home">
+                    <img src="assets/images/ur-logo.jpeg" alt="UR Hospitality logo" class="w-10 h-10 rounded-full object-cover ring-1 ring-sand">
+                    <div>
+                        <div class="font-semibold text-lg tracking-tight leading-none">UR Hospitality</div>
+                        <div class="text-[10px] text-stone-500 tracking-[2px] mt-1">EST. 2015 · KOLKATA</div>
+                    </div>
+                </a>
+
+                <div class="hidden md:flex items-center gap-x-8 text-sm font-medium">
+                    <a href="index.html#standards" class="nav-link">Standards</a>
+                    <a href="services.html" class="nav-link">Services</a>
+                    <a href="roi.html" class="nav-link">The Numbers</a>
+                    <a href="about.html" class="nav-link active">About</a>
+                </div>
+
+                <div class="hidden md:flex items-center gap-x-5">
+                    <a href="tel:+919830715557" class="hidden lg:inline text-sm font-medium text-stone-600 hover:text-ink transition-colors">+91 98307 15557</a>
+                    <button onclick="showQuoteModal()" class="btn-primary px-5 py-2.5 text-sm font-semibold rounded-full">Get a Quote</button>
+                </div>
+
+                <button id="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Open navigation menu" aria-expanded="false"
+                        class="md:hidden w-10 h-10 flex items-center justify-center text-stone-600 rounded-xl">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden border-t border-sand bg-cream px-6 py-6">
+            <div class="flex flex-col gap-y-1 text-[15px] font-medium">
+                <a href="index.html#standards" class="py-2.5 text-stone-700">Standards</a>
+                <a href="services.html" class="py-2.5 text-stone-700">Services</a>
+                <a href="roi.html" class="py-2.5 text-stone-700">The Numbers</a>
+                <a href="about.html" class="py-2.5 text-stone-700">About</a>
+                <div class="pt-4 mt-3 border-t border-sand flex flex-col gap-y-3">
+                    <a href="tel:+919830715557" class="flex items-center justify-center gap-x-2 py-3 border border-sand rounded-full text-stone-700">
+                        <i class="fa-solid fa-phone text-sm"></i><span>+91 98307 15557</span>
+                    </a>
+                    <button onclick="showQuoteModal(); toggleMobileMenu();" class="btn-primary w-full py-3 font-semibold rounded-full">Get a Quote</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ================= STORY ================= -->
+    <header class="max-w-6xl mx-auto px-6 pt-16 md:pt-20 pb-16">
+        <div class="grid md:grid-cols-12 gap-x-12 gap-y-10 items-center">
+            <div class="md:col-span-7">
+                <div class="reveal in text-[11px] font-semibold tracking-[0.22em] text-clay uppercase mb-6">Our story</div>
+                <h1 class="reveal in font-display text-[40px] sm:text-5xl md:text-6xl leading-[1.04] mb-6">
+                    From Kolkata's kitchens to your boardroom.
+                </h1>
+                <p class="reveal in max-w-xl text-lg text-stone-600 leading-relaxed mb-5" style="--reveal-delay:120ms">
+                    Since 2015, UR Hospitality has helped Kolkata's leading organizations deliver consistent, safe, high-quality meals at scale — enterprise-grade reliability with the genuine warmth this city is known for.
+                </p>
+                <p class="reveal in max-w-xl text-[15px] text-stone-500 leading-relaxed italic" style="--reveal-delay:200ms">
+                    "As alumni of St. Xavier's College, we started UR Hospitality with one clear goal — to bring the consistency and care of great restaurants into everyday corporate dining."
+                </p>
+            </div>
+            <div class="md:col-span-5">
+                <div class="reveal in bg-white border border-sand rounded-3xl p-8" style="--reveal-delay:160ms">
+                    <div class="grid grid-cols-2 gap-7">
+                        <div>
+                            <div class="text-[clamp(1.35rem,2.3vw,2.1rem)] font-semibold tracking-tight whitespace-nowrap">2015</div>
+                            <div class="text-sm text-stone-500 mt-1">founded in Kolkata</div>
+                        </div>
+                        <div>
+                            <div class="text-[clamp(1.35rem,2.3vw,2.1rem)] font-semibold tracking-tight whitespace-nowrap"><span data-count="500000" data-suffix="+">5,00,000+</span></div>
+                            <div class="text-sm text-stone-500 mt-1">meals served to date</div>
+                        </div>
+                        <div>
+                            <div class="text-[clamp(1.35rem,2.3vw,2.1rem)] font-semibold tracking-tight whitespace-nowrap"><span data-count="98.7" data-decimals="1" data-suffix="%">98.7%</span></div>
+                            <div class="text-sm text-stone-500 mt-1">client retention rate</div>
+                        </div>
+                        <div>
+                            <div class="text-[clamp(1.35rem,2.3vw,2.1rem)] font-semibold tracking-tight whitespace-nowrap"><span data-count="4.9" data-decimals="1" data-suffix="/5">4.9/5</span></div>
+                            <div class="text-sm text-stone-500 mt-1">average satisfaction</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Real photos from our floors -->
+        <div class="mt-14 grid grid-cols-2 md:grid-cols-3 gap-3 reveal-group">
+            <img src="assets/images/gallery/gallery-03.jpeg" alt="Live counter service with hygiene protocols at a client site" loading="lazy"
+                 class="reveal w-full h-44 md:h-56 object-cover rounded-2xl">
+            <img src="assets/images/gallery/gallery-01.jpeg" alt="Employees at lunch in a corporate canteen we manage" loading="lazy"
+                 class="reveal w-full h-44 md:h-56 object-cover rounded-2xl">
+            <img src="assets/images/gallery/abc.jpeg" alt="Client cafeteria decorated for a festive celebration" loading="lazy"
+                 class="reveal hidden md:block w-full h-44 md:h-56 object-cover rounded-2xl">
+        </div>
+        <p class="reveal text-xs text-stone-400 mt-3">Shot on our client floors in Kolkata — not stock, not AI.</p>
+    </header>
+
+    <!-- ================= FOUNDERS ================= -->
+    <section class="bg-white border-y border-sand">
+        <div class="max-w-6xl mx-auto px-6 py-20">
+            <div class="section-label reveal mb-10">The people accountable</div>
+            <div class="grid md:grid-cols-12 gap-x-12 gap-y-6 items-end mb-12">
+                <h2 class="reveal font-display text-4xl md:text-5xl leading-[1.06] md:col-span-7">Two founders. One of them answers your call.</h2>
+                <p class="reveal text-stone-600 md:col-span-5" style="--reveal-delay:120ms">No account-manager maze. The people who own the company own your account.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-5 reveal-group">
+                <div class="card reveal rounded-3xl p-8">
+                    <div class="flex gap-6 items-start">
+                        <img src="assets/images/founder-1.jpg" alt="Subham Kanoi — Co-Founder & Business Development Head"
+                             class="w-24 h-24 rounded-2xl object-cover border border-sand shrink-0">
+                        <div>
+                            <h3 class="text-xl font-semibold tracking-tight">Subham Kanoi</h3>
+                            <div class="text-clay text-sm font-medium mt-0.5">Co-Founder · Business Development</div>
+                            <div class="text-xs text-stone-400 mt-1">St. Xavier's College, Kolkata</div>
+                        </div>
+                    </div>
+                    <p class="mt-6 text-[15px] text-stone-600 leading-relaxed">
+                        Leads client partnerships. His understanding of corporate requirements has built long-term relationships with several of Kolkata and West Bengal's most reputed organizations.
+                    </p>
+                    <div class="mt-4 text-sm text-stone-500">Client acquisition · Strategic partnerships · Brand</div>
+                    <a href="https://www.linkedin.com/in/subham-kanoi-48526642/" target="_blank"
+                       class="inline-flex items-center gap-x-1.5 text-sm text-clay hover:underline mt-4">
+                        <i class="fa-brands fa-linkedin"></i><span>LinkedIn</span>
+                    </a>
+                </div>
+
+                <div class="card reveal rounded-3xl p-8">
+                    <div class="flex gap-6 items-start">
+                        <img src="assets/images/founder-2.jpg" alt="Varun Bhaia — Co-Founder, Operations & QC Head"
+                             class="w-24 h-24 rounded-2xl object-cover border border-sand shrink-0">
+                        <div>
+                            <h3 class="text-xl font-semibold tracking-tight">Varun Bhaia</h3>
+                            <div class="text-clay text-sm font-medium mt-0.5">Co-Founder · Operations &amp; QC</div>
+                            <div class="text-xs text-stone-400 mt-1">St. Xavier's College, Kolkata</div>
+                        </div>
+                    </div>
+                    <p class="mt-6 text-[15px] text-stone-600 leading-relaxed">
+                        Owns end-to-end operations and quality control across all client locations — process standardization, hygiene compliance and consistent food quality at scale.
+                    </p>
+                    <div class="mt-4 text-sm text-stone-500">Operations · Quality control · Food safety &amp; compliance</div>
+                    <a href="https://www.linkedin.com/in/varun-bhaia-97859776/" target="_blank"
+                       class="inline-flex items-center gap-x-1.5 text-sm text-clay hover:underline mt-4">
+                        <i class="fa-brands fa-linkedin"></i><span>LinkedIn</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= FILM ================= -->
+    <section class="max-w-6xl mx-auto px-6 py-20">
+        <div class="section-label reveal mb-10">90 seconds inside</div>
+        <div class="grid md:grid-cols-12 gap-x-12 gap-y-6 items-end mb-10">
+            <h2 class="reveal font-display text-4xl md:text-5xl leading-[1.06] md:col-span-7">See how we transform workplace dining.</h2>
+            <p class="reveal text-stone-600 md:col-span-5" style="--reveal-delay:120ms">A short film on how we deliver consistent quality and care for corporate teams.</p>
+        </div>
+        <div class="reveal relative rounded-3xl overflow-hidden shadow-2xl border border-sand max-w-4xl">
+            <video id="ur-video" class="w-full" controls playsinline preload="metadata">
+                <source src="assets/videos/ur-hospitality-story.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <div id="video-overlay" onclick="playVideo()"
+                 class="absolute inset-0 flex items-center justify-center bg-black/40 cursor-pointer">
+                <div class="w-20 h-20 bg-white rounded-full flex items-center justify-center shadow-lg">
+                    <i class="fa-solid fa-play text-ink text-3xl ml-1"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= CTA ================= -->
+    <section class="bg-white border-t border-sand">
+        <div class="max-w-6xl mx-auto px-6 py-16 text-center">
+            <h2 class="reveal font-display text-3xl md:text-4xl leading-tight mb-4">Talk to a founder, not a sales rep.</h2>
+            <p class="reveal text-stone-600 mb-8 max-w-xl mx-auto" style="--reveal-delay:100ms">30 minutes with the people who'll actually run your account.</p>
+            <div class="reveal flex flex-col sm:flex-row justify-center gap-3" style="--reveal-delay:180ms">
+                <button onclick="showQuoteModal()" class="btn-primary px-8 py-4 font-semibold rounded-full text-[15px]">Get a custom quote</button>
+                <a href="https://calendly.com/subham-kanoi/30min" target="_blank" class="btn-ghost px-8 py-4 font-semibold rounded-full text-[15px] flex items-center justify-center gap-x-2">
+                    <i class="fa-solid fa-video text-sm"></i><span>Book a 30-min consult</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="border-t border-sand bg-white">
+        <div class="max-w-6xl mx-auto px-6 py-12">
+            <div class="grid md:grid-cols-3 gap-y-8 gap-x-12 items-start">
+                <div>
+                    <div class="font-semibold text-lg tracking-tight">UR Hospitality Pvt. Ltd.</div>
+                    <div class="text-sm text-stone-500 mt-1">Central Kitchen · Corporate Catering<br>Est. 2015, Kolkata</div>
+                </div>
+                <div class="text-sm text-stone-600 space-y-1.5">
+                    <div>AE-287, Salt Lake, Kolkata – 700064</div>
+                    <div><a href="tel:+919830715557" class="hover:text-ink">+91 98307 15557</a></div>
+                    <div><a href="mailto:hello@urhospitality.in" class="hover:text-ink">hello@urhospitality.in</a></div>
+                </div>
+                <div class="text-sm text-stone-600 md:text-right space-y-1.5">
+                    <div><a href="services.html" class="hover:text-ink">Services</a> · <a href="roi.html" class="hover:text-ink">Cost Calculator</a> · <a href="about.html" class="hover:text-ink">About</a></div>
+                    <div><a href="assets/UR-Hospitality-Capabilities.pdf" download class="hover:text-ink">Capabilities PDF <i class="fa-solid fa-file-arrow-down text-xs"></i></a></div>
+                </div>
+            </div>
+            <div class="border-t border-sand mt-10 pt-6 flex flex-col md:flex-row justify-between gap-y-2 text-xs text-stone-400">
+                <div>© 2026 UR Hospitality Pvt. Ltd. All rights reserved.</div>
+                <div>FSSAI Licensed · GST Compliant · 98.7% Client Retention</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ================= QUOTE MODAL ================= -->
+    <div id="quote-modal" onclick="if (event.target.id === 'quote-modal') hideQuoteModal()"
+         class="hidden fixed inset-0 bg-black/60 flex items-center justify-center z-[100] p-4">
+        <div onclick="event.stopImmediatePropagation()"
+             class="bg-white w-full max-w-lg rounded-3xl shadow-2xl overflow-hidden max-h-[92vh] overflow-y-auto">
+
+            <div class="px-8 pt-7 pb-5 border-b border-sand flex items-center justify-between">
+                <div>
+                    <div class="font-semibold text-2xl tracking-tight">Let's discuss your needs</div>
+                    <div class="text-sm text-stone-500">We'll reply within 4 business hours</div>
+                </div>
+                <button onclick="hideQuoteModal()" aria-label="Close" class="text-3xl leading-none text-stone-400 hover:text-stone-600">&times;</button>
+            </div>
+
+            <div id="form-success" class="hidden p-8 text-center">
+                <div class="mx-auto w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mb-4">
+                    <i class="fa-solid fa-check text-3xl"></i>
+                </div>
+                <h3 class="text-2xl font-semibold mb-2">Thank you!</h3>
+                <p class="text-stone-600 mb-6">Your request has been received. Our team will contact you within 4 business hours.</p>
+                <button onclick="resetAndCloseModal()" class="btn-primary px-8 py-3 font-semibold rounded-full">Close</button>
+            </div>
+
+            <form id="quote-form" onsubmit="submitQuoteForm(event)" class="p-8 space-y-5">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    <div>
+                        <label class="block text-xs font-medium tracking-wider text-stone-500 mb-1.5">YOUR NAME *</label>
+                        <input type="text" name="name" required
+                               class="w-full border border-sand focus:border-coffee px-4 py-3 text-sm rounded-2xl outline-none"
+                               placeholder="Rahul Sharma">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium tracking-wider text-stone-500 mb-1.5">PHONE NUMBER *</label>
+                        <input type="tel" name="phone" required
+                               class="w-full border border-sand focus:border-coffee px-4 py-3 text-sm rounded-2xl outline-none"
+                               placeholder="+91 98307 15557">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-medium tracking-wider text-stone-500 mb-1.5">WORK EMAIL *</label>
+                    <input type="email" name="email" required
+                           class="w-full border border-sand focus:border-coffee px-4 py-3 text-sm rounded-2xl outline-none"
+                           placeholder="you@company.com">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-medium tracking-wider text-stone-500 mb-1.5">COMPANY NAME *</label>
+                    <input type="text" name="company" required
+                           class="w-full border border-sand focus:border-coffee px-4 py-3 text-sm rounded-2xl outline-none"
+                           placeholder="Acme Technologies Pvt Ltd">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-medium tracking-wider text-stone-500 mb-1.5">APPROX. NUMBER OF MEALS / DAY</label>
+                    <select name="meals" class="w-full border border-sand focus:border-coffee px-4 py-3 text-sm rounded-2xl outline-none bg-white">
+                        <option value="">Select range</option>
+                        <option value="50-100">50 – 100 meals/day</option>
+                        <option value="100-250">100 – 250 meals/day</option>
+                        <option value="250-500">250 – 500 meals/day</option>
+                        <option value="500-1000">500 – 1000 meals/day</option>
+                        <option value="1000+">1000+ meals/day</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-medium tracking-wider text-stone-500 mb-1.5">ANY SPECIFIC REQUIREMENTS?</label>
+                    <textarea name="message" rows="3"
+                              class="w-full border border-sand focus:border-coffee px-4 py-3 text-sm rounded-2xl outline-none resize-y"
+                              placeholder="E.g., High protein focus, Bengali cuisine, Jain menu, live counters for events..."></textarea>
+                </div>
+
+                <input type="text" name="_gotcha" class="hidden" tabindex="-1" autocomplete="off">
+
+                <button type="submit" id="submit-btn"
+                        class="btn-primary w-full py-4 font-semibold rounded-full flex items-center justify-center gap-x-2 text-base">
+                    <span id="submit-text">Submit Request</span>
+                    <i id="submit-icon" class="fa-solid fa-paper-plane ml-1"></i>
+                </button>
+
+                <div class="text-center">
+                    <button type="button" onclick="sendViaWhatsApp()"
+                            class="text-sm text-clay hover:underline flex items-center justify-center gap-x-2 mx-auto">
+                        <i class="fa-brands fa-whatsapp"></i>
+                        <span>Prefer WhatsApp? Message us directly</span>
+                    </button>
+                </div>
+
+                <p class="text-[10px] text-center text-stone-400"><i class="fa-solid fa-lock text-emerald-500 mr-1"></i>Your information is secure and confidential. No spam, ever.</p>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/site.js"></script>
+</body>
+</html>

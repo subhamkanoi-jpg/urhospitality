@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Hidden Cost Calculator | UR Hospitality</title>
+    <meta name="description" content="Calculate the real hidden cost of your current corporate catering vendor — queue time, food waste, and admin overhead, in hard numbers.">
+
+    <link rel="icon" type="image/jpeg" href="assets/images/favicon.jpeg">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        ink: '#231A14',
+                        coffee: '#4A3B31',
+                        cream: '#FAF8F4',
+                        sand: '#EDE6DC',
+                        clay: '#C2410C'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif']
+                    }
+                }
+            }
+        }
+    </script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script>document.documentElement.classList.add('js');</script>
+    <link rel="stylesheet" href="css/site.css">
+</head>
+<body class="bg-cream text-ink">
+
+    <div id="scroll-progress"></div>
+
+    <!-- ================= NAV ================= -->
+    <nav id="site-nav" class="bg-cream/90 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-6xl mx-auto px-6">
+            <div class="h-[72px] flex items-center justify-between">
+                <a href="index.html" class="flex items-center gap-x-3" aria-label="UR Hospitality home">
+                    <img src="assets/images/ur-logo.jpeg" alt="UR Hospitality logo" class="w-10 h-10 rounded-full object-cover ring-1 ring-sand">
+                    <div>
+                        <div class="font-semibold text-lg tracking-tight leading-none">UR Hospitality</div>
+                        <div class="text-[10px] text-stone-500 tracking-[2px] mt-1">EST. 2015 · KOLKATA</div>
+                    </div>
+                </a>
+
+                <div class="hidden md:flex items-center gap-x-8 text-sm font-medium">
+                    <a href="index.html#standards" class="nav-link">Standards</a>
+                    <a href="services.html" class="nav-link">Services</a>
+                    <a href="roi.html" class="nav-link active">The Numbers</a>
+                    <a href="about.html" class="nav-link">About</a>
+                </div>
+
+                <div class="hidden md:flex items-center gap-x-5">
+                    <a href="tel:+919830715557" class="hidden lg:inline text-sm font-medium text-stone-600 hover:text-ink transition-colors">+91 98307 15557</a>
+                    <button onclick="showQuoteModal()" class="btn-primary px-5 py-2.5 text-sm font-semibold rounded-full">Get a Quote</button>
+                </div>
+
+                <button id="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Open navigation menu" aria-expanded="false"
+                        class="md:hidden w-10 h-10 flex items-center justify-center text-stone-600 rounded-xl">
+                    <i class="fa-solid fa-bars text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden border-t border-sand bg-cream px-6 py-6">
+            <div class="flex flex-col gap-y-1 text-[15px] font-medium">
+                <a href="index.html#standards" class="py-2.5 text-stone-700">Standards</a>
+                <a href="services.html" class="py-2.5 text-stone-700">Services</a>
+                <a href="roi.html" class="py-2.5 text-stone-700">The Numbers</a>
+                <a href="about.html" class="py-2.5 text-stone-700">About</a>
+                <div class="pt-4 mt-3 border-t border-sand flex flex-col gap-y-3">
+                    <a href="tel:+919830715557" class="flex items-center justify-center gap-x-2 py-3 border border-sand rounded-full text-stone-700">
+                        <i class="fa-solid fa-phone text-sm"></i><span>+91 98307 15557</span>
+                    </a>
+                    <button onclick="showQuoteModal(); toggleMobileMenu();" class="btn-primary w-full py-3 font-semibold rounded-full">Get a Quote</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ================= HEADER ================= -->
+    <header class="max-w-6xl mx-auto px-6 pt-10 md:pt-12 pb-8">
+        <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-x-10 gap-y-3">
+            <div>
+                <div class="reveal in text-[11px] font-semibold tracking-[0.22em] text-clay uppercase mb-3">
+                    Free decision tool for HR &amp; admin leaders
+                </div>
+                <h1 class="reveal in font-display text-4xl md:text-5xl leading-[1.05]">
+                    The invoice is not the cost.
+                </h1>
+            </div>
+            <p class="reveal in max-w-md text-[15px] text-stone-600 leading-snug md:text-right md:pb-1" style="--reveal-delay:120ms">
+                Queue time, food waste, admin overhead — what a weak vendor actually costs, in defensible numbers. No contact details needed.
+            </p>
+        </div>
+    </header>
+
+    <!-- ================= CALCULATOR ================= -->
+    <section class="max-w-6xl mx-auto px-6 pb-16">
+        <div class="reveal in bg-white border border-sand rounded-[28px] shadow-xl" style="--reveal-delay:200ms">
+            <div class="p-5 sm:p-6 md:p-7">
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-x-8 gap-y-8">
+
+                    <!-- Inputs -->
+                    <div class="lg:col-span-7">
+                        <!-- Smart presets -->
+                        <div class="flex flex-wrap items-center gap-2 pb-5 mb-5 border-b border-sand">
+                            <span class="text-[11px] font-semibold tracking-[0.15em] text-stone-400 uppercase mr-1">Quick start</span>
+                            <button class="preset-chip" onclick="applyPreset(this, 100, 120, 10, 12, 5)">~100 staff</button>
+                            <button class="preset-chip preset-active" onclick="applyPreset(this, 300, 140, 15, 15, 12)">~300 staff</button>
+                            <button class="preset-chip" onclick="applyPreset(this, 800, 150, 18, 18, 25)">~800 staff</button>
+                            <button class="preset-chip" onclick="applyPreset(this, 1500, 160, 20, 20, 40)">1500+ staff</button>
+                            <button onclick="resetCalculator()" class="ml-auto text-xs text-stone-400 hover:text-ink flex items-center gap-x-1">
+                                <i class="fa-solid fa-undo text-[9px]"></i><span>Reset</span>
+                            </button>
+                        </div>
+
+                        <div class="grid sm:grid-cols-2 gap-x-7 gap-y-5">
+                            <div class="sm:col-span-2">
+                                <div class="flex justify-between text-[13px] mb-1.5">
+                                    <label class="font-medium text-stone-700">Employees eating daily</label>
+                                    <span id="daily-users-value" class="font-semibold tabular-nums">300</span>
+                                </div>
+                                <input type="range" id="daily-users" min="50" max="2500" step="10" value="300" class="w-full" oninput="updateCalculator()">
+                            </div>
+
+                            <div>
+                                <div class="flex justify-between text-[13px] mb-1.5">
+                                    <label class="font-medium text-stone-700">Cost per meal</label>
+                                    <span id="meal-cost-value" class="font-semibold tabular-nums">₹ 140</span>
+                                </div>
+                                <input type="range" id="meal-cost" min="60" max="300" step="1" value="140" class="w-full" oninput="updateCalculator()">
+                            </div>
+
+                            <div>
+                                <div class="flex justify-between text-[13px] mb-1.5">
+                                    <label class="font-medium text-stone-700">Queue time / person / day (min)</label>
+                                    <span id="queue-time-value" class="font-semibold tabular-nums">15</span>
+                                </div>
+                                <input type="range" id="queue-time" min="3" max="45" step="1" value="15" class="w-full" oninput="updateCalculator()">
+                            </div>
+
+                            <div>
+                                <div class="flex justify-between text-[13px] mb-1.5">
+                                    <label class="font-medium text-stone-700">Daily food waste</label>
+                                    <span id="waste-value" class="font-semibold tabular-nums">15%</span>
+                                </div>
+                                <input type="range" id="waste-percent" min="5" max="40" step="1" value="15" class="w-full" oninput="updateCalculator()">
+                            </div>
+
+                            <div>
+                                <div class="flex justify-between text-[13px] mb-1.5">
+                                    <label class="font-medium text-stone-700">Complaints / month</label>
+                                    <span id="complaints-value" class="font-semibold tabular-nums">12</span>
+                                </div>
+                                <input type="range" id="complaints" min="0" max="80" step="1" value="12" class="w-full" oninput="updateCalculator()">
+                            </div>
+                        </div>
+
+                        <!-- Advanced assumptions -->
+                        <div class="mt-6 pt-4 border-t border-sand">
+                            <button onclick="toggleAssumptions()" class="flex items-center gap-x-2 text-[13px] font-medium text-stone-500 hover:text-ink">
+                                <span>Advanced assumptions</span>
+                                <i id="assumptions-chevron" class="fa-solid fa-chevron-down text-[10px] transition-transform"></i>
+                            </button>
+                            <div id="assumptions-panel" class="hidden mt-3 grid grid-cols-2 sm:grid-cols-4 gap-3 text-sm">
+                                <div>
+                                    <label class="block text-[11px] text-stone-500 mb-1">Employee ₹/hr</label>
+                                    <input type="number" id="employee-cost" value="450" class="w-full border border-sand rounded-xl px-3 py-1.5 text-sm" oninput="updateCalculator()">
+                                </div>
+                                <div>
+                                    <label class="block text-[11px] text-stone-500 mb-1">Admin ₹/hr</label>
+                                    <input type="number" id="admin-cost-rate" value="350" class="w-full border border-sand rounded-xl px-3 py-1.5 text-sm" oninput="updateCalculator()">
+                                </div>
+                                <div>
+                                    <label class="block text-[11px] text-stone-500 mb-1">Days / month</label>
+                                    <input type="number" id="working-days" value="22" class="w-full border border-sand rounded-xl px-3 py-1.5 text-sm" oninput="updateCalculator()">
+                                </div>
+                                <div>
+                                    <label class="block text-[11px] text-stone-500 mb-1">Hours / day</label>
+                                    <input type="number" id="hours-per-day" value="10" class="w-full border border-sand rounded-xl px-3 py-1.5 text-sm" oninput="updateCalculator()">
+                                </div>
+                            </div>
+                        </div>
+
+                        <p class="mt-5 text-[11px] text-stone-400 leading-relaxed">
+                            Conservative model: only queue time above a normal 7-minute wait counts, valued at 60% of working rate. Your actual numbers are likely higher.
+                        </p>
+                    </div>
+
+                    <!-- Results -->
+                    <div class="lg:col-span-5">
+                        <div class="bg-ink text-white rounded-3xl p-6 h-full flex flex-col">
+                            <div class="flex items-baseline justify-between gap-3">
+                                <div class="text-emerald-400 text-[10px] font-semibold tracking-[0.18em] uppercase">Annual hidden loss</div>
+                                <div class="text-[11px] text-white/40">est. / year</div>
+                            </div>
+                            <div id="annual-loss" class="mt-1 text-4xl leading-tight font-semibold tabular-nums text-red-400 whitespace-nowrap">₹ —</div>
+                            <div class="mt-1.5 text-[13px] text-white/50">
+                                <span id="monthly-loss" class="font-medium text-red-300 tabular-nums">₹ —</span> / month
+                                &nbsp;·&nbsp; <span id="per-employee-cost" class="font-medium text-red-300 tabular-nums">₹ —</span> / employee / mo
+                            </div>
+
+                            <div class="my-4 border-t border-white/15"></div>
+
+                            <div class="text-[10px] text-white/50 mb-2.5 tracking-[0.15em] uppercase">Where it leaks</div>
+                            <div class="space-y-2 text-[13px]">
+                                <div class="flex justify-between gap-4">
+                                    <span class="text-white/70">Employee time in queues</span>
+                                    <span id="queue-cost" class="font-medium tabular-nums">₹ —</span>
+                                </div>
+                                <div class="flex justify-between gap-4">
+                                    <span class="text-white/70">Food waste</span>
+                                    <span id="waste-cost" class="font-medium tabular-nums">₹ —</span>
+                                </div>
+                                <div class="flex justify-between gap-4">
+                                    <span class="text-white/70">Admin &amp; complaint handling</span>
+                                    <span id="admin-cost" class="font-medium tabular-nums">₹ —</span>
+                                </div>
+                                <div class="flex justify-between gap-4">
+                                    <span class="text-white/70">Productivity lost to queues</span>
+                                    <span id="fte-lost" class="font-medium tabular-nums">—</span>
+                                </div>
+                            </div>
+
+                            <div class="mt-4 pt-4 border-t border-white/15 flex items-baseline justify-between gap-3">
+                                <div class="text-emerald-400 text-[10px] font-semibold tracking-[0.18em] uppercase">Recoverable with UR</div>
+                                <div id="savings" class="text-xl font-semibold text-emerald-400 tabular-nums whitespace-nowrap">₹ —</div>
+                            </div>
+
+                            <div class="mt-auto pt-5">
+                                <button onclick="openQuoteWithCalculatorData()"
+                                        class="w-full py-3 bg-white text-ink hover:bg-cream font-semibold rounded-full text-sm transition-colors">
+                                    Get my custom savings report
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // One-tap scenario presets: set all five sliders to benchmark values
+        function applyPreset(btn, users, meal, queue, waste, complaints) {
+            const set = (id, v) => { const el = document.getElementById(id); if (el) el.value = v; };
+            set('daily-users', users);
+            set('meal-cost', meal);
+            set('queue-time', queue);
+            set('waste-percent', waste);
+            set('complaints', complaints);
+            document.querySelectorAll('.preset-chip').forEach(c => c.classList.remove('preset-active'));
+            if (btn) btn.classList.add('preset-active');
+            updateCalculator();
+        }
+
+        // Manual slider moves mean the preset no longer describes the scenario
+        document.addEventListener('DOMContentLoaded', () => {
+            ['daily-users', 'meal-cost', 'queue-time', 'waste-percent', 'complaints'].forEach(id => {
+                const el = document.getElementById(id);
+                if (el) el.addEventListener('input', () => {
+                    document.querySelectorAll('.preset-chip').forEach(c => c.classList.remove('preset-active'));
+                });
+            });
+        });
+    </script>
+
+    <!-- ================= CTA ================= -->
+    <section class="bg-white border-t border-sand">
+        <div class="max-w-6xl mx-auto px-6 py-16 text-center">
+            <h2 class="reveal font-display text-3xl md:text-4xl leading-tight mb-4">Want these numbers validated for your site?</h2>
+            <p class="reveal text-stone-600 mb-8 max-w-xl mx-auto" style="--reveal-delay:100ms">A 30-minute call with our team. We'll walk your actual costs and tell you honestly whether switching is worth it.</p>
+            <div class="reveal flex flex-col sm:flex-row justify-center gap-3" style="--reveal-delay:180ms">
+                <button onclick="showQuoteModal()" class="btn-primary px-8 py-4 font-semibold rounded-full text-[15px]">Get a custom quote</button>
+                <a href="https://calendly.com/subham-kanoi/30min" target="_blank" class="btn-ghost px-8 py-4 font-semibold rounded-full text-[15px] flex items-center justify-center gap-x-2">
+                    <i class="fa-solid fa-video text-sm"></i><span>Book a 30-min consult</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="border-t border-sand bg-white">
+        <div class="max-w-6xl mx-auto px-6 py-12">
+            <div class="grid md:grid-cols-3 gap-y-8 gap-x-12 items-start">
+                <div>
+                    <div class="font-semibold text-lg tracking-tight">UR Hospitality Pvt. Ltd.</div>
+                    <div class="text-sm text-stone-500 mt-1">Central Kitchen · Corporate Catering<br>Est. 2015, Kolkata</div>
+                </div>
+                <div class="text-sm text-stone-600 space-y-1.5">
+                    <div>AE-287, Salt Lake, Kolkata – 700064</div>
+                    <div><a href="tel:+919830715557" class="hover:text-ink">+91 98307 15557</a></div>
+                    <div><a href="mailto:hello@urhospitality.in" class="hover:text-ink">hello@urhospitality.in</a></div>
+                </div>
+                <div class="text-sm text-stone-600 md:text-right space-y-1.5">
+                    <div><a href="services.html" class="hover:text-ink">Services</a> · <a href="roi.html" class="hover:text-ink">Cost Calculator</a> · <a href="about.html" class="hover:text-ink">About</a></div>
+                    <div><a href="assets/UR-Hospitality-Capabilities.pdf" download class="hover:text-ink">Capabilities PDF <i class="fa-solid fa-file-arrow-down text-xs"></i></a></div>
+                </div>
+            </div>
+            <div class="border-t border-sand mt-10 pt-6 flex flex-col md:flex-row justify-between gap-y-2 text-xs text-stone-400">
+                <div>© 2026 UR Hospitality Pvt. Ltd. All rights reserved.</div>
+                <div>FSSAI Licensed · GST Compliant · 98.7% Client Retention</div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ================= QUOTE MODAL ================= -->
+    <div id="quote-modal" onclick="if (event.target.id === 'quote-modal') hideQuoteModal()"
+         class="hidden fixed inset-0 bg-black/60 flex items-center justify-center z-[100] p-4">
+        <div onclick="event.stopImmediatePropagation()"
+             class="bg-white w-full max-w-lg rounded-3xl shadow-2xl overflow-hidden max-h-[92vh] overflow-y-auto">
+
+            <div class="px-8 pt-7 pb-5 border-b border-sand flex items-center justify-between">
+                <div>
+                    <div class="font-semibold text-2xl tracking-tight">Let's discuss your needs</div>
+                    <div class="text-sm text-stone-500">We'll reply within 4 business hours</div>
+                </div>
+                <button onclick="hideQuoteModal()" aria-label="Close" class="text-3xl leading-none text-stone-400 hover:text-stone-600">&times;</button>
+            </div>
+
+            <div id="form-success" class="hidden p-8 text-center">
+                <div class="mx-auto w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mb-4">
+                    <i class="fa-solid fa-check text-3xl"></i>
+                </div>
+                <h3 class="text-2xl font-semibold mb-2">Thank you!</h3>
+                <p class="text-stone-600 mb-6">Your request has been received. Our team will contact you within 4 business hours.</p>
+                <button onclick="resetAndCloseModal()" class="btn-primary px-8 py-3 font-semibold rounded-full">Close</button>
+            </div>
+
+            <form id="quote-form" onsubmit="submitQuoteForm(event)" class="p-8 space-y-5">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    <div>
+                        <label class="block text-xs font-medium tracking-wider text-stone-500 mb-1.5">YOUR NAME *</label>
+                        <input type="text" name="name" required
+                               class="w-full border border-sand focus:border-coffee px-4 py-3 text-sm rounded-2xl outline-none"
+                               placeholder="Rahul Sharma">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-medium tracking-wider text-stone-500 mb-1.5">PHONE NUMBER *</label>
+                        <input type="tel" name="phone" required
+                               class="w-full border border-sand focus:border-coffee px-4 py-3 text-sm rounded-2xl outline-none"
+                               placeholder="+91 98307 15557">
+                    </div>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-medium tracking-wider text-stone-500 mb-1.5">WORK EMAIL *</label>
+                    <input type="email" name="email" required
+                           class="w-full border border-sand focus:border-coffee px-4 py-3 text-sm rounded-2xl outline-none"
+                           placeholder="you@company.com">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-medium tracking-wider text-stone-500 mb-1.5">COMPANY NAME *</label>
+                    <input type="text" name="company" required
+                           class="w-full border border-sand focus:border-coffee px-4 py-3 text-sm rounded-2xl outline-none"
+                           placeholder="Acme Technologies Pvt Ltd">
+                </div>
+
+                <div>
+                    <label class="block text-xs font-medium tracking-wider text-stone-500 mb-1.5">APPROX. NUMBER OF MEALS / DAY</label>
+                    <select name="meals" class="w-full border border-sand focus:border-coffee px-4 py-3 text-sm rounded-2xl outline-none bg-white">
+                        <option value="">Select range</option>
+                        <option value="50-100">50 – 100 meals/day</option>
+                        <option value="100-250">100 – 250 meals/day</option>
+                        <option value="250-500">250 – 500 meals/day</option>
+                        <option value="500-1000">500 – 1000 meals/day</option>
+                        <option value="1000+">1000+ meals/day</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-xs font-medium tracking-wider text-stone-500 mb-1.5">ANY SPECIFIC REQUIREMENTS?</label>
+                    <textarea name="message" rows="3"
+                              class="w-full border border-sand focus:border-coffee px-4 py-3 text-sm rounded-2xl outline-none resize-y"
+                              placeholder="E.g., High protein focus, Bengali cuisine, Jain menu, live counters for events..."></textarea>
+                </div>
+
+                <input type="text" name="_gotcha" class="hidden" tabindex="-1" autocomplete="off">
+
+                <button type="submit" id="submit-btn"
+                        class="btn-primary w-full py-4 font-semibold rounded-full flex items-center justify-center gap-x-2 text-base">
+                    <span id="submit-text">Submit Request</span>
+                    <i id="submit-icon" class="fa-solid fa-paper-plane ml-1"></i>
+                </button>
+
+                <div class="text-center">
+                    <button type="button" onclick="sendViaWhatsApp()"
+                            class="text-sm text-clay hover:underline flex items-center justify-center gap-x-2 mx-auto">
+                        <i class="fa-brands fa-whatsapp"></i>
+                        <span>Prefer WhatsApp? Message us directly</span>
+                    </button>
+                </div>
+
+                <p class="text-[10px] text-center text-stone-400"><i class="fa-solid fa-lock text-emerald-500 mr-1"></i>Your information is secure and confidential. No spam, ever.</p>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/main.js"></script>
+    <script src="js/site.js"></script>
+</body>
+</html>
