@@ -49,6 +49,38 @@ body {
     }
 }
 
+/* ---------- Desktop type scale ----------
+   The canvas stretches with the screen, so the type must too.
+   Everything is rem-based, so bumping the root scales typography
+   AND spacing together — the design grows as one. */
+@media (min-width: 1280px) {
+    html {
+        font-size: 17px;
+    }
+}
+
+@media (min-width: 1600px) {
+    html {
+        font-size: 18px;
+    }
+}
+
+/* Convert fixed-px type to rem equivalents (identical at the 16px
+   baseline) so the root-size bump scales them with everything else. */
+body .text-\[9px\]  { font-size: 0.5625rem; }
+body .text-\[10px\] { font-size: 0.625rem; }
+body .text-\[11px\] { font-size: 0.6875rem; }
+body .text-\[13px\] { font-size: 0.8125rem; }
+body .text-\[15px\] { font-size: 0.9375rem; }
+body .text-\[17px\] { font-size: 1.0625rem; }
+body .text-\[40px\] { font-size: 2.5rem; }
+body .text-\[44px\] { font-size: 2.75rem; }
+
+@media (min-width: 768px) {
+    body .md\:text-\[52px\] { font-size: 3.25rem; }
+    body .md\:text-\[68px\] { font-size: 4.25rem; }
+}
+
 /* ---------- Scroll progress ---------- */
 #scroll-progress {
     position: fixed;
