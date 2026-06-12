@@ -39,6 +39,16 @@ body {
     letter-spacing: -0.02em;
 }
 
+/* ---------- Responsive canvas width ----------
+   Stretch content to the screen on desktop: full width minus a slim
+   24px edge each side, capped only on very large monitors. The body
+   prefix outranks the Tailwind utility regardless of stylesheet order. */
+@media (min-width: 1024px) {
+    body .max-w-6xl {
+        max-width: min(100% - 48px, 1760px);
+    }
+}
+
 /* ---------- Scroll progress ---------- */
 #scroll-progress {
     position: fixed;
