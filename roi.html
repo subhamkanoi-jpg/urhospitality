@@ -1,408 +1,610 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Hidden Cost Calculator | UR Hospitality</title>
-    <meta name="description" content="Calculate the real hidden cost of your current corporate catering vendor — queue time, food waste, and admin overhead, in hard numbers.">
-
+    <title>Corporate Catering Cost Calculator | UR Hospitality, Kolkata</title>
+    <meta name="description" content="Calculate the hidden operational cost of your current corporate caterer. Estimate savings from queue time reduction, food waste elimination and admin overhead.">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Corporate Catering Cost Calculator | UR Hospitality, Kolkata">
+    <meta property="og:description" content="Calculate the hidden operational cost of your current corporate caterer. Estimate savings from queue time reduction, food waste elimination and admin overhead.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://urhospitality.in/roi.html">
+    <meta property="og:image" content="assets/images/corporate-cafeteria.png">
+    
+    <!-- Favicon -->
     <link rel="icon" type="image/jpeg" href="assets/images/favicon.jpeg">
 
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Custom CSS (imports Google Fonts) -->
+    <link rel="stylesheet" href="css/site.css">
+
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        ink: '#231A14',
-                        coffee: '#4A3B31',
-                        cream: '#FAF8F4',
+                        ink: '#1A1A19',
+                        'ink-soft': '#3D3D3A',
+                        'ink-muted': '#6B6560',
+                        'ink-faint': '#9C9590',
+                        olive: '#4A5D23',
+                        'olive-soft': '#5A7030',
+                        'olive-bg': '#F0F3EA',
+                        terracotta: '#B85C38',
+                        cream: '#FAF7F2',
+                        'cream-alt': '#F3EDE4',
                         sand: '#EDE6DC',
-                        clay: '#C2410C'
+                        stone: '#E8E0D4',
+                        border: '#E5DDD0'
                     },
                     fontFamily: {
-                        sans: ['Inter', 'system-ui', 'sans-serif']
+                        display: ['Inter Tight', 'Inter', 'system-ui', 'sans-serif'],
+                        body: ['Inter', 'system-ui', 'sans-serif'],
+                        accent: ['Fraunces', 'Georgia', 'serif']
                     }
                 }
             }
         }
     </script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <script>document.documentElement.classList.add('js');</script>
-    <link rel="stylesheet" href="css/site.css">
 </head>
-<body class="bg-cream text-ink">
+<body class="font-body text-ink bg-cream antialiased selection:bg-olive selection:text-white">
 
-    <div id="scroll-progress"></div>
+    <!-- Skip Link -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-ink text-white px-4 py-2 rounded-md z-50 shadow-lg">Skip to main content</a>
 
-    <!-- ================= NAV ================= -->
-    <nav id="site-nav" class="bg-cream/90 backdrop-blur-md sticky top-0 z-50">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="h-[72px] flex items-center justify-between">
-                <a href="index.html" class="flex items-center gap-x-3" aria-label="UR Hospitality home">
-                    <img src="assets/images/ur-logo.jpeg" alt="UR Hospitality logo" class="w-10 h-10 rounded-full object-cover ring-1 ring-sand">
-                    <div>
-                        <div class="font-semibold text-lg tracking-tight leading-none">UR Hospitality</div>
-                        <div class="text-[10px] text-stone-500 tracking-[2px] mt-1">EST. 2015 · KOLKATA</div>
-                    </div>
+    <!-- Scroll Progress -->
+    <div id="scroll-progress" class="fixed top-0 left-0 h-1 bg-olive z-[60] w-0 transition-all duration-150"></div>
+
+    <!-- Navigation -->
+    <nav id="site-nav" class="bg-cream/90 backdrop-blur-md sticky top-0 z-50 h-[72px] border-b border-border transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
+            <!-- Left: Logo -->
+            <a href="index.html" class="flex items-center gap-3 group">
+                <img src="assets/images/ur-logo.jpeg" alt="UR Hospitality Logo" class="w-10 h-10 rounded-full object-cover shadow-sm ring-1 ring-border group-hover:ring-olive transition-all">
+                <div class="flex flex-col">
+                    <span class="font-display font-semibold text-ink leading-none text-lg">UR Hospitality</span>
+                    <span class="text-[10px] tracking-widest text-ink-muted uppercase mt-1 font-semibold">Est. 2015 · Kolkata</span>
+                </div>
+            </a>
+
+            <!-- Center: Desktop Links -->
+            <div class="hidden md:flex items-center gap-8">
+                <a href="index.html#services" class="text-sm font-medium text-ink-soft hover:text-olive transition-colors">Corporate Catering</a>
+                <a href="index.html#system" class="text-sm font-medium text-ink-soft hover:text-olive transition-colors">How We Work</a>
+                <a href="index.html#why-ur" class="text-sm font-medium text-ink-soft hover:text-olive transition-colors">Why UR</a>
+                <a href="index.html#clients" class="text-sm font-medium text-ink-soft hover:text-olive transition-colors">Our Clients</a>
+                <a href="index.html#about" class="text-sm font-medium text-ink-soft hover:text-olive transition-colors">About</a>
+            </div>
+
+            <!-- Right: CTA -->
+            <div class="hidden md:flex items-center gap-5">
+                <a href="tel:+919830715557" class="hidden lg:flex text-sm font-semibold text-ink hover:text-olive transition-colors items-center gap-2">
+                    <i class="fa-solid fa-phone text-xs"></i> +91 98307 15557
                 </a>
-
-                <div class="hidden md:flex items-center gap-x-8 text-sm font-medium">
-                    <a href="index.html#standards" class="nav-link">Standards</a>
-                    <a href="services.html" class="nav-link">Services</a>
-                    <a href="roi.html" class="nav-link active">The Numbers</a>
-                    <a href="about.html" class="nav-link">About</a>
-                </div>
-
-                <div class="hidden md:flex items-center gap-x-5">
-                    <a href="tel:+919830715557" class="hidden lg:inline text-sm font-medium text-stone-600 hover:text-ink transition-colors">+91 98307 15557</a>
-                    <button onclick="showQuoteModal()" class="btn-primary px-5 py-2.5 text-sm font-semibold rounded-full">Get a Quote</button>
-                </div>
-
-                <button id="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Open navigation menu" aria-expanded="false"
-                        class="md:hidden w-10 h-10 flex items-center justify-center text-stone-600 rounded-xl">
-                    <i class="fa-solid fa-bars text-xl"></i>
+                <button onclick="showQuoteModal()" class="bg-ink hover:bg-olive text-white px-5 py-2.5 rounded-full text-sm font-semibold transition-colors btn-primary">
+                    Get a Quote
                 </button>
             </div>
-        </div>
 
-        <div id="mobile-menu" class="hidden md:hidden border-t border-sand bg-cream px-6 py-6">
-            <div class="flex flex-col gap-y-1 text-[15px] font-medium">
-                <a href="index.html#standards" class="py-2.5 text-stone-700">Standards</a>
-                <a href="services.html" class="py-2.5 text-stone-700">Services</a>
-                <a href="roi.html" class="py-2.5 text-stone-700">The Numbers</a>
-                <a href="about.html" class="py-2.5 text-stone-700">About</a>
-                <div class="pt-4 mt-3 border-t border-sand flex flex-col gap-y-3">
-                    <a href="tel:+919830715557" class="flex items-center justify-center gap-x-2 py-3 border border-sand rounded-full text-stone-700">
-                        <i class="fa-solid fa-phone text-sm"></i><span>+91 98307 15557</span>
-                    </a>
-                    <button onclick="showQuoteModal(); toggleMobileMenu();" class="btn-primary w-full py-3 font-semibold rounded-full">Get a Quote</button>
-                </div>
-            </div>
+            <!-- Mobile Toggle -->
+            <button onclick="toggleMobileMenu()" class="md:hidden flex items-center justify-center w-10 h-10 text-ink" aria-label="Toggle Menu">
+                <i class="fa-solid fa-bars text-xl"></i>
+            </button>
         </div>
     </nav>
 
-    <!-- ================= HEADER ================= -->
-    <header class="max-w-6xl mx-auto px-6 pt-10 md:pt-12 pb-8">
-        <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-x-10 gap-y-3">
-            <div>
-                <div class="reveal in text-[11px] font-semibold tracking-[0.22em] text-clay uppercase mb-3">
-                    Free decision tool for HR &amp; admin leaders
-                </div>
-                <h1 class="reveal in font-display text-4xl md:text-5xl leading-[1.05]">
-                    The invoice is not the cost.
-                </h1>
-            </div>
-            <p class="reveal in max-w-md text-[15px] text-stone-600 leading-snug md:pb-1" style="--reveal-delay:120ms">
-                Queue time, food waste, admin overhead — what a weak vendor actually costs, in defensible numbers. No contact details needed.
-            </p>
+    <!-- Mobile Menu Panel -->
+    <div id="mobile-menu" class="fixed inset-0 bg-cream z-40 hidden flex-col pt-[72px] px-6 pb-6 h-screen overflow-y-auto">
+        <div class="flex flex-col gap-6 mt-8">
+            <a href="index.html#services" class="text-2xl font-display font-medium text-ink" onclick="toggleMobileMenu()">Corporate Catering</a>
+            <a href="index.html#system" class="text-2xl font-display font-medium text-ink" onclick="toggleMobileMenu()">How We Work</a>
+            <a href="index.html#why-ur" class="text-2xl font-display font-medium text-ink" onclick="toggleMobileMenu()">Why UR</a>
+            <a href="index.html#clients" class="text-2xl font-display font-medium text-ink" onclick="toggleMobileMenu()">Our Clients</a>
+            <a href="index.html#about" class="text-2xl font-display font-medium text-ink" onclick="toggleMobileMenu()">About</a>
+            
+            <div class="h-px bg-border my-2"></div>
+            
+            <a href="tel:+919830715557" class="text-lg font-medium text-ink flex items-center gap-3">
+                <i class="fa-solid fa-phone text-olive"></i> +91 98307 15557
+            </a>
+            <button onclick="showQuoteModal(); toggleMobileMenu();" class="bg-ink text-white px-6 py-4 rounded-full text-lg font-semibold mt-4 text-center btn-primary">
+                Get a Quote
+            </button>
         </div>
-    </header>
+    </div>
 
-    <!-- ================= CALCULATOR ================= -->
-    <section class="max-w-6xl mx-auto px-6 pb-16">
-        <div class="reveal in bg-white border border-sand rounded-[28px] shadow-xl" style="--reveal-delay:200ms">
-            <div class="p-5 sm:p-6 md:p-7">
-                <div class="grid grid-cols-1 lg:grid-cols-12 gap-x-8 gap-y-8">
+    <main id="main-content">
+        <!-- Hero -->
+        <section class="pt-20 md:pt-32 pb-16 md:pb-24 px-6 max-w-7xl mx-auto text-center reveal in">
+            <h1 class="font-display text-[42px] sm:text-5xl md:text-[64px] leading-[1.02] text-ink font-bold mb-6 max-w-4xl mx-auto">
+                Your catering invoice isn't the whole cost.
+            </h1>
+            <p class="max-w-2xl mx-auto text-lg text-ink-muted leading-relaxed mb-8">
+                Queue time, food waste, complaint-chasing and vendor management quietly cost more than the food itself. Calculate what your current operation is really costing you.
+            </p>
+        </section>
 
-                    <!-- Inputs -->
-                    <div class="lg:col-span-7">
-                        <!-- Smart presets -->
-                        <div class="flex flex-wrap items-center gap-2 pb-5 mb-5 border-b border-sand">
-                            <span class="text-[11px] font-semibold tracking-[0.15em] text-stone-400 uppercase mr-1">Quick start</span>
-                            <button class="preset-chip" onclick="applyPreset(this, 100, 120, 10, 12, 5)">~100 staff</button>
-                            <button class="preset-chip preset-active" onclick="applyPreset(this, 300, 140, 15, 15, 12)">~300 staff</button>
-                            <button class="preset-chip" onclick="applyPreset(this, 800, 150, 18, 18, 25)">~800 staff</button>
-                            <button class="preset-chip" onclick="applyPreset(this, 1500, 160, 20, 20, 40)">1500+ staff</button>
-                            <button onclick="resetCalculator()" class="ml-auto text-xs text-stone-400 hover:text-ink flex items-center gap-x-1">
-                                <i class="fa-solid fa-undo text-[9px]"></i><span>Reset</span>
-                            </button>
+        <!-- Hidden Costs Explanation -->
+        <section class="bg-cream py-16 md:py-24">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-[11px] font-semibold tracking-[0.22em] text-olive uppercase mb-12 text-center section-label reveal">The hidden leaks</div>
+                <div class="grid md:grid-cols-3 gap-6 reveal-group">
+                    <div class="bg-white p-8 rounded-2xl border border-sand shadow-sm reveal">
+                        <div class="w-12 h-12 rounded-xl bg-olive-bg flex items-center justify-center text-olive text-xl mb-6">
+                            <i class="fa-solid fa-stopwatch"></i>
                         </div>
-
-                        <div class="grid sm:grid-cols-2 gap-x-7 gap-y-5">
-                            <div class="sm:col-span-2">
-                                <div class="flex justify-between text-[13px] mb-1.5">
-                                    <label class="font-medium text-stone-700">Employees eating daily</label>
-                                    <span id="daily-users-value" class="font-semibold tabular-nums">300</span>
-                                </div>
-                                <input type="range" id="daily-users" min="50" max="2500" step="10" value="300" class="w-full" oninput="updateCalculator()">
-                            </div>
-
-                            <div>
-                                <div class="flex justify-between text-[13px] mb-1.5">
-                                    <label class="font-medium text-stone-700">Cost per meal</label>
-                                    <span id="meal-cost-value" class="font-semibold tabular-nums">₹ 140</span>
-                                </div>
-                                <input type="range" id="meal-cost" min="60" max="300" step="1" value="140" class="w-full" oninput="updateCalculator()">
-                            </div>
-
-                            <div>
-                                <div class="flex justify-between text-[13px] mb-1.5">
-                                    <label class="font-medium text-stone-700">Queue time / person / day (min)</label>
-                                    <span id="queue-time-value" class="font-semibold tabular-nums">15</span>
-                                </div>
-                                <input type="range" id="queue-time" min="3" max="45" step="1" value="15" class="w-full" oninput="updateCalculator()">
-                            </div>
-
-                            <div>
-                                <div class="flex justify-between text-[13px] mb-1.5">
-                                    <label class="font-medium text-stone-700">Daily food waste</label>
-                                    <span id="waste-value" class="font-semibold tabular-nums">15%</span>
-                                </div>
-                                <input type="range" id="waste-percent" min="5" max="40" step="1" value="15" class="w-full" oninput="updateCalculator()">
-                            </div>
-
-                            <div>
-                                <div class="flex justify-between text-[13px] mb-1.5">
-                                    <label class="font-medium text-stone-700">Complaints / month</label>
-                                    <span id="complaints-value" class="font-semibold tabular-nums">12</span>
-                                </div>
-                                <input type="range" id="complaints" min="0" max="80" step="1" value="12" class="w-full" oninput="updateCalculator()">
-                            </div>
-                        </div>
-
-                        <!-- Advanced assumptions -->
-                        <div class="mt-6 pt-4 border-t border-sand">
-                            <button onclick="toggleAssumptions()" class="flex items-center gap-x-2 text-[13px] font-medium text-stone-500 hover:text-ink">
-                                <span>Advanced assumptions</span>
-                                <i id="assumptions-chevron" class="fa-solid fa-chevron-down text-[10px] transition-transform"></i>
-                            </button>
-                            <div id="assumptions-panel" class="hidden mt-3 grid grid-cols-2 sm:grid-cols-4 gap-3 text-sm">
-                                <div>
-                                    <label class="block text-[11px] text-stone-500 mb-1">Employee ₹/hr</label>
-                                    <input type="number" id="employee-cost" value="450" class="w-full border border-sand rounded-xl px-3 py-1.5 text-sm" oninput="updateCalculator()">
-                                </div>
-                                <div>
-                                    <label class="block text-[11px] text-stone-500 mb-1">Admin ₹/hr</label>
-                                    <input type="number" id="admin-cost-rate" value="350" class="w-full border border-sand rounded-xl px-3 py-1.5 text-sm" oninput="updateCalculator()">
-                                </div>
-                                <div>
-                                    <label class="block text-[11px] text-stone-500 mb-1">Days / month</label>
-                                    <input type="number" id="working-days" value="22" class="w-full border border-sand rounded-xl px-3 py-1.5 text-sm" oninput="updateCalculator()">
-                                </div>
-                                <div>
-                                    <label class="block text-[11px] text-stone-500 mb-1">Hours / day</label>
-                                    <input type="number" id="hours-per-day" value="10" class="w-full border border-sand rounded-xl px-3 py-1.5 text-sm" oninput="updateCalculator()">
-                                </div>
-                            </div>
-                        </div>
-
-                        <p class="mt-5 text-[11px] text-stone-400 leading-relaxed">
-                            Conservative model: only queue time above a normal 7-minute wait counts, valued at 60% of working rate. Your actual numbers are likely higher.
+                        <h3 class="font-display text-xl font-bold text-ink mb-3">QUEUE TIME</h3>
+                        <p class="text-ink-muted text-sm leading-relaxed">
+                            15 min/day average excess queue per employee = nearly two full-time salaries lost to standing in line each year.
                         </p>
                     </div>
+                    <div class="bg-white p-8 rounded-2xl border border-sand shadow-sm reveal">
+                        <div class="w-12 h-12 rounded-xl bg-olive-bg flex items-center justify-center text-olive text-xl mb-6">
+                            <i class="fa-solid fa-trash-can"></i>
+                        </div>
+                        <h3 class="font-display text-xl font-bold text-ink mb-3">FOOD WASTE</h3>
+                        <p class="text-ink-muted text-sm leading-relaxed">
+                            15% of paid-for food goes uneaten when menus aren't planned around real consumption data.
+                        </p>
+                    </div>
+                    <div class="bg-white p-8 rounded-2xl border border-sand shadow-sm reveal">
+                        <div class="w-12 h-12 rounded-xl bg-olive-bg flex items-center justify-center text-olive text-xl mb-6">
+                            <i class="fa-solid fa-file-invoice"></i>
+                        </div>
+                        <h3 class="font-display text-xl font-bold text-ink mb-3">ADMIN DRAG</h3>
+                        <p class="text-ink-muted text-sm leading-relaxed">
+                            12+ complaints your HR and admin teams chase monthly — plus the overhead of managing a vendor who needs managing.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-                    <!-- Results -->
-                    <div class="lg:col-span-5">
-                        <div class="bg-ink text-white rounded-3xl p-6 h-full flex flex-col">
-                            <div class="flex items-baseline justify-between gap-3">
-                                <div class="text-emerald-400 text-[10px] font-semibold tracking-[0.18em] uppercase">Annual hidden loss</div>
-                                <div class="text-[11px] text-white/40">est. / year</div>
+        <!-- Full Calculator Section -->
+        <section class="bg-white border-y border-border py-20 md:py-28">
+            <div class="max-w-7xl mx-auto px-6">
+                <div class="text-[11px] font-semibold tracking-[0.22em] text-olive uppercase mb-4 section-label reveal">Run your numbers</div>
+                <h2 class="font-display text-3xl md:text-5xl font-bold text-ink mb-4 reveal">
+                    Calculate your current operational leakage.
+                </h2>
+                <p class="text-lg text-ink-muted mb-16 reveal">
+                    Takes 60 seconds. No contact details needed.
+                </p>
+
+                <div class="grid lg:grid-cols-12 gap-12 lg:gap-16 reveal">
+                    <!-- Left column: All input sliders -->
+                    <div class="lg:col-span-7">
+                        <div class="bg-cream rounded-2xl p-6 md:p-8 border border-sand">
+                            <div class="flex flex-wrap gap-2 mb-8 pb-8 border-b border-border">
+                                <button onclick="setPreset(100, 120, 15, 15, 5)" class="px-4 py-2 bg-white border border-sand rounded-full text-xs font-semibold hover:border-olive transition-colors text-ink-soft">Small Office</button>
+                                <button onclick="setPreset(300, 140, 20, 15, 12)" class="px-4 py-2 bg-white border border-sand rounded-full text-xs font-semibold hover:border-olive transition-colors text-ink-soft">Mid-Size</button>
+                                <button onclick="setPreset(800, 160, 25, 20, 25)" class="px-4 py-2 bg-white border border-sand rounded-full text-xs font-semibold hover:border-olive transition-colors text-ink-soft">Large Campus</button>
+                                <button onclick="setPreset(1500, 180, 25, 20, 40)" class="px-4 py-2 bg-white border border-sand rounded-full text-xs font-semibold hover:border-olive transition-colors text-ink-soft">Enterprise</button>
                             </div>
-                            <div id="annual-loss" class="mt-1 text-4xl leading-tight font-semibold tabular-nums text-red-400 whitespace-nowrap">₹ —</div>
-                            <div class="mt-1.5 text-[13px] text-white/50">
-                                <span id="monthly-loss" class="font-medium text-red-300 tabular-nums">₹ —</span> / month
-                                &nbsp;·&nbsp; <span id="per-employee-cost" class="font-medium text-red-300 tabular-nums">₹ —</span> / employee / mo
+
+                            <div class="space-y-6">
+                                <div class="calc-input-group">
+                                    <div class="flex justify-between items-end mb-2">
+                                        <label for="daily-users" class="text-sm font-semibold text-ink">Daily Employees Eating</label>
+                                        <div class="font-display font-bold text-xl text-olive"><span id="daily-users-value">300</span></div>
+                                    </div>
+                                    <input type="range" id="daily-users" min="50" max="2500" value="300" step="10" class="w-full" oninput="updateCalculator()">
+                                </div>
+                                <div class="calc-input-group">
+                                    <div class="flex justify-between items-end mb-2">
+                                        <label for="meal-cost" class="text-sm font-semibold text-ink">Cost Per Meal (₹)</label>
+                                        <div class="font-display font-bold text-xl text-olive">₹<span id="meal-cost-value">140</span></div>
+                                    </div>
+                                    <input type="range" id="meal-cost" min="60" max="300" value="140" step="5" class="w-full" oninput="updateCalculator()">
+                                </div>
+                                <div class="calc-input-group">
+                                    <div class="flex justify-between items-end mb-2">
+                                        <label for="queue-time" class="text-sm font-semibold text-ink">Est. Daily Excess Queue Time (Mins)</label>
+                                        <div class="font-display font-bold text-xl text-terracotta"><span id="queue-time-value">15</span>m</div>
+                                    </div>
+                                    <input type="range" id="queue-time" min="5" max="30" value="15" step="1" class="w-full accent-terracotta" oninput="updateCalculator()">
+                                </div>
+                                <div class="calc-input-group">
+                                    <div class="flex justify-between items-end mb-2">
+                                        <label for="waste-percent" class="text-sm font-semibold text-ink">Est. Food Waste (%)</label>
+                                        <div class="font-display font-bold text-xl text-terracotta"><span id="waste-value">15</span>%</div>
+                                    </div>
+                                    <input type="range" id="waste-percent" min="2" max="30" value="15" step="1" class="w-full accent-terracotta" oninput="updateCalculator()">
+                                </div>
+                                <div class="calc-input-group">
+                                    <div class="flex justify-between items-end mb-2">
+                                        <label for="complaints" class="text-sm font-semibold text-ink">Complaints / Issues per Month</label>
+                                        <div class="font-display font-bold text-xl text-terracotta"><span id="complaints-value">12</span></div>
+                                    </div>
+                                    <input type="range" id="complaints" min="0" max="50" value="12" step="1" class="w-full accent-terracotta" oninput="updateCalculator()">
+                                </div>
                             </div>
 
-                            <div class="my-4 border-t border-white/15"></div>
-
-                            <div class="text-[10px] text-white/50 mb-2.5 tracking-[0.15em] uppercase">Where it leaks</div>
-                            <div class="space-y-2 text-[13px]">
-                                <div class="flex justify-between gap-4">
-                                    <span class="text-white/70">Employee time in queues</span>
-                                    <span id="queue-cost" class="font-medium tabular-nums">₹ —</span>
-                                </div>
-                                <div class="flex justify-between gap-4">
-                                    <span class="text-white/70">Food waste</span>
-                                    <span id="waste-cost" class="font-medium tabular-nums">₹ —</span>
-                                </div>
-                                <div class="flex justify-between gap-4">
-                                    <span class="text-white/70">Admin &amp; complaint handling</span>
-                                    <span id="admin-cost" class="font-medium tabular-nums">₹ —</span>
-                                </div>
-                                <div class="flex justify-between gap-4">
-                                    <span class="text-white/70">Productivity lost to queues</span>
-                                    <span id="fte-lost" class="font-medium tabular-nums">—</span>
-                                </div>
-                            </div>
-
-                            <div class="mt-4 pt-4 border-t border-white/15 flex items-baseline justify-between gap-3">
-                                <div class="text-emerald-400 text-[10px] font-semibold tracking-[0.18em] uppercase">Recoverable with UR</div>
-                                <div id="savings" class="text-xl font-semibold text-emerald-400 tabular-nums whitespace-nowrap">₹ —</div>
-                            </div>
-
-                            <div class="mt-auto pt-5">
-                                <button onclick="openQuoteWithCalculatorData()"
-                                        class="w-full py-3 bg-white text-ink hover:bg-cream font-semibold rounded-full text-sm transition-colors">
-                                    Get my custom savings report
+                            <div class="mt-8 pt-6 border-t border-border flex justify-between items-center">
+                                <button onclick="toggleAssumptions()" class="text-sm font-medium text-ink-muted hover:text-ink transition-colors flex items-center gap-2">
+                                    <i class="fa-solid fa-sliders"></i> Advanced Settings
                                 </button>
+                                <button onclick="resetCalculator()" class="text-sm font-medium text-ink-muted hover:text-ink transition-colors flex items-center gap-2">
+                                    <i class="fa-solid fa-rotate-right"></i> Reset
+                                </button>
+                            </div>
+                            
+                            <div id="assumptions-panel" class="hidden mt-6 pt-6 border-t border-border space-y-6">
+                                <div class="calc-input-group">
+                                    <div class="flex justify-between items-end mb-2">
+                                        <label for="employee-cost" class="text-xs font-medium text-ink-muted">Avg. Employee Cost / Hour (₹)</label>
+                                        <div class="text-sm font-semibold text-ink">₹<span id="employee-cost-value">450</span></div>
+                                    </div>
+                                    <input type="range" id="employee-cost" min="200" max="1500" value="450" step="50" class="w-full" oninput="document.getElementById('employee-cost-value').innerText = this.value; updateCalculator()">
+                                </div>
+                                <div class="calc-input-group">
+                                    <div class="flex justify-between items-end mb-2">
+                                        <label for="admin-cost-rate" class="text-xs font-medium text-ink-muted">Admin / HR Cost per Hour (₹)</label>
+                                        <div class="text-sm font-semibold text-ink">₹<span id="admin-cost-rate-value">350</span></div>
+                                    </div>
+                                    <input type="range" id="admin-cost-rate" min="200" max="800" value="350" step="10" class="w-full" oninput="document.getElementById('admin-cost-rate-value').innerText = this.value; updateCalculator()">
+                                </div>
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div class="calc-input-group">
+                                        <div class="flex justify-between items-end mb-2">
+                                            <label for="working-days" class="text-xs font-medium text-ink-muted">Working Days/Month</label>
+                                            <div class="text-sm font-semibold text-ink"><span id="working-days-value">22</span></div>
+                                        </div>
+                                        <input type="range" id="working-days" min="18" max="26" value="22" step="1" class="w-full" oninput="document.getElementById('working-days-value').innerText = this.value; updateCalculator()">
+                                    </div>
+                                    <div class="calc-input-group">
+                                        <div class="flex justify-between items-end mb-2">
+                                            <label for="hours-per-day" class="text-xs font-medium text-ink-muted">Hours/Day</label>
+                                            <div class="text-sm font-semibold text-ink"><span id="hours-per-day-value">10</span></div>
+                                        </div>
+                                        <input type="range" id="hours-per-day" min="8" max="12" value="10" step="1" class="w-full" oninput="document.getElementById('hours-per-day-value').innerText = this.value; updateCalculator()">
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
 
+                    <!-- Right column: Results panel -->
+                    <div class="lg:col-span-5">
+                        <div class="bg-ink text-white rounded-2xl p-6 md:p-8 sticky top-[100px] shadow-xl">
+                            <h3 class="text-sm font-semibold tracking-wider text-white/50 uppercase mb-8">Estimated Hidden Costs</h3>
+                            
+                            <div class="space-y-6 mb-8 pb-8 border-b border-white/10">
+                                <div class="flex justify-between items-end">
+                                    <div>
+                                        <div class="text-xs text-white/50 uppercase tracking-wider mb-1">Lost Productivity</div>
+                                        <div class="text-sm text-white/80">From excess queue time</div>
+                                    </div>
+                                    <div class="font-mono text-xl text-terracotta">₹<span id="queue-cost">0</span> <span class="text-xs text-white/40">/mo</span></div>
+                                </div>
+                                <div class="flex justify-between items-end">
+                                    <div>
+                                        <div class="text-xs text-white/50 uppercase tracking-wider mb-1">Wasted Food Value</div>
+                                        <div class="text-sm text-white/80">Paid for but uneaten</div>
+                                    </div>
+                                    <div class="font-mono text-xl text-terracotta">₹<span id="waste-cost">0</span> <span class="text-xs text-white/40">/mo</span></div>
+                                </div>
+                                <div class="flex justify-between items-end">
+                                    <div>
+                                        <div class="text-xs text-white/50 uppercase tracking-wider mb-1">Admin Overhead</div>
+                                        <div class="text-sm text-white/80">Managing complaints & vendor</div>
+                                    </div>
+                                    <div class="font-mono text-xl text-terracotta">₹<span id="admin-cost">0</span> <span class="text-xs text-white/40">/mo</span></div>
+                                </div>
+                            </div>
+
+                            <div class="mb-4">
+                                <div class="text-sm text-white/60 mb-2">Total Hidden Cost (Monthly)</div>
+                                <div class="font-display text-4xl md:text-5xl font-bold text-white mb-2">₹<span id="monthly-loss">0</span></div>
+                                <div class="text-sm text-white/40">₹<span id="annual-loss">0</span> annually</div>
+                            </div>
+                            
+                            <div class="mt-8 mb-8 bg-white/5 rounded-xl p-4 border border-white/10 flex justify-between items-center">
+                                <div class="text-sm text-white/70">Potential Savings with UR</div>
+                                <div class="font-display text-2xl font-bold text-olive">₹<span id="savings">0</span>/mo</div>
+                            </div>
+
+                            <button onclick="openQuoteWithCalculatorData()" class="w-full btn-olive py-4 rounded-full font-semibold text-[15px] flex justify-center items-center gap-2">
+                                Discuss Your Operations <i class="fa-solid fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <script>
-        // One-tap scenario presets: set all five sliders to benchmark values
-        function applyPreset(btn, users, meal, queue, waste, complaints) {
-            const set = (id, v) => { const el = document.getElementById(id); if (el) el.value = v; };
-            set('daily-users', users);
-            set('meal-cost', meal);
-            set('queue-time', queue);
-            set('waste-percent', waste);
-            set('complaints', complaints);
-            document.querySelectorAll('.preset-chip').forEach(c => c.classList.remove('preset-active'));
-            if (btn) btn.classList.add('preset-active');
-            updateCalculator();
-        }
-
-        // Manual slider moves mean the preset no longer describes the scenario
-        document.addEventListener('DOMContentLoaded', () => {
-            ['daily-users', 'meal-cost', 'queue-time', 'waste-percent', 'complaints'].forEach(id => {
-                const el = document.getElementById(id);
-                if (el) el.addEventListener('input', () => {
-                    document.querySelectorAll('.preset-chip').forEach(c => c.classList.remove('preset-active'));
-                });
-            });
-        });
-    </script>
-
-    <!-- ================= CTA ================= -->
-    <section class="bg-white border-t border-sand">
-        <div class="max-w-6xl mx-auto px-6 py-16 text-center">
-            <h2 class="reveal font-display text-3xl md:text-4xl leading-tight mb-4">Want these numbers validated for your site?</h2>
-            <p class="reveal text-stone-600 mb-8 max-w-xl mx-auto" style="--reveal-delay:100ms">A 30-minute call with our team. We'll walk your actual costs and tell you honestly whether switching is worth it.</p>
-            <div class="reveal flex flex-col sm:flex-row justify-center gap-3" style="--reveal-delay:180ms">
-                <button onclick="showQuoteModal()" class="btn-primary px-8 py-4 font-semibold rounded-full text-[15px]">Get a custom quote</button>
-                <a href="https://calendly.com/subham-kanoi/30min" target="_blank" class="btn-ghost px-8 py-4 font-semibold rounded-full text-[15px] flex items-center justify-center gap-x-2">
-                    <i class="fa-solid fa-video text-sm"></i><span>Book a 30-min consult</span>
-                </a>
+        <!-- Methodology Note -->
+        <section class="bg-cream py-16">
+            <div class="max-w-4xl mx-auto px-6">
+                <h3 class="font-display text-2xl font-bold text-ink mb-4 text-center">How this calculation works</h3>
+                <p class="text-ink-muted text-sm leading-relaxed mb-4 text-center">
+                    This calculator uses conservative industry benchmarks to highlight the indirect costs of an unmanaged catering program. 
+                    <strong>Productivity loss</strong> assumes average employee cost per hour distributed across queue delays. 
+                    <strong>Food waste</strong> calculates the pure commercial value of discarded food. 
+                    <strong>Admin overhead</strong> assumes HR/Admin staff spend ~1.5 hours per complaint managing vendors and pacifying employees.
+                </p>
+                <p class="text-ink-faint text-xs text-center">
+                    <em>Disclaimer: These figures are estimates intended for illustrative purposes. Actual costs will vary based on specific operational parameters and industry.</em>
+                </p>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- ================= FOOTER ================= -->
-    <footer class="border-t border-sand bg-white">
-        <div class="max-w-6xl mx-auto px-6 py-12">
-            <div class="grid md:grid-cols-3 gap-y-8 gap-x-12 items-start">
+        <!-- CTA Section -->
+        <section class="bg-ink text-white">
+            <div class="max-w-4xl mx-auto px-6 py-24 md:py-36 text-center">
+                <h2 class="reveal font-display text-3xl sm:text-4xl md:text-5xl leading-tight mb-8">
+                    Bring us your current invoice. We'll show you the real comparison.
+                </h2>
+                <div class="reveal flex flex-col sm:flex-row justify-center gap-4 mb-10">
+                    <button onclick="openQuoteWithCalculatorData()" class="btn-olive px-9 py-4 font-semibold rounded-full text-[15px]">
+                        Get a Custom Quote
+                    </button>
+                    <a href="https://calendly.com/subham-kanoi/30min" target="_blank" rel="noopener"
+                       class="inline-flex items-center justify-center gap-2 px-8 py-4 border border-white/20 hover:bg-white/10 rounded-full text-[15px] font-semibold transition-colors">
+                        <i class="fa-solid fa-video text-sm"></i> Book a 30-Min Consultation
+                    </a>
+                </div>
+                <div class="reveal flex flex-col sm:flex-row items-center justify-center gap-6 text-sm text-white/50">
+                    <a href="tel:+919830715557" class="hover:text-white transition-colors">
+                        <i class="fa-solid fa-phone mr-1.5"></i> +91 98307 15557
+                    </a>
+                    <a href="mailto:hello@urhospitality.in" class="hover:text-white transition-colors">
+                        <i class="fa-solid fa-envelope mr-1.5"></i> hello@urhospitality.in
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-border bg-white">
+        <div class="max-w-7xl mx-auto px-6 py-14">
+            <div class="grid md:grid-cols-4 gap-y-8 gap-x-10 items-start">
+                <div class="md:col-span-1">
+                    <div class="flex items-center gap-3 mb-4">
+                        <img src="assets/images/ur-logo.jpeg" alt="UR Hospitality" class="w-10 h-10 rounded-full object-cover ring-1 ring-border">
+                        <div>
+                            <div class="font-display text-lg font-bold leading-none">UR Hospitality</div>
+                            <div class="text-[10px] tracking-widest text-ink-faint uppercase mt-1">Pvt. Ltd.</div>
+                        </div>
+                    </div>
+                    <p class="text-sm text-ink-muted leading-relaxed">Corporate Catering &amp; Managed Food Services</p>
+                    <p class="text-xs text-ink-faint mt-1">Est. 2015 · Kolkata</p>
+                </div>
+
                 <div>
-                    <div class="font-semibold text-lg tracking-tight">UR Hospitality Pvt. Ltd.</div>
-                    <div class="text-sm text-stone-500 mt-1">Central Kitchen · Corporate Catering<br>Est. 2015, Kolkata</div>
+                    <div class="text-[11px] font-semibold tracking-[0.15em] uppercase text-ink-faint mb-4">Navigation</div>
+                    <nav class="space-y-2.5 text-sm">
+                        <a href="index.html#services" class="block text-ink-muted hover:text-ink transition-colors">Corporate Catering</a>
+                        <a href="index.html#system" class="block text-ink-muted hover:text-ink transition-colors">How We Work</a>
+                        <a href="index.html#why-ur" class="block text-ink-muted hover:text-ink transition-colors">Why UR</a>
+                        <a href="index.html#about" class="block text-ink-muted hover:text-ink transition-colors">About</a>
+                        <a href="services.html" class="block text-ink-muted hover:text-ink transition-colors">Services</a>
+                        <a href="roi.html" class="block text-ink-muted hover:text-ink transition-colors">Cost Calculator</a>
+                    </nav>
                 </div>
-                <div class="text-sm text-stone-600 space-y-1.5">
-                    <div>AE-287, Salt Lake, Kolkata – 700064</div>
-                    <div><a href="tel:+919830715557" class="hover:text-ink">+91 98307 15557</a></div>
-                    <div><a href="mailto:hello@urhospitality.in" class="hover:text-ink">hello@urhospitality.in</a></div>
+
+                <div>
+                    <div class="text-[11px] font-semibold tracking-[0.15em] uppercase text-ink-faint mb-4">Contact</div>
+                    <div class="space-y-2.5 text-sm text-ink-muted">
+                        <div>AE-287, Salt Lake,<br>Kolkata – 700064</div>
+                        <div>
+                            <a href="tel:+919830715557" class="hover:text-ink transition-colors">+91 98307 15557</a>
+                        </div>
+                        <div>
+                            <a href="mailto:hello@urhospitality.in" class="hover:text-ink transition-colors">hello@urhospitality.in</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="text-sm text-stone-600 md:text-right space-y-1.5">
-                    <div><a href="services.html" class="hover:text-ink">Services</a> · <a href="roi.html" class="hover:text-ink">Cost Calculator</a> · <a href="about.html" class="hover:text-ink">About</a></div>
-                    <div><a href="assets/UR-Hospitality-Capabilities.pdf" download class="hover:text-ink">Capabilities PDF <i class="fa-solid fa-file-arrow-down text-xs"></i></a></div>
+
+                <div>
+                    <div class="text-[11px] font-semibold tracking-[0.15em] uppercase text-ink-faint mb-4">Compliance</div>
+                    <div class="space-y-2.5 text-sm text-ink-muted">
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-check text-olive text-xs"></i> FSSAI Licensed
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-check text-olive text-xs"></i> GST Compliant
+                        </div>
+                    </div>
+                    <div class="mt-6">
+                        <a href="assets/UR-Hospitality-Capabilities.pdf" download class="inline-flex items-center gap-2 text-sm text-olive hover:underline font-medium">
+                            <i class="fa-solid fa-file-arrow-down"></i> Capabilities PDF
+                        </a>
+                    </div>
                 </div>
             </div>
-            <div class="border-t border-sand mt-10 pt-6 flex flex-col md:flex-row justify-between gap-y-2 text-xs text-stone-400">
+
+            <div class="border-t border-border mt-10 pt-6 flex flex-col md:flex-row justify-between gap-y-2 text-xs text-ink-faint">
                 <div>© 2026 UR Hospitality Pvt. Ltd. All rights reserved.</div>
                 <div>FSSAI Licensed · GST Compliant · 98.7% Client Retention</div>
             </div>
         </div>
     </footer>
 
-    <!-- ================= QUOTE MODAL ================= -->
+    <!-- Quote Modal -->
     <div id="quote-modal" onclick="if (event.target.id === 'quote-modal') hideQuoteModal()"
-         class="hidden fixed inset-0 bg-black/60 flex items-center justify-center z-[100] p-4">
+         class="hidden fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-[100] p-4">
         <div onclick="event.stopImmediatePropagation()"
-             class="bg-white w-full max-w-lg rounded-3xl shadow-2xl overflow-hidden max-h-[92vh] overflow-y-auto">
+             class="bg-white w-full max-w-lg rounded-2xl shadow-2xl overflow-hidden max-h-[92vh] overflow-y-auto">
 
-            <div class="px-8 pt-7 pb-5 border-b border-sand flex items-center justify-between">
+            <div class="px-8 pt-7 pb-5 border-b border-border flex items-center justify-between">
                 <div>
-                    <div class="font-semibold text-2xl tracking-tight">Let's discuss your needs</div>
-                    <div class="text-sm text-stone-500">We'll reply within 4 business hours</div>
+                    <div class="font-display text-2xl font-bold tracking-tight">Start the conversation</div>
+                    <div class="text-sm text-ink-muted mt-1">We'll respond within 4 business hours</div>
                 </div>
-                <button onclick="hideQuoteModal()" aria-label="Close" class="text-3xl leading-none text-stone-400 hover:text-stone-600">&times;</button>
+                <button onclick="hideQuoteModal()" aria-label="Close" class="text-3xl leading-none text-ink-faint hover:text-ink transition-colors">&times;</button>
             </div>
 
             <div id="form-success" class="hidden p-8 text-center">
-                <div class="mx-auto w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mb-4">
+                <div class="mx-auto w-16 h-16 bg-olive-bg text-olive rounded-full flex items-center justify-center mb-4">
                     <i class="fa-solid fa-check text-3xl"></i>
                 </div>
-                <h3 class="text-2xl font-semibold mb-2">Thank you!</h3>
-                <p class="text-stone-600 mb-6">Your request has been received. Our team will contact you within 4 business hours.</p>
+                <h3 class="font-display text-2xl font-bold mb-2">Received.</h3>
+                <p class="text-ink-muted mb-6">Our team will review your requirements and get back to you within 4 business hours.</p>
                 <button onclick="resetAndCloseModal()" class="btn-primary px-8 py-3 font-semibold rounded-full">Close</button>
             </div>
 
             <form id="quote-form" onsubmit="submitQuoteForm(event)" class="p-8 space-y-5">
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
-                        <label class="block text-xs font-medium tracking-wider text-stone-500 mb-1.5">YOUR NAME *</label>
+                        <label class="block text-[11px] font-semibold tracking-wider text-ink-faint uppercase mb-1.5">Your Name *</label>
                         <input type="text" name="name" required
-                               class="w-full border border-sand focus:border-coffee px-4 py-3 text-sm rounded-2xl outline-none"
+                               class="w-full border border-border focus:border-olive px-4 py-3 text-sm rounded-xl outline-none transition-colors"
                                placeholder="Rahul Sharma">
                     </div>
                     <div>
-                        <label class="block text-xs font-medium tracking-wider text-stone-500 mb-1.5">PHONE NUMBER *</label>
+                        <label class="block text-[11px] font-semibold tracking-wider text-ink-faint uppercase mb-1.5">Phone *</label>
                         <input type="tel" name="phone" required
-                               class="w-full border border-sand focus:border-coffee px-4 py-3 text-sm rounded-2xl outline-none"
+                               class="w-full border border-border focus:border-olive px-4 py-3 text-sm rounded-xl outline-none transition-colors"
                                placeholder="+91 98307 15557">
                     </div>
                 </div>
 
                 <div>
-                    <label class="block text-xs font-medium tracking-wider text-stone-500 mb-1.5">WORK EMAIL *</label>
+                    <label class="block text-[11px] font-semibold tracking-wider text-ink-faint uppercase mb-1.5">Work Email *</label>
                     <input type="email" name="email" required
-                           class="w-full border border-sand focus:border-coffee px-4 py-3 text-sm rounded-2xl outline-none"
+                           class="w-full border border-border focus:border-olive px-4 py-3 text-sm rounded-xl outline-none transition-colors"
                            placeholder="you@company.com">
                 </div>
 
-                <div>
-                    <label class="block text-xs font-medium tracking-wider text-stone-500 mb-1.5">COMPANY NAME *</label>
-                    <input type="text" name="company" required
-                           class="w-full border border-sand focus:border-coffee px-4 py-3 text-sm rounded-2xl outline-none"
-                           placeholder="Acme Technologies Pvt Ltd">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    <div>
+                        <label class="block text-[11px] font-semibold tracking-wider text-ink-faint uppercase mb-1.5">Company *</label>
+                        <input type="text" name="company" required
+                               class="w-full border border-border focus:border-olive px-4 py-3 text-sm rounded-xl outline-none transition-colors"
+                               placeholder="Acme Technologies Pvt Ltd">
+                    </div>
+                    <div>
+                        <label class="block text-[11px] font-semibold tracking-wider text-ink-faint uppercase mb-1.5">Designation</label>
+                        <input type="text" name="designation"
+                               class="w-full border border-border focus:border-olive px-4 py-3 text-sm rounded-xl outline-none transition-colors"
+                               placeholder="Head of Admin">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    <div>
+                        <label class="block text-[11px] font-semibold tracking-wider text-ink-faint uppercase mb-1.5">Location</label>
+                        <input type="text" name="location"
+                               class="w-full border border-border focus:border-olive px-4 py-3 text-sm rounded-xl outline-none transition-colors"
+                               placeholder="Salt Lake, Kolkata">
+                    </div>
+                    <div>
+                        <label class="block text-[11px] font-semibold tracking-wider text-ink-faint uppercase mb-1.5">Approx. Meals / Day</label>
+                        <select name="meals" class="w-full border border-border focus:border-olive px-4 py-3 text-sm rounded-xl outline-none bg-white transition-colors">
+                            <option value="">Select range</option>
+                            <option value="50-100">50 – 100 meals/day</option>
+                            <option value="100-250">100 – 250 meals/day</option>
+                            <option value="250-500">250 – 500 meals/day</option>
+                            <option value="500-1000">500 – 1,000 meals/day</option>
+                            <option value="1000+">1,000+ meals/day</option>
+                        </select>
+                    </div>
                 </div>
 
                 <div>
-                    <label class="block text-xs font-medium tracking-wider text-stone-500 mb-1.5">APPROX. NUMBER OF MEALS / DAY</label>
-                    <select name="meals" class="w-full border border-sand focus:border-coffee px-4 py-3 text-sm rounded-2xl outline-none bg-white">
-                        <option value="">Select range</option>
-                        <option value="50-100">50 – 100 meals/day</option>
-                        <option value="100-250">100 – 250 meals/day</option>
-                        <option value="250-500">250 – 500 meals/day</option>
-                        <option value="500-1000">500 – 1000 meals/day</option>
-                        <option value="1000+">1000+ meals/day</option>
+                    <label class="block text-[11px] font-semibold tracking-wider text-ink-faint uppercase mb-1.5">Service Required</label>
+                    <select name="service" class="w-full border border-border focus:border-olive px-4 py-3 text-sm rounded-xl outline-none bg-white transition-colors">
+                        <option value="">Select service</option>
+                        <option value="cafeteria">Managed Corporate Cafeteria</option>
+                        <option value="meal-program">Corporate Meal Programs</option>
+                        <option value="events">Corporate Events</option>
+                        <option value="executive">Executive & Boardroom Catering</option>
+                        <option value="multi-site">Multi-Site Operations</option>
+                        <option value="festive">Festive & Employee Experiences</option>
+                        <option value="other">Other / Multiple</option>
                     </select>
                 </div>
 
                 <div>
-                    <label class="block text-xs font-medium tracking-wider text-stone-500 mb-1.5">ANY SPECIFIC REQUIREMENTS?</label>
+                    <label class="block text-[11px] font-semibold tracking-wider text-ink-faint uppercase mb-1.5">Current Challenge</label>
                     <textarea name="message" rows="3"
-                              class="w-full border border-sand focus:border-coffee px-4 py-3 text-sm rounded-2xl outline-none resize-y"
-                              placeholder="E.g., High protein focus, Bengali cuisine, Jain menu, live counters for events..."></textarea>
+                              class="w-full border border-border focus:border-olive px-4 py-3 text-sm rounded-xl outline-none resize-y transition-colors"
+                              placeholder="E.g., Current vendor unreliable, food quality inconsistent, need Jain menu options, scaling from 200 to 500 meals..."></textarea>
                 </div>
 
                 <input type="text" name="_gotcha" class="hidden" tabindex="-1" autocomplete="off">
 
                 <button type="submit" id="submit-btn"
                         class="btn-primary w-full py-4 font-semibold rounded-full flex items-center justify-center gap-x-2 text-base">
-                    <span id="submit-text">Submit Request</span>
+                    <span id="submit-text">Start the Conversation</span>
                     <i id="submit-icon" class="fa-solid fa-paper-plane ml-1"></i>
                 </button>
 
                 <div class="text-center">
                     <button type="button" onclick="sendViaWhatsApp()"
-                            class="text-sm text-clay hover:underline flex items-center justify-center gap-x-2 mx-auto">
+                            class="text-sm text-olive hover:underline flex items-center justify-center gap-x-2 mx-auto">
                         <i class="fa-brands fa-whatsapp"></i>
-                        <span>Prefer WhatsApp? Message us directly</span>
+                        <span>Prefer WhatsApp? Send via WhatsApp instead</span>
                     </button>
                 </div>
-
-                <p class="text-[10px] text-center text-stone-400"><i class="fa-solid fa-lock text-emerald-500 mr-1"></i>Your information is secure and confidential. No spam, ever.</p>
             </form>
         </div>
     </div>
 
+    <!-- Floating Contact Widget -->
+    <div class="floating-contact" aria-label="Contact options">
+        <div class="floating-contact-options">
+            <a href="https://wa.me/919830715557?text=Hello%20UR%20Hospitality%2C%20I%27m%20interested%20in%20corporate%20catering."
+               target="_blank" rel="noopener" class="floating-contact-btn fc-whatsapp" aria-label="Chat on WhatsApp">
+                <span class="fc-tooltip">WhatsApp</span>
+                <i class="fa-brands fa-whatsapp text-xl"></i>
+            </a>
+            <a href="tel:+919830715557" class="floating-contact-btn fc-call" aria-label="Call us">
+                <span class="fc-tooltip">Call</span>
+                <i class="fa-solid fa-phone"></i>
+            </a>
+            <button onclick="showQuoteModal()" class="floating-contact-btn fc-quote" aria-label="Get a quote">
+                <span class="fc-tooltip">Get Quote</span>
+                <i class="fa-solid fa-file-lines"></i>
+            </button>
+        </div>
+        <button class="floating-contact-btn floating-contact-trigger" aria-label="Open contact options">
+            <i class="fa-solid fa-headset icon-open"></i>
+            <i class="fa-solid fa-xmark icon-close"></i>
+        </button>
+    </div>
+
+    <!-- Mobile Sticky CTA -->
+    <div class="mobile-sticky-cta">
+        <a href="tel:+919830715557" class="flex-1 flex items-center justify-center gap-2 py-3 border border-border rounded-full text-sm font-semibold text-ink bg-white">
+            <i class="fa-solid fa-phone text-xs"></i> Call
+        </a>
+        <button onclick="showQuoteModal()" class="flex-1 btn-primary py-3 rounded-full text-sm font-semibold">
+            Get a Quote
+        </button>
+    </div>
+
+    <!-- Scripts -->
+    <script>
+        document.documentElement.classList.add('js');
+        // Preset function for the calculator chips
+        function setPreset(users, cost, queue, waste, complaints) {
+            document.getElementById('daily-users').value = users;
+            document.getElementById('meal-cost').value = cost;
+            document.getElementById('queue-time').value = queue;
+            document.getElementById('waste-percent').value = waste;
+            document.getElementById('complaints').value = complaints;
+            
+            if(typeof updateCalculator === 'function') {
+                updateCalculator();
+            }
+        }
+        
+        // Trigger initial calculation on page load
+        document.addEventListener('DOMContentLoaded', () => {
+            if(typeof updateCalculator === 'function') {
+                updateCalculator();
+            }
+        });
+    </script>
     <script src="js/main.js"></script>
     <script src="js/site.js"></script>
 </body>

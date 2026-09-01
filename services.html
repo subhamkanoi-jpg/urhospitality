@@ -1,344 +1,580 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Services | UR Hospitality</title>
-    <meta name="description" content="Corporate cafeteria management, events, wellness programs, pantry solutions and multi-location catering for enterprises in Kolkata.">
-
+    <title>Corporate Catering Services | UR Hospitality, Kolkata</title>
+    <meta name="description" content="Managed corporate cafeterias, daily meal programs, corporate events, executive catering, multi-site operations & festive experiences. FSSAI licensed corporate caterer in Kolkata.">
+    
+    <!-- Open Graph Tags -->
+    <meta property="og:title" content="Corporate Catering Services | UR Hospitality, Kolkata">
+    <meta property="og:description" content="Managed corporate cafeterias, daily meal programs, corporate events, executive catering, multi-site operations & festive experiences. FSSAI licensed corporate caterer in Kolkata.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://urhospitality.in/services.html">
+    <meta property="og:image" content="assets/images/corporate-cafeteria.png">
+    
+    <!-- Favicon -->
     <link rel="icon" type="image/jpeg" href="assets/images/favicon.jpeg">
 
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Custom CSS (imports Google Fonts) -->
+    <link rel="stylesheet" href="css/site.css">
+
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
                     colors: {
-                        ink: '#231A14',
-                        coffee: '#4A3B31',
-                        cream: '#FAF8F4',
+                        ink: '#1A1A19',
+                        'ink-soft': '#3D3D3A',
+                        'ink-muted': '#6B6560',
+                        'ink-faint': '#9C9590',
+                        olive: '#4A5D23',
+                        'olive-soft': '#5A7030',
+                        'olive-bg': '#F0F3EA',
+                        terracotta: '#B85C38',
+                        cream: '#FAF7F2',
+                        'cream-alt': '#F3EDE4',
                         sand: '#EDE6DC',
-                        clay: '#C2410C'
+                        stone: '#E8E0D4',
+                        border: '#E5DDD0'
                     },
                     fontFamily: {
-                        sans: ['Inter', 'system-ui', 'sans-serif']
+                        display: ['Inter Tight', 'Inter', 'system-ui', 'sans-serif'],
+                        body: ['Inter', 'system-ui', 'sans-serif'],
+                        accent: ['Fraunces', 'Georgia', 'serif']
                     }
                 }
             }
         }
     </script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <script>document.documentElement.classList.add('js');</script>
-    <link rel="stylesheet" href="css/site.css">
 </head>
-<body class="bg-cream text-ink">
+<body class="font-body text-ink bg-cream antialiased selection:bg-olive selection:text-white">
 
-    <div id="scroll-progress"></div>
+    <!-- Skip Link -->
+    <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-ink text-white px-4 py-2 rounded-md z-50 shadow-lg">Skip to main content</a>
 
-    <!-- ================= NAV ================= -->
-    <nav id="site-nav" class="bg-cream/90 backdrop-blur-md sticky top-0 z-50">
-        <div class="max-w-6xl mx-auto px-6">
-            <div class="h-[72px] flex items-center justify-between">
-                <a href="index.html" class="flex items-center gap-x-3" aria-label="UR Hospitality home">
-                    <img src="assets/images/ur-logo.jpeg" alt="UR Hospitality logo" class="w-10 h-10 rounded-full object-cover ring-1 ring-sand">
-                    <div>
-                        <div class="font-semibold text-lg tracking-tight leading-none">UR Hospitality</div>
-                        <div class="text-[10px] text-stone-500 tracking-[2px] mt-1">EST. 2015 · KOLKATA</div>
-                    </div>
+    <!-- Scroll Progress -->
+    <div id="scroll-progress" class="fixed top-0 left-0 h-1 bg-olive z-[60] w-0 transition-all duration-150"></div>
+
+    <!-- Navigation -->
+    <nav id="site-nav" class="bg-cream/90 backdrop-blur-md sticky top-0 z-50 h-[72px] border-b border-border transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
+            <!-- Left: Logo -->
+            <a href="index.html" class="flex items-center gap-3 group">
+                <img src="assets/images/ur-logo.jpeg" alt="UR Hospitality Logo" class="w-10 h-10 rounded-full object-cover shadow-sm ring-1 ring-border group-hover:ring-olive transition-all">
+                <div class="flex flex-col">
+                    <span class="font-display font-semibold text-ink leading-none text-lg">UR Hospitality</span>
+                    <span class="text-[10px] tracking-widest text-ink-muted uppercase mt-1 font-semibold">Est. 2015 · Kolkata</span>
+                </div>
+            </a>
+
+            <!-- Center: Desktop Links -->
+            <div class="hidden md:flex items-center gap-8">
+                <a href="index.html#services" class="text-sm font-medium text-ink-soft hover:text-olive transition-colors">Corporate Catering</a>
+                <a href="index.html#system" class="text-sm font-medium text-ink-soft hover:text-olive transition-colors">How We Work</a>
+                <a href="index.html#why-ur" class="text-sm font-medium text-ink-soft hover:text-olive transition-colors">Why UR</a>
+                <a href="index.html#clients" class="text-sm font-medium text-ink-soft hover:text-olive transition-colors">Our Clients</a>
+                <a href="index.html#about" class="text-sm font-medium text-ink-soft hover:text-olive transition-colors">About</a>
+            </div>
+
+            <!-- Right: CTA -->
+            <div class="hidden md:flex items-center gap-5">
+                <a href="tel:+919830715557" class="hidden lg:flex text-sm font-semibold text-ink hover:text-olive transition-colors items-center gap-2">
+                    <i class="fa-solid fa-phone text-xs"></i> +91 98307 15557
                 </a>
-
-                <div class="hidden md:flex items-center gap-x-8 text-sm font-medium">
-                    <a href="index.html#standards" class="nav-link">Standards</a>
-                    <a href="services.html" class="nav-link active">Services</a>
-                    <a href="roi.html" class="nav-link">The Numbers</a>
-                    <a href="about.html" class="nav-link">About</a>
-                </div>
-
-                <div class="hidden md:flex items-center gap-x-5">
-                    <a href="tel:+919830715557" class="hidden lg:inline text-sm font-medium text-stone-600 hover:text-ink transition-colors">+91 98307 15557</a>
-                    <button onclick="showQuoteModal()" class="btn-primary px-5 py-2.5 text-sm font-semibold rounded-full">Get a Quote</button>
-                </div>
-
-                <button id="mobile-menu-btn" onclick="toggleMobileMenu()" aria-label="Open navigation menu" aria-expanded="false"
-                        class="md:hidden w-10 h-10 flex items-center justify-center text-stone-600 rounded-xl">
-                    <i class="fa-solid fa-bars text-xl"></i>
+                <button onclick="showQuoteModal()" class="bg-ink hover:bg-olive text-white px-5 py-2.5 rounded-full text-sm font-semibold transition-colors btn-primary">
+                    Get a Quote
                 </button>
             </div>
-        </div>
 
-        <div id="mobile-menu" class="hidden md:hidden border-t border-sand bg-cream px-6 py-6">
-            <div class="flex flex-col gap-y-1 text-[15px] font-medium">
-                <a href="index.html#standards" class="py-2.5 text-stone-700">Standards</a>
-                <a href="services.html" class="py-2.5 text-stone-700">Services</a>
-                <a href="roi.html" class="py-2.5 text-stone-700">The Numbers</a>
-                <a href="about.html" class="py-2.5 text-stone-700">About</a>
-                <div class="pt-4 mt-3 border-t border-sand flex flex-col gap-y-3">
-                    <a href="tel:+919830715557" class="flex items-center justify-center gap-x-2 py-3 border border-sand rounded-full text-stone-700">
-                        <i class="fa-solid fa-phone text-sm"></i><span>+91 98307 15557</span>
-                    </a>
-                    <button onclick="showQuoteModal(); toggleMobileMenu();" class="btn-primary w-full py-3 font-semibold rounded-full">Get a Quote</button>
-                </div>
-            </div>
+            <!-- Mobile Toggle -->
+            <button onclick="toggleMobileMenu()" class="md:hidden flex items-center justify-center w-10 h-10 text-ink" aria-label="Toggle Menu">
+                <i class="fa-solid fa-bars text-xl"></i>
+            </button>
         </div>
     </nav>
 
-    <!-- ================= HEADER ================= -->
-    <header class="max-w-6xl mx-auto px-6 pt-16 md:pt-20 pb-14">
-        <div class="max-w-3xl">
-            <div class="reveal in text-[11px] font-semibold tracking-[0.22em] text-clay uppercase mb-6">What we run</div>
-            <h1 class="reveal in font-display text-[40px] sm:text-5xl md:text-6xl leading-[1.04] mb-6">
-                Six ways we take dining off your plate.
-            </h1>
-            <p class="reveal in max-w-2xl text-lg text-stone-600 leading-relaxed" style="--reveal-delay:120ms">
-                Every service runs from the same certified central kitchen, under the same standards, with one accountable point of contact.
-            </p>
+    <!-- Mobile Menu Panel -->
+    <div id="mobile-menu" class="fixed inset-0 bg-cream z-40 hidden flex-col pt-[72px] px-6 pb-6 h-screen overflow-y-auto">
+        <div class="flex flex-col gap-6 mt-8">
+            <a href="index.html#services" class="text-2xl font-display font-medium text-ink" onclick="toggleMobileMenu()">Corporate Catering</a>
+            <a href="index.html#system" class="text-2xl font-display font-medium text-ink" onclick="toggleMobileMenu()">How We Work</a>
+            <a href="index.html#why-ur" class="text-2xl font-display font-medium text-ink" onclick="toggleMobileMenu()">Why UR</a>
+            <a href="index.html#clients" class="text-2xl font-display font-medium text-ink" onclick="toggleMobileMenu()">Our Clients</a>
+            <a href="index.html#about" class="text-2xl font-display font-medium text-ink" onclick="toggleMobileMenu()">About</a>
+            
+            <div class="h-px bg-border my-2"></div>
+            
+            <a href="tel:+919830715557" class="text-lg font-medium text-ink flex items-center gap-3">
+                <i class="fa-solid fa-phone text-olive"></i> +91 98307 15557
+            </a>
+            <button onclick="showQuoteModal(); toggleMobileMenu();" class="bg-ink text-white px-6 py-4 rounded-full text-lg font-semibold mt-4 text-center btn-primary">
+                Get a Quote
+            </button>
         </div>
-    </header>
+    </div>
 
-    <!-- ================= SERVICES ================= -->
-    <section class="max-w-6xl mx-auto px-6 pb-20">
-        <div class="grid md:grid-cols-2 gap-5 reveal-group">
+    <main id="main-content">
+        <!-- HERO SECTION -->
+        <section class="pt-16 md:pt-24 pb-16 md:pb-20 px-6 max-w-7xl mx-auto">
+            <div class="reveal in max-w-4xl">
+                <div class="text-[11px] font-semibold tracking-[0.22em] text-olive uppercase mb-6 flex items-center gap-2">
+                    <a href="index.html" class="hover:text-ink transition-colors">Home</a> <i class="fa-solid fa-chevron-right text-[8px]"></i> Services
+                </div>
+                <h1 class="font-display text-[42px] sm:text-5xl md:text-[64px] leading-[1.05] text-ink font-bold mb-6">
+                    Services built for the complexity of corporate food.
+                </h1>
+                <p class="text-lg md:text-xl text-ink-muted leading-relaxed">
+                    From daily cafeteria management to large-scale events — every service designed around operational reliability, food safety and employee satisfaction.
+                </p>
+            </div>
+        </section>
 
-            <div class="card reveal group relative overflow-hidden rounded-3xl p-8">
-                <img src="assets/images/gallery/gallery-01.jpeg" alt="" aria-hidden="true" loading="lazy"
-                     class="absolute inset-0 w-full h-full object-cover opacity-[0.07] group-hover:opacity-[0.14] transition-opacity duration-500">
-                <div class="relative z-10">
-                    <div class="flex items-start justify-between mb-5">
-                        <div class="w-11 h-11 flex items-center justify-center rounded-2xl bg-cream border border-sand text-coffee">
-                            <i class="fa-solid fa-building text-lg"></i>
-                        </div>
-                        <div class="text-xs font-semibold text-stone-300 tracking-[2px]">01</div>
+        <!-- SERVICE 1 -->
+        <section class="py-20 md:py-28 px-6 bg-cream border-t border-border">
+            <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 md:gap-20 items-center reveal-group">
+                <div class="order-2 md:order-1 reveal">
+                    <div class="section-label mb-6">01 — Managed Corporate Cafeteria</div>
+                    <h2 class="font-display text-3xl md:text-4xl font-bold text-ink mb-6">Your cafeteria, our operation.</h2>
+                    <p class="text-lg text-ink-muted mb-6 leading-relaxed">
+                        End-to-end management of your workplace cafeteria — menu planning, procurement, cooking, service and cleanup.
+                    </p>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start gap-3 text-ink-soft"><i class="fa-solid fa-check text-olive mt-1 text-sm"></i> <span>Dedicated on-site team</span></li>
+                        <li class="flex items-start gap-3 text-ink-soft"><i class="fa-solid fa-check text-olive mt-1 text-sm"></i> <span>Daily menu rotation</span></li>
+                        <li class="flex items-start gap-3 text-ink-soft"><i class="fa-solid fa-check text-olive mt-1 text-sm"></i> <span>Dietary customisation (Jain, vegan, regional)</span></li>
+                        <li class="flex items-start gap-3 text-ink-soft"><i class="fa-solid fa-check text-olive mt-1 text-sm"></i> <span>Hygiene & safety management</span></li>
+                        <li class="flex items-start gap-3 text-ink-soft"><i class="fa-solid fa-check text-olive mt-1 text-sm"></i> <span>Monthly performance reports</span></li>
+                    </ul>
+                    <div class="bg-olive-bg/50 px-5 py-4 rounded-xl border border-olive/10 mb-8">
+                        <div class="text-sm font-semibold text-olive uppercase tracking-wider mb-1">The Benefit</div>
+                        <p class="text-ink-soft font-medium">Your admin team stops managing food. Your employees start enjoying it.</p>
                     </div>
-                    <h3 class="font-semibold text-xl tracking-tight mb-2.5">Corporate Cafeteria Management</h3>
-                    <p class="text-[15px] text-stone-600 leading-relaxed">Complete daily cafeteria operations for offices, IT parks and manufacturing units — consistent quality, full compliance, zero operational burden on your internal team. Our core business and what we're known for.</p>
+                    <button onclick="showQuoteModal()" class="btn-ghost flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-ink border border-border hover:border-ink transition-colors w-fit">
+                        Discuss this service <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+                <div class="order-1 md:order-2 reveal" style="--reveal-delay:100ms">
+                    <img src="assets/images/gallery/gallery-01.jpeg" alt="Managed Corporate Cafeteria" class="w-full aspect-[4/3] object-cover rounded-2xl shadow-lg ring-1 ring-border">
                 </div>
             </div>
+        </section>
 
-            <div class="card reveal group relative overflow-hidden rounded-3xl p-8">
-                <img src="assets/images/gallery/gallery-06.jpeg" alt="" aria-hidden="true" loading="lazy"
-                     class="absolute inset-0 w-full h-full object-cover opacity-[0.07] group-hover:opacity-[0.14] transition-opacity duration-500">
-                <div class="relative z-10">
-                    <div class="flex items-start justify-between mb-5">
-                        <div class="w-11 h-11 flex items-center justify-center rounded-2xl bg-cream border border-sand text-coffee">
-                            <i class="fa-solid fa-calendar-check text-lg"></i>
-                        </div>
-                        <div class="text-xs font-semibold text-stone-300 tracking-[2px]">02</div>
+        <!-- SERVICE 2 -->
+        <section class="py-20 md:py-28 px-6 bg-white border-y border-border">
+            <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 md:gap-20 items-center reveal-group">
+                <div class="order-1 md:order-1 reveal">
+                    <img src="assets/images/gallery/gallery-02.jpeg" alt="Corporate Meal Programs" class="w-full aspect-[4/3] object-cover rounded-2xl shadow-lg ring-1 ring-border">
+                </div>
+                <div class="order-2 md:order-2 reveal" style="--reveal-delay:100ms">
+                    <div class="section-label mb-6">02 — Corporate Meal Programs</div>
+                    <h2 class="font-display text-3xl md:text-4xl font-bold text-ink mb-6">Structured meals for structured workdays.</h2>
+                    <p class="text-lg text-ink-muted mb-6 leading-relaxed">
+                        Recurring breakfast, lunch, snacks, and dinner programs designed around your workforce's schedule, dietary preferences and budget.
+                    </p>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start gap-3 text-ink-soft"><i class="fa-solid fa-check text-olive mt-1 text-sm"></i> <span>Multi-cuisine daily menus</span></li>
+                        <li class="flex items-start gap-3 text-ink-soft"><i class="fa-solid fa-check text-olive mt-1 text-sm"></i> <span>Flexible meal configurations</span></li>
+                        <li class="flex items-start gap-3 text-ink-soft"><i class="fa-solid fa-check text-olive mt-1 text-sm"></i> <span>Headcount-based portioning</span></li>
+                        <li class="flex items-start gap-3 text-ink-soft"><i class="fa-solid fa-check text-olive mt-1 text-sm"></i> <span>Real-time feedback integration</span></li>
+                        <li class="flex items-start gap-3 text-ink-soft"><i class="fa-solid fa-check text-olive mt-1 text-sm"></i> <span>Budget-aligned pricing</span></li>
+                    </ul>
+                    <div class="bg-olive-bg/50 px-5 py-4 rounded-xl border border-olive/10 mb-8">
+                        <div class="text-sm font-semibold text-olive uppercase tracking-wider mb-1">The Benefit</div>
+                        <p class="text-ink-soft font-medium">Consistent quality across every meal, every day.</p>
                     </div>
-                    <h3 class="font-semibold text-xl tracking-tight mb-2.5">Corporate Events &amp; Conferences</h3>
-                    <p class="text-[15px] text-stone-600 leading-relaxed">Board meetings, leadership offsites, product launches and large-scale events — themed menus, strict compliance and dedicated on-site teams, executed without disrupting your daily service.</p>
+                    <button onclick="showQuoteModal()" class="btn-ghost flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-ink border border-border hover:border-ink transition-colors w-fit">
+                        Discuss this service <i class="fa-solid fa-arrow-right"></i>
+                    </button>
                 </div>
             </div>
+        </section>
 
-            <div class="card reveal group relative overflow-hidden rounded-3xl p-8">
-                <img src="assets/images/gallery/gallery-05.jpeg" alt="" aria-hidden="true" loading="lazy"
-                     class="absolute inset-0 w-full h-full object-cover opacity-[0.07] group-hover:opacity-[0.14] transition-opacity duration-500">
-                <div class="relative z-10">
-                    <div class="flex items-start justify-between mb-5">
-                        <div class="w-11 h-11 flex items-center justify-center rounded-2xl bg-cream border border-sand text-coffee">
-                            <i class="fa-solid fa-heart-pulse text-lg"></i>
-                        </div>
-                        <div class="text-xs font-semibold text-stone-300 tracking-[2px]">03</div>
+        <!-- SERVICE 3 -->
+        <section class="py-20 md:py-28 px-6 bg-cream">
+            <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 md:gap-20 items-center reveal-group">
+                <div class="order-2 md:order-1 reveal">
+                    <div class="section-label mb-6">03 — Corporate Events</div>
+                    <h2 class="font-display text-3xl md:text-4xl font-bold text-ink mb-6">Event food with cafeteria-grade reliability.</h2>
+                    <p class="text-lg text-ink-muted mb-6 leading-relaxed">
+                        Town halls, leadership meetings, annual events, launches, and celebrations — catered with the same operational discipline as daily service.
+                    </p>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start gap-3 text-ink-soft"><i class="fa-solid fa-check text-olive mt-1 text-sm"></i> <span>Custom event menus</span></li>
+                        <li class="flex items-start gap-3 text-ink-soft"><i class="fa-solid fa-check text-olive mt-1 text-sm"></i> <span>Live counters & themed stations</span></li>
+                        <li class="flex items-start gap-3 text-ink-soft"><i class="fa-solid fa-check text-olive mt-1 text-sm"></i> <span>Professional service staff</span></li>
+                        <li class="flex items-start gap-3 text-ink-soft"><i class="fa-solid fa-check text-olive mt-1 text-sm"></i> <span>Event-day coordination</span></li>
+                        <li class="flex items-start gap-3 text-ink-soft"><i class="fa-solid fa-check text-olive mt-1 text-sm"></i> <span>Post-event cleanup</span></li>
+                    </ul>
+                    <div class="bg-olive-bg/50 px-5 py-4 rounded-xl border border-olive/10 mb-8">
+                        <div class="text-sm font-semibold text-olive uppercase tracking-wider mb-1">The Benefit</div>
+                        <p class="text-ink-soft font-medium">The food matches the occasion. The logistics disappear.</p>
                     </div>
-                    <h3 class="font-semibold text-xl tracking-tight mb-2.5">Wellness &amp; Nutrition Programs</h3>
-                    <p class="text-[15px] text-stone-600 leading-relaxed">High-protein, diabetic-friendly, gut-health and other customised wellness menus with monthly reporting — so HR teams can drive measurable employee wellness outcomes.</p>
+                    <button onclick="showQuoteModal()" class="btn-ghost flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-ink border border-border hover:border-ink transition-colors w-fit">
+                        Discuss this service <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+                <div class="order-1 md:order-2 reveal" style="--reveal-delay:100ms">
+                    <img src="assets/images/gallery/gallery-03.jpeg" alt="Corporate Events" class="w-full aspect-[4/3] object-cover rounded-2xl shadow-lg ring-1 ring-border">
                 </div>
             </div>
+        </section>
 
-            <div class="card reveal group relative overflow-hidden rounded-3xl p-8">
-                <img src="assets/images/gallery/abc.jpeg" alt="" aria-hidden="true" loading="lazy"
-                     class="absolute inset-0 w-full h-full object-cover opacity-[0.07] group-hover:opacity-[0.14] transition-opacity duration-500">
-                <div class="relative z-10">
-                    <div class="flex items-start justify-between mb-5">
-                        <div class="w-11 h-11 flex items-center justify-center rounded-2xl bg-cream border border-sand text-coffee">
-                            <i class="fa-solid fa-calendar-day text-lg"></i>
-                        </div>
-                        <div class="text-xs font-semibold text-stone-300 tracking-[2px]">04</div>
+        <!-- SERVICE 4 -->
+        <section class="py-20 md:py-28 px-6 bg-white border-y border-border">
+            <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 md:gap-20 items-center reveal-group">
+                <div class="order-1 md:order-1 reveal">
+                    <img src="assets/images/gallery/gallery-04.jpeg" alt="Executive & Boardroom Catering" class="w-full aspect-[4/3] object-cover rounded-2xl shadow-lg ring-1 ring-border">
+                </div>
+                <div class="order-2 md:order-2 reveal" style="--reveal-delay:100ms">
+                    <div class="section-label mb-6">04 — Executive & Boardroom Catering</div>
+                    <h2 class="font-display text-3xl md:text-4xl font-bold text-ink mb-6">Premium format. Zero premium headache.</h2>
+                    <p class="text-lg text-ink-muted mb-6 leading-relaxed">
+                        Smaller-format premium corporate dining for board meetings, executive lunches and VIP hosting. High touch presentation with completely discreet service.
+                    </p>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start gap-3 text-ink-soft"><i class="fa-solid fa-check text-olive mt-1 text-sm"></i> <span>Curated premium menus</span></li>
+                        <li class="flex items-start gap-3 text-ink-soft"><i class="fa-solid fa-check text-olive mt-1 text-sm"></i> <span>Plated or buffet service</span></li>
+                        <li class="flex items-start gap-3 text-ink-soft"><i class="fa-solid fa-check text-olive mt-1 text-sm"></i> <span>Professional presentation</span></li>
+                        <li class="flex items-start gap-3 text-ink-soft"><i class="fa-solid fa-check text-olive mt-1 text-sm"></i> <span>Dietary accommodation</span></li>
+                        <li class="flex items-start gap-3 text-ink-soft"><i class="fa-solid fa-check text-olive mt-1 text-sm"></i> <span>Discreet on-site service</span></li>
+                    </ul>
+                    <div class="bg-olive-bg/50 px-5 py-4 rounded-xl border border-olive/10 mb-8">
+                        <div class="text-sm font-semibold text-olive uppercase tracking-wider mb-1">The Benefit</div>
+                        <p class="text-ink-soft font-medium">Your boardroom gets restaurant quality without restaurant complexity.</p>
                     </div>
-                    <h3 class="font-semibold text-xl tracking-tight mb-2.5">Themed &amp; Festive Experiences</h3>
-                    <p class="text-[15px] text-stone-600 leading-relaxed">Durga Puja, Diwali, regional food weeks and themed days that lift employee engagement — planned and executed with full operational control and hygiene standards intact.</p>
+                    <button onclick="showQuoteModal()" class="btn-ghost flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-ink border border-border hover:border-ink transition-colors w-fit">
+                        Discuss this service <i class="fa-solid fa-arrow-right"></i>
+                    </button>
                 </div>
             </div>
+        </section>
 
-            <div class="card reveal group relative overflow-hidden rounded-3xl p-8">
-                <img src="assets/images/gallery/gallery-04.jpeg" alt="" aria-hidden="true" loading="lazy"
-                     class="absolute inset-0 w-full h-full object-cover opacity-[0.07] group-hover:opacity-[0.14] transition-opacity duration-500">
-                <div class="relative z-10">
-                    <div class="flex items-start justify-between mb-5">
-                        <div class="w-11 h-11 flex items-center justify-center rounded-2xl bg-cream border border-sand text-coffee">
-                            <i class="fa-solid fa-box text-lg"></i>
-                        </div>
-                        <div class="text-xs font-semibold text-stone-300 tracking-[2px]">05</div>
+        <!-- SERVICE 5 -->
+        <section class="py-20 md:py-28 px-6 bg-cream">
+            <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 md:gap-20 items-center reveal-group">
+                <div class="order-2 md:order-1 reveal">
+                    <div class="section-label mb-6">05 — Multi-Site Operations</div>
+                    <h2 class="font-display text-3xl md:text-4xl font-bold text-ink mb-6">One partner. Multiple sites. One standard.</h2>
+                    <p class="text-lg text-ink-muted mb-6 leading-relaxed">
+                        Consistency across multiple locations with centralised procurement, standardised SOPs and unified reporting. Ideal for organisations operating at scale across the city.
+                    </p>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start gap-3 text-ink-soft"><i class="fa-solid fa-check text-olive mt-1 text-sm"></i> <span>Centralised procurement</span></li>
+                        <li class="flex items-start gap-3 text-ink-soft"><i class="fa-solid fa-check text-olive mt-1 text-sm"></i> <span>Standardised SOPs across sites</span></li>
+                        <li class="flex items-start gap-3 text-ink-soft"><i class="fa-solid fa-check text-olive mt-1 text-sm"></i> <span>Unified reporting & dashboards</span></li>
+                        <li class="flex items-start gap-3 text-ink-soft"><i class="fa-solid fa-check text-olive mt-1 text-sm"></i> <span>Single point of accountability</span></li>
+                        <li class="flex items-start gap-3 text-ink-soft"><i class="fa-solid fa-check text-olive mt-1 text-sm"></i> <span>Scalable operations</span></li>
+                    </ul>
+                    <div class="bg-olive-bg/50 px-5 py-4 rounded-xl border border-olive/10 mb-8">
+                        <div class="text-sm font-semibold text-olive uppercase tracking-wider mb-1">The Benefit</div>
+                        <p class="text-ink-soft font-medium">Every site gets the same standard — no matter how many sites you add.</p>
                     </div>
-                    <h3 class="font-semibold text-xl tracking-tight mb-2.5">Pantry &amp; Micro-Kitchen Solutions</h3>
-                    <p class="text-[15px] text-stone-600 leading-relaxed">Fully managed pantries with healthy snacks, beverages and grab-and-go meals — ideal for hybrid offices, with minimal admin effort and full consumption reporting.</p>
+                    <button onclick="showQuoteModal()" class="btn-ghost flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-ink border border-border hover:border-ink transition-colors w-fit">
+                        Discuss this service <i class="fa-solid fa-arrow-right"></i>
+                    </button>
+                </div>
+                <div class="order-1 md:order-2 reveal" style="--reveal-delay:100ms">
+                    <img src="assets/images/gallery/gallery-05.jpeg" alt="Multi-Site Operations" class="w-full aspect-[4/3] object-cover rounded-2xl shadow-lg ring-1 ring-border">
                 </div>
             </div>
+        </section>
 
-            <div class="card reveal group relative overflow-hidden rounded-3xl p-8">
-                <img src="assets/images/gallery/gallery-02.jpeg" alt="" aria-hidden="true" loading="lazy"
-                     class="absolute inset-0 w-full h-full object-cover opacity-[0.07] group-hover:opacity-[0.14] transition-opacity duration-500">
-                <div class="relative z-10">
-                    <div class="flex items-start justify-between mb-5">
-                        <div class="w-11 h-11 flex items-center justify-center rounded-2xl bg-cream border border-sand text-coffee">
-                            <i class="fa-solid fa-globe text-lg"></i>
-                        </div>
-                        <div class="text-xs font-semibold text-stone-300 tracking-[2px]">06</div>
+        <!-- SERVICE 6 -->
+        <section class="py-20 md:py-28 px-6 bg-white border-y border-border">
+            <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 md:gap-20 items-center reveal-group">
+                <div class="order-1 md:order-1 reveal">
+                    <img src="assets/images/gallery/gallery-06.jpeg" alt="Festive & Employee Experiences" class="w-full aspect-[4/3] object-cover rounded-2xl shadow-lg ring-1 ring-border">
+                </div>
+                <div class="order-2 md:order-2 reveal" style="--reveal-delay:100ms">
+                    <div class="section-label mb-6">06 — Festive & Employee Experiences</div>
+                    <h2 class="font-display text-3xl md:text-4xl font-bold text-ink mb-6">Food as an employee experience.</h2>
+                    <p class="text-lg text-ink-muted mb-6 leading-relaxed">
+                        Festive meals, themed menus, and engagement-led food experiences that bring teams together and celebrate cultural moments authentically.
+                    </p>
+                    <ul class="space-y-4 mb-8">
+                        <li class="flex items-start gap-3 text-ink-soft"><i class="fa-solid fa-check text-olive mt-1 text-sm"></i> <span>Festival-specific menus (Durga Puja, Diwali, Eid, Christmas)</span></li>
+                        <li class="flex items-start gap-3 text-ink-soft"><i class="fa-solid fa-check text-olive mt-1 text-sm"></i> <span>Themed food stations</span></li>
+                        <li class="flex items-start gap-3 text-ink-soft"><i class="fa-solid fa-check text-olive mt-1 text-sm"></i> <span>Regional cuisine celebrations</span></li>
+                        <li class="flex items-start gap-3 text-ink-soft"><i class="fa-solid fa-check text-olive mt-1 text-sm"></i> <span>Employee engagement tie-ins</span></li>
+                        <li class="flex items-start gap-3 text-ink-soft"><i class="fa-solid fa-check text-olive mt-1 text-sm"></i> <span>Decoration & setup</span></li>
+                    </ul>
+                    <div class="bg-olive-bg/50 px-5 py-4 rounded-xl border border-olive/10 mb-8">
+                        <div class="text-sm font-semibold text-olive uppercase tracking-wider mb-1">The Benefit</div>
+                        <p class="text-ink-soft font-medium">Celebrations your employees remember. Operations your team doesn't have to manage.</p>
                     </div>
-                    <h3 class="font-semibold text-xl tracking-tight mb-2.5">Multi-Location Enterprise Solutions</h3>
-                    <p class="text-[15px] text-stone-600 leading-relaxed">Centralised menu control, unified quality standards and consolidated reporting across multiple sites — true scalability without compromising consistency.</p>
+                    <button onclick="showQuoteModal()" class="btn-ghost flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-ink border border-border hover:border-ink transition-colors w-fit">
+                        Discuss this service <i class="fa-solid fa-arrow-right"></i>
+                    </button>
                 </div>
             </div>
+        </section>
 
-        </div>
-    </section>
-
-    <!-- ================= GALLERY ================= -->
-    <section class="bg-white border-y border-sand">
-        <div class="max-w-6xl mx-auto px-6 py-20">
-            <div class="section-label reveal mb-10">On the ground</div>
-            <div class="grid md:grid-cols-12 gap-x-12 gap-y-6 items-end mb-10">
-                <h2 class="reveal font-display text-4xl md:text-5xl leading-[1.06] md:col-span-7">Real cafeterias. Real service days.</h2>
-                <p class="reveal text-stone-600 md:col-span-5" style="--reveal-delay:120ms">From the kitchens and canteens we run at Voith, Uber, Maruti Suzuki, INT and others across Kolkata.</p>
+        <!-- CTA SECTION -->
+        <section class="bg-ink text-white">
+            <div class="max-w-4xl mx-auto px-6 py-24 md:py-36 text-center">
+                <h2 class="reveal font-display text-4xl sm:text-5xl md:text-[64px] leading-[1.02] mb-6">
+                    Need something specific?<br>Let's talk.
+                </h2>
+                <p class="reveal text-lg text-white/60 max-w-2xl mx-auto mb-10 leading-relaxed" style="--reveal-delay:100ms">
+                    Every organisation is different. Tell us what you need and we'll design the service around your operation.
+                </p>
+                <div class="reveal flex flex-col sm:flex-row justify-center gap-4 mb-10" style="--reveal-delay:180ms">
+                    <button onclick="showQuoteModal()" class="btn-olive px-9 py-4 font-semibold rounded-full text-[15px]">
+                        Get a Custom Quote
+                    </button>
+                    <a href="https://calendly.com/subham-kanoi/30min" target="_blank" rel="noopener"
+                       class="inline-flex items-center justify-center gap-2 px-8 py-4 border border-white/20 hover:bg-white/10 rounded-full text-[15px] font-semibold transition-colors">
+                        <i class="fa-solid fa-video text-sm"></i> Book a 30-Min Consultation
+                    </a>
+                </div>
+                <div class="reveal flex flex-col sm:flex-row items-center justify-center gap-6 text-sm text-white/50" style="--reveal-delay:250ms">
+                    <a href="tel:+919830715557" class="hover:text-white transition-colors">
+                        <i class="fa-solid fa-phone mr-1.5"></i> +91 98307 15557
+                    </a>
+                    <a href="mailto:hello@urhospitality.in" class="hover:text-white transition-colors">
+                        <i class="fa-solid fa-envelope mr-1.5"></i> hello@urhospitality.in
+                    </a>
+                </div>
             </div>
-            <div class="grid grid-cols-2 lg:grid-cols-3 gap-4 reveal-group">
-                <img loading="lazy" src="assets/images/gallery/gallery-01.jpeg" alt="Corporate canteen at Voith India" class="reveal w-full h-56 md:h-64 object-cover rounded-2xl">
-                <img loading="lazy" src="assets/images/gallery/gallery-02.jpeg" alt="Daily lunch service at a corporate client" class="reveal w-full h-56 md:h-64 object-cover rounded-2xl">
-                <img loading="lazy" src="assets/images/gallery/gallery-03.jpeg" alt="Live buffet at a corporate event" class="reveal w-full h-56 md:h-64 object-cover rounded-2xl">
-                <img loading="lazy" src="assets/images/gallery/gallery-04.jpeg" alt="Cafeteria setup at Maruti Suzuki" class="reveal w-full h-56 md:h-64 object-cover rounded-2xl">
-                <img loading="lazy" src="assets/images/gallery/gallery-05.jpeg" alt="Plated meals for corporate teams" class="reveal w-full h-56 md:h-64 object-cover rounded-2xl">
-                <img loading="lazy" src="assets/images/gallery/gallery-06.jpeg" alt="Canteen operations at INT" class="reveal w-full h-56 md:h-64 object-cover rounded-2xl">
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- ================= CTA ================= -->
-    <section class="max-w-6xl mx-auto px-6 py-20 text-center">
-        <h2 class="reveal font-display text-3xl md:text-4xl leading-tight mb-4">Tell us what your site needs.</h2>
-        <p class="reveal text-stone-600 mb-8 max-w-xl mx-auto" style="--reveal-delay:100ms">From a 50-person office pantry to a 2,500-seat multi-site operation — we'll scope it honestly on one call.</p>
-        <div class="reveal flex flex-col sm:flex-row justify-center gap-3" style="--reveal-delay:180ms">
-            <button onclick="showQuoteModal()" class="btn-primary px-8 py-4 font-semibold rounded-full text-[15px]">Get a custom quote</button>
-            <a href="roi.html" class="btn-ghost px-8 py-4 font-semibold rounded-full text-[15px]">Calculate your hidden costs</a>
-        </div>
-    </section>
+    </main>
 
-    <!-- ================= FOOTER ================= -->
-    <footer class="border-t border-sand bg-white">
-        <div class="max-w-6xl mx-auto px-6 py-12">
-            <div class="grid md:grid-cols-3 gap-y-8 gap-x-12 items-start">
+    <!-- FOOTER -->
+    <footer class="border-t border-border bg-white">
+        <div class="max-w-7xl mx-auto px-6 py-14">
+            <div class="grid md:grid-cols-4 gap-y-8 gap-x-10 items-start">
+                <div class="md:col-span-1">
+                    <div class="flex items-center gap-3 mb-4">
+                        <img src="assets/images/ur-logo.jpeg" alt="UR Hospitality" class="w-10 h-10 rounded-full object-cover ring-1 ring-border">
+                        <div>
+                            <div class="font-display text-lg font-bold leading-none">UR Hospitality</div>
+                            <div class="text-[10px] tracking-widest text-ink-faint uppercase mt-1">Pvt. Ltd.</div>
+                        </div>
+                    </div>
+                    <p class="text-sm text-ink-muted leading-relaxed">Corporate Catering &amp; Managed Food Services</p>
+                    <p class="text-xs text-ink-faint mt-1">Est. 2015 · Kolkata</p>
+                </div>
+
                 <div>
-                    <div class="font-semibold text-lg tracking-tight">UR Hospitality Pvt. Ltd.</div>
-                    <div class="text-sm text-stone-500 mt-1">Central Kitchen · Corporate Catering<br>Est. 2015, Kolkata</div>
+                    <div class="text-[11px] font-semibold tracking-[0.15em] uppercase text-ink-faint mb-4">Navigation</div>
+                    <nav class="space-y-2.5 text-sm">
+                        <a href="index.html#services" class="block text-ink-muted hover:text-ink transition-colors">Corporate Catering</a>
+                        <a href="index.html#system" class="block text-ink-muted hover:text-ink transition-colors">How We Work</a>
+                        <a href="index.html#why-ur" class="block text-ink-muted hover:text-ink transition-colors">Why UR</a>
+                        <a href="index.html#about" class="block text-ink-muted hover:text-ink transition-colors">About</a>
+                        <a href="services.html" class="block text-ink-muted hover:text-ink transition-colors">Services</a>
+                        <a href="roi.html" class="block text-ink-muted hover:text-ink transition-colors">Cost Calculator</a>
+                    </nav>
                 </div>
-                <div class="text-sm text-stone-600 space-y-1.5">
-                    <div>AE-287, Salt Lake, Kolkata – 700064</div>
-                    <div><a href="tel:+919830715557" class="hover:text-ink">+91 98307 15557</a></div>
-                    <div><a href="mailto:hello@urhospitality.in" class="hover:text-ink">hello@urhospitality.in</a></div>
+
+                <div>
+                    <div class="text-[11px] font-semibold tracking-[0.15em] uppercase text-ink-faint mb-4">Contact</div>
+                    <div class="space-y-2.5 text-sm text-ink-muted">
+                        <div>AE-287, Salt Lake,<br>Kolkata – 700064</div>
+                        <div>
+                            <a href="tel:+919830715557" class="hover:text-ink transition-colors">+91 98307 15557</a>
+                        </div>
+                        <div>
+                            <a href="mailto:hello@urhospitality.in" class="hover:text-ink transition-colors">hello@urhospitality.in</a>
+                        </div>
+                    </div>
                 </div>
-                <div class="text-sm text-stone-600 md:text-right space-y-1.5">
-                    <div><a href="services.html" class="hover:text-ink">Services</a> · <a href="roi.html" class="hover:text-ink">Cost Calculator</a> · <a href="about.html" class="hover:text-ink">About</a></div>
-                    <div><a href="assets/UR-Hospitality-Capabilities.pdf" download class="hover:text-ink">Capabilities PDF <i class="fa-solid fa-file-arrow-down text-xs"></i></a></div>
+
+                <div>
+                    <div class="text-[11px] font-semibold tracking-[0.15em] uppercase text-ink-faint mb-4">Compliance</div>
+                    <div class="space-y-2.5 text-sm text-ink-muted">
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-check text-olive text-xs"></i> FSSAI Licensed
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <i class="fa-solid fa-check text-olive text-xs"></i> GST Compliant
+                        </div>
+                    </div>
+                    <div class="mt-6">
+                        <a href="assets/UR-Hospitality-Capabilities.pdf" download class="inline-flex items-center gap-2 text-sm text-olive hover:underline font-medium">
+                            <i class="fa-solid fa-file-arrow-down"></i> Capabilities PDF
+                        </a>
+                    </div>
                 </div>
             </div>
-            <div class="border-t border-sand mt-10 pt-6 flex flex-col md:flex-row justify-between gap-y-2 text-xs text-stone-400">
+
+            <div class="border-t border-border mt-10 pt-6 flex flex-col md:flex-row justify-between gap-y-2 text-xs text-ink-faint">
                 <div>© 2026 UR Hospitality Pvt. Ltd. All rights reserved.</div>
                 <div>FSSAI Licensed · GST Compliant · 98.7% Client Retention</div>
             </div>
         </div>
     </footer>
 
-    <!-- ================= QUOTE MODAL ================= -->
+    <!-- QUOTE MODAL -->
     <div id="quote-modal" onclick="if (event.target.id === 'quote-modal') hideQuoteModal()"
-         class="hidden fixed inset-0 bg-black/60 flex items-center justify-center z-[100] p-4">
+         class="hidden fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center z-[100] p-4">
         <div onclick="event.stopImmediatePropagation()"
-             class="bg-white w-full max-w-lg rounded-3xl shadow-2xl overflow-hidden max-h-[92vh] overflow-y-auto">
+             class="bg-white w-full max-w-lg rounded-2xl shadow-2xl overflow-hidden max-h-[92vh] overflow-y-auto">
 
-            <div class="px-8 pt-7 pb-5 border-b border-sand flex items-center justify-between">
+            <div class="px-8 pt-7 pb-5 border-b border-border flex items-center justify-between">
                 <div>
-                    <div class="font-semibold text-2xl tracking-tight">Let's discuss your needs</div>
-                    <div class="text-sm text-stone-500">We'll reply within 4 business hours</div>
+                    <div class="font-display text-2xl font-bold tracking-tight">Start the conversation</div>
+                    <div class="text-sm text-ink-muted mt-1">We'll respond within 4 business hours</div>
                 </div>
-                <button onclick="hideQuoteModal()" aria-label="Close" class="text-3xl leading-none text-stone-400 hover:text-stone-600">&times;</button>
+                <button onclick="hideQuoteModal()" aria-label="Close" class="text-3xl leading-none text-ink-faint hover:text-ink transition-colors">&times;</button>
             </div>
 
             <div id="form-success" class="hidden p-8 text-center">
-                <div class="mx-auto w-16 h-16 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mb-4">
+                <div class="mx-auto w-16 h-16 bg-olive-bg text-olive rounded-full flex items-center justify-center mb-4">
                     <i class="fa-solid fa-check text-3xl"></i>
                 </div>
-                <h3 class="text-2xl font-semibold mb-2">Thank you!</h3>
-                <p class="text-stone-600 mb-6">Your request has been received. Our team will contact you within 4 business hours.</p>
+                <h3 class="font-display text-2xl font-bold mb-2">Received.</h3>
+                <p class="text-ink-muted mb-6">Our team will review your requirements and get back to you within 4 business hours.</p>
                 <button onclick="resetAndCloseModal()" class="btn-primary px-8 py-3 font-semibold rounded-full">Close</button>
             </div>
 
             <form id="quote-form" onsubmit="submitQuoteForm(event)" class="p-8 space-y-5">
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
                     <div>
-                        <label class="block text-xs font-medium tracking-wider text-stone-500 mb-1.5">YOUR NAME *</label>
+                        <label class="block text-[11px] font-semibold tracking-wider text-ink-faint uppercase mb-1.5">Your Name *</label>
                         <input type="text" name="name" required
-                               class="w-full border border-sand focus:border-coffee px-4 py-3 text-sm rounded-2xl outline-none"
+                               class="w-full border border-border focus:border-olive px-4 py-3 text-sm rounded-xl outline-none transition-colors"
                                placeholder="Rahul Sharma">
                     </div>
                     <div>
-                        <label class="block text-xs font-medium tracking-wider text-stone-500 mb-1.5">PHONE NUMBER *</label>
+                        <label class="block text-[11px] font-semibold tracking-wider text-ink-faint uppercase mb-1.5">Phone *</label>
                         <input type="tel" name="phone" required
-                               class="w-full border border-sand focus:border-coffee px-4 py-3 text-sm rounded-2xl outline-none"
+                               class="w-full border border-border focus:border-olive px-4 py-3 text-sm rounded-xl outline-none transition-colors"
                                placeholder="+91 98307 15557">
                     </div>
                 </div>
 
                 <div>
-                    <label class="block text-xs font-medium tracking-wider text-stone-500 mb-1.5">WORK EMAIL *</label>
+                    <label class="block text-[11px] font-semibold tracking-wider text-ink-faint uppercase mb-1.5">Work Email *</label>
                     <input type="email" name="email" required
-                           class="w-full border border-sand focus:border-coffee px-4 py-3 text-sm rounded-2xl outline-none"
+                           class="w-full border border-border focus:border-olive px-4 py-3 text-sm rounded-xl outline-none transition-colors"
                            placeholder="you@company.com">
                 </div>
 
-                <div>
-                    <label class="block text-xs font-medium tracking-wider text-stone-500 mb-1.5">COMPANY NAME *</label>
-                    <input type="text" name="company" required
-                           class="w-full border border-sand focus:border-coffee px-4 py-3 text-sm rounded-2xl outline-none"
-                           placeholder="Acme Technologies Pvt Ltd">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    <div>
+                        <label class="block text-[11px] font-semibold tracking-wider text-ink-faint uppercase mb-1.5">Company *</label>
+                        <input type="text" name="company" required
+                               class="w-full border border-border focus:border-olive px-4 py-3 text-sm rounded-xl outline-none transition-colors"
+                               placeholder="Acme Technologies Pvt Ltd">
+                    </div>
+                    <div>
+                        <label class="block text-[11px] font-semibold tracking-wider text-ink-faint uppercase mb-1.5">Designation</label>
+                        <input type="text" name="designation"
+                               class="w-full border border-border focus:border-olive px-4 py-3 text-sm rounded-xl outline-none transition-colors"
+                               placeholder="Head of Admin">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+                    <div>
+                        <label class="block text-[11px] font-semibold tracking-wider text-ink-faint uppercase mb-1.5">Location</label>
+                        <input type="text" name="location"
+                               class="w-full border border-border focus:border-olive px-4 py-3 text-sm rounded-xl outline-none transition-colors"
+                               placeholder="Salt Lake, Kolkata">
+                    </div>
+                    <div>
+                        <label class="block text-[11px] font-semibold tracking-wider text-ink-faint uppercase mb-1.5">Approx. Meals / Day</label>
+                        <select name="meals" class="w-full border border-border focus:border-olive px-4 py-3 text-sm rounded-xl outline-none bg-white transition-colors">
+                            <option value="">Select range</option>
+                            <option value="50-100">50 – 100 meals/day</option>
+                            <option value="100-250">100 – 250 meals/day</option>
+                            <option value="250-500">250 – 500 meals/day</option>
+                            <option value="500-1000">500 – 1,000 meals/day</option>
+                            <option value="1000+">1,000+ meals/day</option>
+                        </select>
+                    </div>
                 </div>
 
                 <div>
-                    <label class="block text-xs font-medium tracking-wider text-stone-500 mb-1.5">APPROX. NUMBER OF MEALS / DAY</label>
-                    <select name="meals" class="w-full border border-sand focus:border-coffee px-4 py-3 text-sm rounded-2xl outline-none bg-white">
-                        <option value="">Select range</option>
-                        <option value="50-100">50 – 100 meals/day</option>
-                        <option value="100-250">100 – 250 meals/day</option>
-                        <option value="250-500">250 – 500 meals/day</option>
-                        <option value="500-1000">500 – 1000 meals/day</option>
-                        <option value="1000+">1000+ meals/day</option>
+                    <label class="block text-[11px] font-semibold tracking-wider text-ink-faint uppercase mb-1.5">Service Required</label>
+                    <select name="service" class="w-full border border-border focus:border-olive px-4 py-3 text-sm rounded-xl outline-none bg-white transition-colors">
+                        <option value="">Select service</option>
+                        <option value="cafeteria">Managed Corporate Cafeteria</option>
+                        <option value="meal-program">Corporate Meal Programs</option>
+                        <option value="events">Corporate Events</option>
+                        <option value="executive">Executive & Boardroom Catering</option>
+                        <option value="multi-site">Multi-Site Operations</option>
+                        <option value="festive">Festive & Employee Experiences</option>
+                        <option value="other">Other / Multiple</option>
                     </select>
                 </div>
 
                 <div>
-                    <label class="block text-xs font-medium tracking-wider text-stone-500 mb-1.5">ANY SPECIFIC REQUIREMENTS?</label>
+                    <label class="block text-[11px] font-semibold tracking-wider text-ink-faint uppercase mb-1.5">Current Challenge</label>
                     <textarea name="message" rows="3"
-                              class="w-full border border-sand focus:border-coffee px-4 py-3 text-sm rounded-2xl outline-none resize-y"
-                              placeholder="E.g., High protein focus, Bengali cuisine, Jain menu, live counters for events..."></textarea>
+                              class="w-full border border-border focus:border-olive px-4 py-3 text-sm rounded-xl outline-none resize-y transition-colors"
+                              placeholder="E.g., Current vendor unreliable, food quality inconsistent, need Jain menu options, scaling from 200 to 500 meals..."></textarea>
                 </div>
 
                 <input type="text" name="_gotcha" class="hidden" tabindex="-1" autocomplete="off">
 
                 <button type="submit" id="submit-btn"
                         class="btn-primary w-full py-4 font-semibold rounded-full flex items-center justify-center gap-x-2 text-base">
-                    <span id="submit-text">Submit Request</span>
+                    <span id="submit-text">Start the Conversation</span>
                     <i id="submit-icon" class="fa-solid fa-paper-plane ml-1"></i>
                 </button>
 
                 <div class="text-center">
                     <button type="button" onclick="sendViaWhatsApp()"
-                            class="text-sm text-clay hover:underline flex items-center justify-center gap-x-2 mx-auto">
+                            class="text-sm text-olive hover:underline flex items-center justify-center gap-x-2 mx-auto">
                         <i class="fa-brands fa-whatsapp"></i>
-                        <span>Prefer WhatsApp? Message us directly</span>
+                        <span>Prefer WhatsApp? Send via WhatsApp instead</span>
                     </button>
                 </div>
-
-                <p class="text-[10px] text-center text-stone-400"><i class="fa-solid fa-lock text-emerald-500 mr-1"></i>Your information is secure and confidential. No spam, ever.</p>
             </form>
         </div>
     </div>
 
+    <!-- LIGHTBOX -->
+    <div id="lightbox" class="lightbox-overlay" role="dialog" aria-modal="true" aria-label="Image lightbox">
+        <button class="lightbox-close" aria-label="Close lightbox">&times;</button>
+        <img src="" alt="">
+        <div class="lightbox-caption"></div>
+    </div>
+
+    <!-- FLOATING CONTACT WIDGET -->
+    <div class="floating-contact" aria-label="Contact options">
+        <div class="floating-contact-options">
+            <a href="https://wa.me/919830715557?text=Hello%20UR%20Hospitality%2C%20I%27m%20interested%20in%20corporate%20catering."
+               target="_blank" rel="noopener" class="floating-contact-btn fc-whatsapp" aria-label="Chat on WhatsApp">
+                <span class="fc-tooltip">WhatsApp</span>
+                <i class="fa-brands fa-whatsapp text-xl"></i>
+            </a>
+            <a href="tel:+919830715557" class="floating-contact-btn fc-call" aria-label="Call us">
+                <span class="fc-tooltip">Call</span>
+                <i class="fa-solid fa-phone"></i>
+            </a>
+            <button onclick="showQuoteModal()" class="floating-contact-btn fc-quote" aria-label="Get a quote">
+                <span class="fc-tooltip">Get Quote</span>
+                <i class="fa-solid fa-file-lines"></i>
+            </button>
+        </div>
+        <button class="floating-contact-btn floating-contact-trigger" aria-label="Open contact options">
+            <i class="fa-solid fa-headset icon-open"></i>
+            <i class="fa-solid fa-xmark icon-close"></i>
+        </button>
+    </div>
+
+    <!-- MOBILE STICKY CTA -->
+    <div class="mobile-sticky-cta">
+        <a href="tel:+919830715557" class="flex-1 flex items-center justify-center gap-2 py-3 border border-border rounded-full text-sm font-semibold text-ink bg-white">
+            <i class="fa-solid fa-phone text-xs"></i> Call
+        </a>
+        <button onclick="showQuoteModal()" class="flex-1 btn-primary py-3 rounded-full text-sm font-semibold">
+            Get a Quote
+        </button>
+    </div>
+
+    <!-- SCRIPTS -->
+    <script>document.documentElement.classList.add('js');</script>
     <script src="js/main.js"></script>
     <script src="js/site.js"></script>
 </body>

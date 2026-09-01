@@ -145,6 +145,9 @@ function sendViaWhatsApp() {
     const phone = formData.get('phone') || '';
     const email = formData.get('email') || '';
     const company = formData.get('company') || '';
+    const designation = formData.get('designation') || '';
+    const location = formData.get('location') || '';
+    const service = formData.get('service') || '';
     const meals = formData.get('meals') || '';
     const message = formData.get('message') || '';
 
@@ -154,6 +157,9 @@ function sendViaWhatsApp() {
     text += `*Phone:* ${phone}\n`;
     text += `*Email:* ${email}\n`;
     text += `*Company:* ${company}\n`;
+    if (designation) text += `*Designation:* ${designation}\n`;
+    if (location) text += `*Location:* ${location}\n`;
+    if (service) text += `*Service:* ${service}\n`;
 
     if (meals) text += `*Daily Meals:* ${meals}\n`;
     if (message) text += `*Requirements:* ${message}\n`;
