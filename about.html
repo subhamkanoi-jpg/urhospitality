@@ -11,7 +11,7 @@
     <meta property="og:description" content="Founded in 2015 in Kolkata. From catering to corporate food-service operations. Meet the team behind 5,00,000+ meals and 98.7% client retention.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://urhospitality.in/about.html">
-    <meta property="og:image" content="assets/images/corporate-cafeteria.png">
+    <meta property="og:image" content="assets/images/gallery/gallery-01.jpeg">
     
     <!-- Favicon -->
     <link rel="icon" type="image/jpeg" href="assets/images/favicon.jpeg">
@@ -92,12 +92,13 @@
             </a>
 
             <!-- Center: Desktop Links -->
-            <div class="hidden md:flex items-center gap-8">
-                <a href="index.html#services" class="text-sm font-medium text-ink-soft hover:text-olive transition-colors">Corporate Catering</a>
-                <a href="index.html#system" class="text-sm font-medium text-ink-soft hover:text-olive transition-colors">How We Work</a>
-                <a href="index.html#why-ur" class="text-sm font-medium text-ink-soft hover:text-olive transition-colors">Why UR</a>
-                <a href="index.html#clients" class="text-sm font-medium text-ink-soft hover:text-olive transition-colors">Our Clients</a>
-                <a href="about.html" class="text-sm font-medium text-ink-soft hover:text-olive transition-colors">About</a>
+            <div class="hidden md:flex items-center gap-7">
+                <a href="services.html" class="text-sm font-medium text-ink-soft hover:text-olive transition-colors">Services</a>
+                <a href="cafeteria-management-kolkata.html" class="text-sm font-medium text-ink-soft hover:text-olive transition-colors">Cafeteria Management</a>
+                <a href="corporate-meal-delivery-kolkata.html" class="text-sm font-medium text-ink-soft hover:text-olive transition-colors">Meal Delivery</a>
+                <a href="roi.html" class="text-sm font-medium text-ink-soft hover:text-olive transition-colors">Cost Calculator</a>
+                <a href="about.html" class="text-sm font-semibold text-olive transition-colors">About</a>
+                <a href="contact.html" class="text-sm font-medium text-ink-soft hover:text-olive transition-colors">Contact</a>
             </div>
 
             <!-- Right: CTA -->
@@ -119,12 +120,15 @@
 
     <!-- Mobile Menu Panel -->
     <div id="mobile-menu" class="fixed inset-0 bg-cream z-40 hidden flex-col pt-[72px] px-6 pb-6 h-screen overflow-y-auto">
-        <div class="flex flex-col gap-6 mt-8">
-            <a href="index.html#services" class="text-2xl font-display font-medium text-ink" onclick="toggleMobileMenu()">Corporate Catering</a>
-            <a href="index.html#system" class="text-2xl font-display font-medium text-ink" onclick="toggleMobileMenu()">How We Work</a>
-            <a href="index.html#why-ur" class="text-2xl font-display font-medium text-ink" onclick="toggleMobileMenu()">Why UR</a>
-            <a href="index.html#clients" class="text-2xl font-display font-medium text-ink" onclick="toggleMobileMenu()">Our Clients</a>
-            <a href="about.html" class="text-2xl font-display font-medium text-ink" onclick="toggleMobileMenu()">About</a>
+        <div class="flex flex-col gap-5 mt-6">
+            <a href="services.html" class="text-xl font-display font-medium text-ink" onclick="toggleMobileMenu()">All Services</a>
+            <a href="cafeteria-management-kolkata.html" class="text-xl font-display font-medium text-ink" onclick="toggleMobileMenu()">Cafeteria Management</a>
+            <a href="corporate-meal-delivery-kolkata.html" class="text-xl font-display font-medium text-ink" onclick="toggleMobileMenu()">Daily Meal Delivery</a>
+            <a href="corporate-event-catering-kolkata.html" class="text-xl font-display font-medium text-ink" onclick="toggleMobileMenu()">Corporate Event Catering</a>
+            <a href="industrial-canteen-catering-kolkata.html" class="text-xl font-display font-medium text-ink" onclick="toggleMobileMenu()">Industrial Canteen</a>
+            <a href="roi.html" class="text-xl font-display font-medium text-ink" onclick="toggleMobileMenu()">Cost Calculator</a>
+            <a href="about.html" class="text-xl font-display font-semibold text-olive" onclick="toggleMobileMenu()">About UR Hospitality</a>
+            <a href="contact.html" class="text-xl font-display font-medium text-ink" onclick="toggleMobileMenu()">Contact & Location</a>
             
             <div class="h-px bg-border my-2"></div>
             
@@ -261,29 +265,57 @@
         <!-- Real Photos Gallery -->
         <section class="bg-white border-y border-border py-20 md:py-28">
             <div class="max-w-7xl mx-auto px-6">
-                <div class="text-[11px] font-semibold tracking-[0.22em] text-olive uppercase mb-12 section-label reveal">From the floors we run</div>
+                <div class="text-[11px] font-semibold tracking-[0.22em] text-olive uppercase mb-4 section-label reveal">From the floors we run</div>
+                <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-10">
+                    <h2 class="font-display text-3xl md:text-4xl font-bold text-ink reveal">Real Client Operations Across Kolkata</h2>
+                    <!-- Gallery Filter Tabs -->
+                    <div class="flex flex-wrap items-center gap-2 reveal">
+                        <button class="gallery-tab active" onclick="filterGallery(this, 'all')">
+                            <span>All</span> <span class="tab-badge">7</span>
+                        </button>
+                        <button class="gallery-tab" onclick="filterGallery(this, 'cafeteria')">
+                            <span>Cafeterias</span> <span class="tab-badge">2</span>
+                        </button>
+                        <button class="gallery-tab" onclick="filterGallery(this, 'service')">
+                            <span>Live Service</span> <span class="tab-badge">2</span>
+                        </button>
+                        <button class="gallery-tab" onclick="filterGallery(this, 'kitchen')">
+                            <span>Kitchen Prep</span> <span class="tab-badge">2</span>
+                        </button>
+                        <button class="gallery-tab" onclick="filterGallery(this, 'events')">
+                            <span>Festive</span> <span class="tab-badge">1</span>
+                        </button>
+                    </div>
+                </div>
                 
-                <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 reveal-group">
-                    <div class="reveal">
-                        <img src="assets/images/gallery/gallery-01.jpeg" alt="UR Hospitality Operations" class="w-full aspect-square object-cover rounded-xl cursor-pointer hover:opacity-90 transition-opacity ring-1 ring-border shadow-sm" onclick="openLightbox(this.src, 'Cafeteria Service')">
+                <div class="gallery-grid reveal-group">
+                    <div class="gallery-item reveal-scale aspect-square" data-category="cafeteria">
+                        <img src="assets/images/gallery/gallery-01.jpeg" alt="UR Hospitality Cafeteria Service" class="w-full h-full object-cover rounded-xl cursor-pointer hover:opacity-90 transition-opacity ring-1 ring-border shadow-sm">
+                        <div class="gallery-item-label">Corporate Cafeteria</div>
                     </div>
-                    <div class="reveal">
-                        <img src="assets/images/gallery/gallery-02.jpeg" alt="UR Hospitality Operations" class="w-full aspect-square object-cover rounded-xl cursor-pointer hover:opacity-90 transition-opacity ring-1 ring-border shadow-sm" onclick="openLightbox(this.src, 'Meal Preparation')">
+                    <div class="gallery-item reveal-scale aspect-[4/3]" data-category="cafeteria">
+                        <img src="assets/images/gallery/gallery-02.jpeg" alt="UR Hospitality Meal Preparation" class="w-full h-full object-cover rounded-xl cursor-pointer hover:opacity-90 transition-opacity ring-1 ring-border shadow-sm">
+                        <div class="gallery-item-label">Daily Dining Room</div>
                     </div>
-                    <div class="reveal">
-                        <img src="assets/images/gallery/gallery-03.jpeg" alt="UR Hospitality Operations" class="w-full aspect-square object-cover rounded-xl cursor-pointer hover:opacity-90 transition-opacity ring-1 ring-border shadow-sm" onclick="openLightbox(this.src, 'Corporate Events')">
+                    <div class="gallery-item reveal-scale aspect-[4/3]" data-category="service">
+                        <img src="assets/images/gallery/gallery-03.jpeg" alt="UR Hospitality Live Counters" class="w-full h-full object-cover rounded-xl cursor-pointer hover:opacity-90 transition-opacity ring-1 ring-border shadow-sm">
+                        <div class="gallery-item-label">Live Service Counter</div>
                     </div>
-                    <div class="reveal">
-                        <img src="assets/images/gallery/gallery-04.jpeg" alt="UR Hospitality Operations" class="w-full aspect-square object-cover rounded-xl cursor-pointer hover:opacity-90 transition-opacity ring-1 ring-border shadow-sm" onclick="openLightbox(this.src, 'Executive Dining')">
+                    <div class="gallery-item reveal-scale aspect-square" data-category="kitchen">
+                        <img src="assets/images/gallery/gallery-04.jpeg" alt="UR Hospitality Food Prep" class="w-full h-full object-cover rounded-xl cursor-pointer hover:opacity-90 transition-opacity ring-1 ring-border shadow-sm">
+                        <div class="gallery-item-label">Hot Counter Operations</div>
                     </div>
-                    <div class="reveal">
-                        <img src="assets/images/gallery/gallery-05.jpeg" alt="UR Hospitality Operations" class="w-full aspect-square object-cover rounded-xl cursor-pointer hover:opacity-90 transition-opacity ring-1 ring-border shadow-sm" onclick="openLightbox(this.src, 'Team Briefing')">
+                    <div class="gallery-item reveal-scale aspect-[4/3]" data-category="service">
+                        <img src="assets/images/gallery/gallery-05.jpeg" alt="UR Hospitality Salad Bar" class="w-full h-full object-cover rounded-xl cursor-pointer hover:opacity-90 transition-opacity ring-1 ring-border shadow-sm">
+                        <div class="gallery-item-label">Fresh Prep & Salad Bar</div>
                     </div>
-                    <div class="reveal">
-                        <img src="assets/images/gallery/gallery-06.jpeg" alt="UR Hospitality Operations" class="w-full aspect-square object-cover rounded-xl cursor-pointer hover:opacity-90 transition-opacity ring-1 ring-border shadow-sm" onclick="openLightbox(this.src, 'Daily Setup')">
+                    <div class="gallery-item reveal-scale aspect-[4/3]" data-category="kitchen">
+                        <img src="assets/images/gallery/gallery-06.jpeg" alt="UR Hospitality Operations Team" class="w-full h-full object-cover rounded-xl cursor-pointer hover:opacity-90 transition-opacity ring-1 ring-border shadow-sm">
+                        <div class="gallery-item-label">On-Site Operations Team</div>
                     </div>
-                    <div class="reveal col-span-2 md:col-span-1 lg:col-span-2">
-                        <img src="assets/images/gallery/abc.jpeg" alt="UR Hospitality Operations" class="w-full h-full aspect-[2/1] md:aspect-square lg:aspect-[2/1] object-cover rounded-xl cursor-pointer hover:opacity-90 transition-opacity ring-1 ring-border shadow-sm" onclick="openLightbox(this.src, 'Operational Scale')">
+                    <div class="gallery-item reveal-scale aspect-square" data-category="events">
+                        <img src="assets/images/gallery/abc.jpeg" alt="UR Hospitality Festive Events" class="w-full h-full object-cover rounded-xl cursor-pointer hover:opacity-90 transition-opacity ring-1 ring-border shadow-sm">
+                        <div class="gallery-item-label">Festive Dining Experience</div>
                     </div>
                 </div>
             </div>
@@ -333,41 +365,43 @@
                 </div>
 
                 <div>
-                    <div class="text-[11px] font-semibold tracking-[0.15em] uppercase text-ink-faint mb-4">Navigation</div>
+                    <div class="text-[11px] font-semibold tracking-[0.15em] uppercase text-ink-faint mb-4">Services</div>
                     <nav class="space-y-2.5 text-sm">
-                        <a href="index.html#services" class="block text-ink-muted hover:text-ink transition-colors">Corporate Catering</a>
-                        <a href="index.html#system" class="block text-ink-muted hover:text-ink transition-colors">How We Work</a>
-                        <a href="index.html#why-ur" class="block text-ink-muted hover:text-ink transition-colors">Why UR</a>
-                        <a href="about.html" class="block text-ink-muted hover:text-ink transition-colors">About</a>
-                        <a href="services.html" class="block text-ink-muted hover:text-ink transition-colors">Services</a>
-                        <a href="roi.html" class="block text-ink-muted hover:text-ink transition-colors">Cost Calculator</a>
+                        <a href="cafeteria-management-kolkata.html" class="block text-ink-muted hover:text-ink transition-colors">Cafeteria Management</a>
+                        <a href="corporate-meal-delivery-kolkata.html" class="block text-ink-muted hover:text-ink transition-colors">Daily Meal Delivery</a>
+                        <a href="corporate-event-catering-kolkata.html" class="block text-ink-muted hover:text-ink transition-colors">Corporate Event Catering</a>
+                        <a href="industrial-canteen-catering-kolkata.html" class="block text-ink-muted hover:text-ink transition-colors">Industrial Plant Canteens</a>
+                        <a href="services.html" class="block text-ink-muted hover:text-ink transition-colors">All Services Overview</a>
                     </nav>
                 </div>
 
                 <div>
-                    <div class="text-[11px] font-semibold tracking-[0.15em] uppercase text-ink-faint mb-4">Contact</div>
+                    <div class="text-[11px] font-semibold tracking-[0.15em] uppercase text-ink-faint mb-4">Kolkata Office</div>
                     <div class="space-y-2.5 text-sm text-ink-muted">
-                        <div>AE-287, Salt Lake,<br>Kolkata – 700064</div>
+                        <div>AE-287, Salt Lake, Sector I<br>Kolkata – 700064, West Bengal</div>
                         <div>
-                            <a href="tel:+919830715557" class="hover:text-ink transition-colors">+91 98307 15557</a>
+                            <a href="tel:+919830715557" class="hover:text-ink transition-colors font-medium">+91 98307 15557</a>
                         </div>
                         <div>
                             <a href="mailto:hello@urhospitality.in" class="hover:text-ink transition-colors">hello@urhospitality.in</a>
+                        </div>
+                        <div class="pt-2">
+                            <a href="contact.html" class="text-xs text-olive font-semibold hover:underline">View Office Location &rarr;</a>
                         </div>
                     </div>
                 </div>
 
                 <div>
-                    <div class="text-[11px] font-semibold tracking-[0.15em] uppercase text-ink-faint mb-4">Compliance</div>
-                    <div class="space-y-2.5 text-sm text-ink-muted">
-                        <div class="flex items-center gap-2">
-                            <i class="fa-solid fa-check text-olive text-xs"></i> FSSAI Licensed
+                    <div class="text-[11px] font-semibold tracking-[0.15em] uppercase text-ink-faint mb-4">Quick Links</div>
+                    <nav class="space-y-2 text-sm text-ink-muted">
+                        <a href="about.html" class="block text-olive font-medium">About Us & Founders</a>
+                        <a href="roi.html" class="block hover:text-ink transition-colors">ROI Cost Calculator</a>
+                        <a href="contact.html" class="block hover:text-ink transition-colors">Contact & Location</a>
+                        <div class="flex items-center gap-2 pt-2 text-xs">
+                            <i class="fa-solid fa-shield-check text-olive"></i> FSSAI Licensed & GST
                         </div>
-                        <div class="flex items-center gap-2">
-                            <i class="fa-solid fa-check text-olive text-xs"></i> GST Compliant
-                        </div>
-                    </div>
-                    <div class="mt-6">
+                    </nav>
+                    <div class="mt-4">
                         <a href="assets/UR-Hospitality-Capabilities.pdf" download class="inline-flex items-center gap-2 text-sm text-olive hover:underline font-medium">
                             <i class="fa-solid fa-file-arrow-down"></i> Capabilities PDF
                         </a>
@@ -376,8 +410,8 @@
             </div>
 
             <div class="border-t border-border mt-10 pt-6 flex flex-col md:flex-row justify-between gap-y-2 text-xs text-ink-faint">
-                <div>© 2026 UR Hospitality Pvt. Ltd. All rights reserved.</div>
-                <div>FSSAI Licensed · GST Compliant · 98.7% Client Retention</div>
+                <div>© 2026 UR Hospitality Pvt. Ltd. All rights reserved. Registered in Kolkata, West Bengal.</div>
+                <div>FSSAI Licensed · GST Compliant · Serving Sector V, New Town & Greater Kolkata</div>
             </div>
         </div>
     </footer>

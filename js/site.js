@@ -205,11 +205,57 @@
 
         // Show/hide content
         document.querySelectorAll('.menu-content').forEach(content => {
-            content.classList.toggle('hidden', content.dataset.category !== category);
+            if (category === 'all') {
+                content.classList.remove('hidden');
+            } else {
+                content.classList.toggle('hidden', content.dataset.category !== category);
+            }
+        });
+    };
+
+    // ---------- Gallery Filtering Tabs ----------
+    window.filterGallery = function (tabBtn, category) {
+        // Update active tab button
+        document.querySelectorAll('.gallery-tab').forEach(btn => {
+            btn.classList.toggle('active', btn === tabBtn);
+        });
+
+        // Filter gallery items with smooth fade
+        const items = document.querySelectorAll('.gallery-item');
+        items.forEach(item => {
+            const itemCat = item.dataset.category;
+            if (category === 'all' || itemCat === category) {
+                item.classList.remove('hidden');
+                item.style.opacity = '0';
+                item.style.transform = 'scale(0.95)';
+                setTimeout(() => {
+                    item.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+                    item.style.opacity = '1';
+                    item.style.transform = 'scale(1)';
+                }, 30);
+            } else {
+                item.classList.add('hidden');
+            }
         });
     };
 
     // ---------- Gallery Lightbox ----------
+    window.openLightbox = function(src, captionText) {
+        const overlay = document.getElementById('lightbox');
+        if (!overlay) return;
+        const img = overlay.querySelector('img');
+        const caption = overlay.querySelector('.lightbox-caption');
+        if (img) {
+            img.src = src;
+            img.alt = captionText || 'UR Hospitality';
+        }
+        if (caption) {
+            caption.textContent = captionText || '';
+        }
+        overlay.classList.add('active');
+        document.body.style.overflow = 'hidden';
+    };
+
     function initLightbox() {
         const overlay = document.getElementById('lightbox');
         if (!overlay) return;
@@ -220,14 +266,16 @@
         // Open lightbox
         document.querySelectorAll('.gallery-item').forEach(item => {
             item.addEventListener('click', () => {
-                const src = item.querySelector('img').src;
-                const alt = item.querySelector('img').alt;
+                const imgEl = item.querySelector('img');
+                if (!imgEl) return;
+                const src = imgEl.src;
+                const alt = imgEl.alt;
                 const label = item.querySelector('.gallery-item-label');
 
                 img.src = src;
                 img.alt = alt;
-                if (caption && label) {
-                    caption.textContent = label.textContent;
+                if (caption) {
+                    caption.textContent = label ? label.textContent : alt;
                 }
 
                 overlay.classList.add('active');
