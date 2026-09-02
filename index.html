@@ -16,6 +16,19 @@
     <!-- Favicon -->
     <link rel="icon" type="image/jpeg" href="assets/images/favicon.jpeg">
 
+    <!-- Reload Reset Script -->
+    <script>
+        try {
+            var nav = performance.getEntriesByType('navigation');
+            var isRel = (nav.length > 0 && nav[0].type === 'reload') || (window.performance && window.performance.navigation && window.performance.navigation.type === 1);
+            if (isRel) {
+                if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+                window.scrollTo(0, 0);
+                if (window.location.hash) history.replaceState(null, null, window.location.pathname);
+            }
+        } catch (e) {}
+    </script>
+
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     

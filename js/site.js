@@ -8,6 +8,35 @@
 (function () {
     'use strict';
 
+    // ---------- Refresh redirect to Homepage ----------
+    (function handleRefresh() {
+        try {
+            const navEntries = performance.getEntriesByType('navigation');
+            const isReload = (navEntries.length > 0 && navEntries[0].type === 'reload') ||
+                             (performance.navigation && performance.navigation.type === 1);
+
+            if (isReload) {
+                const currentPath = window.location.pathname.toLowerCase();
+                const isHomePage = currentPath.endsWith('index.html') || currentPath === '/' || currentPath.endsWith('/') || currentPath === '';
+
+                if (!isHomePage) {
+                    window.location.replace('index.html');
+                    return;
+                } else {
+                    if ('scrollRestoration' in history) {
+                        history.scrollRestoration = 'manual';
+                    }
+                    window.scrollTo(0, 0);
+                    if (window.location.hash) {
+                        history.replaceState(null, null, window.location.pathname);
+                    }
+                }
+            }
+        } catch (e) {
+            // graceful fallback
+        }
+    })();
+
     // ---------- Scroll Reveal (IntersectionObserver) ----------
     function initReveal() {
         const items = document.querySelectorAll('.reveal, .reveal-fade, .reveal-scale');
